@@ -161,7 +161,7 @@
                     </div>
 
                     <div style="width: 50%; padding: 2.7% 1% 0 3.6%; float:left; box-sizing: border-box">
-                        <button class="buttongrey" style="display: inline-flex;
+                        <button @click="login()" class="buttongrey" style="display: inline-flex;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -377,6 +377,7 @@
 </template>
 <script setup>
 import { useDark, useToggle } from "@vueuse/core";
+import login from './../components/modals/login.vue'
 const isDark = useDark({
     selector: "body",
     attribute: "theme",
@@ -390,6 +391,9 @@ export default {
     props: {
         msg: String
     },
+    components: {
+        login
+    },
     methods: {
         phonemenu() {
             var element = document.querySelector('.phonemenu')
@@ -402,7 +406,7 @@ export default {
                 }
                 document.querySelector('.phonemenu').classList.add('topmenuanimdown')
             }
-        }
+        },
     }
 }
 </script>

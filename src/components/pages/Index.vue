@@ -55,24 +55,25 @@
     .replace('USDT', '')
     .toLowerCase()}.png';`" style="height: 65%; margin-top:15%" alt="">
           </div>
-          <div style="width: 35%;float: right;height: 50px; margin-top:10px; text-align: right;">
-            <h6 class="lightertext" style="margin-top: -5px">{{ item.fa_symbol }}</h6>
-            <h6 class="normaltext" style="font-size: 12px;">{{ item.symbol.replace('USDT', '') }}</h6>
+          <div style="width: 40%;float: right;height: 50px; margin-top:10px; text-align: right;">
+            <h6 class="lightertext" style="margin-top: -5px; font-size: 13px; font-weight: 600">{{ item.fa_symbol }}</h6>
+            <h6 class="normaltext" style="font-size: 11px;">{{ item.symbol.replace('USDT', '') }}</h6>
           </div>
-          <div style="width: 45%;float: right;height: 50px; text-align: left;padding-left: 20px;">
+          <div style="width: 40%;float: right;height: 50px; text-align: left;padding-left: 20px;">
             <a class="lightertext"
               style=";text-decoration: none;margin-top: -15px; background-color: #FFEBEE; font-size: 12px;color:#EB4763"><span
-                class="MuiTypography-root MuiTypography-subtitle3 mui-wc8r4m" dir="ltr"><svg width="16" height="16"
-                  fill="none" xmlns="http://www.w3.org/2000/svg"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1r9jt6h" focusable="false" aria-hidden="true"
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M17.073 9H6.925c-.823 0-1.235 1.063-.652 1.685l4.44 4.745c.711.76 1.869.76 2.58 0l4.44-4.745c.574-.623.162-1.685-.66-1.685z"
-                    fill="currentColor"></path>
-                </svg> -0.37٪</span></a><br>
+                dir="ltr"><a class="negative" v-if="String(item.change).includes('-')" style="; color:rgb(235, 71, 99)">{{
+                  item.change.toFixed(1)
+                }}٪</a><a class="positive" v-else style=" color: #34B288">{{ item.change.toFixed(1) }}٪</a>
+              </span></a><br>
             <a class="normaltext" style="font-size: 12px;text-decoration: none;"><span
-                class="MuiTypography-root MuiTypography-subtitle3 mui-swazh6"><span>1,020</span><span
-                  class="MuiTypography-root MuiTypography-overline mui-1hcbdw1">تومان</span></span></a>
+                class="MuiTypography-root MuiTypography-subtitle3 mui-swazh6"><span><a v-if="item.rial / 10 > 999"> {{
+                  parseInt(item.rial / 10)
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</a>
+                  <a v-else style="text-align: center; padding: 25px 4% 25px 4%" class="lightertext">
+                    {{ parseFloat(item.rial / 10).toFixed(4) }}</a></span><span
+                  class="MuiTypography-root MuiTypography-overline mui-1hcbdw1"></span></span></a>
           </div>
 
         </div>
@@ -83,103 +84,34 @@
 
       <div class="lightercard onphone"
         style="width:100%; margin:auto; height:150px; margin-top: -1px;position: relative; box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 4px 10px; margin-bottom: 30px;">
-        <div style="width:50%; float: left; height: 50%;border: solid rgba(150, 150, 150, .15) 1px;">
+        <div v-for="item in board"
+          style="width:50%; float: left; height: 50%;border: solid rgba(150, 150, 150, .15) 1px;">
           <div style="width: 20%;float: right;height: 50px;">
-            <img src="https://api.wallex.ir/coins/BTC/icon/svg" style="height: 65%; margin-top:15%" alt="">
+            <img class="" :src="`/color/${item.symbol
+              .replace('USDT', '')
+              .toLowerCase()}.svg`" :onerror="`javascript:this.src='/color/${item.symbol
+    .replace('USDT', '')
+    .toLowerCase()}.png';`" style="height: 65%; margin-top:15%" alt="">
           </div>
-          <div style="width: 35%;float: right;height: 50px; margin-top:10px; text-align: right;">
-            <h6 class="lightertext" style="margin-top: -5px">بیت کوین</h6>
-            <h6 class="normaltext" style="font-size: 12px;">BTC</h6>
+          <div style="width: 40%;float: right;height: 50px; margin-top:10px; text-align: right;padding-top: 2%;">
+            <h6 class="lightertext" style="margin-top: -5px; font-size: 13px; font-weight: 600">{{ item.fa_symbol }}</h6>
+            <h6 class="normaltext" style="font-size: 11px;">{{ item.symbol.replace('USDT', '') }}</h6>
           </div>
-          <div style="width: 45%;float: right;height: 50px; text-align: left;padding-left: 20px;">
+          <div style="width: 40%;float: right;height: 50px; text-align: left;padding-left: 20px;padding-top: 2%;">
             <a class="lightertext"
               style=";text-decoration: none;margin-top: -15px; background-color: #FFEBEE; font-size: 12px;color:#EB4763"><span
-                class="MuiTypography-root MuiTypography-subtitle3 mui-wc8r4m" dir="ltr"><svg width="16" height="16"
-                  fill="none" xmlns="http://www.w3.org/2000/svg"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1r9jt6h" focusable="false" aria-hidden="true"
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M17.073 9H6.925c-.823 0-1.235 1.063-.652 1.685l4.44 4.745c.711.76 1.869.76 2.58 0l4.44-4.745c.574-.623.162-1.685-.66-1.685z"
-                    fill="currentColor"></path>
-                </svg> -0.37٪</span></a><br>
+                class="negative" dir="ltr"><a v-if="String(item.change).includes('-')" style="; color:rgb(235, 71, 99)">{{
+                  item.change.toFixed(1)
+                }}٪</a><a class="positive" v-else style=" color: #34B288">{{ item.change.toFixed(1) }}٪</a>
+              </span></a><br>
             <a class="normaltext" style="font-size: 12px;text-decoration: none;"><span
-                class="MuiTypography-root MuiTypography-subtitle3 mui-swazh6"><span>1,020</span><span
-                  class="MuiTypography-root MuiTypography-overline mui-1hcbdw1">تومان</span></span></a>
-          </div>
-
-        </div>
-        <div style="width:50%; float: left; height: 50%;border: solid rgba(150, 150, 150, .15) 1px;">
-          <div style="width: 20%;float: right;height: 50px;">
-            <img src="https://api.wallex.ir/coins/DOGE/icon/svg" style="height: 65%; margin-top:15%" alt="">
-          </div>
-          <div style="width: 35%;float: right;height: 50px; margin-top:10px; text-align: right;">
-            <h6 class="lightertext" style="margin-top: -5px">دوج</h6>
-            <h6 class="normaltext" style="font-size: 12px;">DOGE</h6>
-          </div>
-          <div style="width: 45%;float: right;height: 50px; text-align: left;padding-left: 20px;">
-            <a class="lightertext"
-              style=";text-decoration: none;margin-top: -15px; background-color: #FFEBEE; font-size: 12px;color:#EB4763"><span
-                class="MuiTypography-root MuiTypography-subtitle3 mui-wc8r4m" dir="ltr"><svg width="16" height="16"
-                  fill="none" xmlns="http://www.w3.org/2000/svg"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1r9jt6h" focusable="false" aria-hidden="true"
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M17.073 9H6.925c-.823 0-1.235 1.063-.652 1.685l4.44 4.745c.711.76 1.869.76 2.58 0l4.44-4.745c.574-.623.162-1.685-.66-1.685z"
-                    fill="currentColor"></path>
-                </svg> -0.37٪</span></a><br>
-            <a class="normaltext" style="font-size: 12px;text-decoration: none;"><span
-                class="MuiTypography-root MuiTypography-subtitle3 mui-swazh6"><span>1,020</span><span
-                  class="MuiTypography-root MuiTypography-overline mui-1hcbdw1">تومان</span></span></a>
-          </div>
-
-        </div>
-        <div style="width:50%; float: left; height: 50%;border: solid rgba(150, 150, 150, .15) 1px;">
-          <div style="width: 20%;float: right;height: 50px;">
-            <img src="https://api.wallex.ir/coins/USDT/icon/svg" style="height: 65%; margin-top:15%" alt="">
-          </div>
-          <div style="width: 35%;float: right;height: 50px; margin-top:10px; text-align: right;">
-            <h6 class="lightertext" style="margin-top: -5px">تتر</h6>
-            <h6 class="normaltext" style="font-size: 12px;">USDT</h6>
-          </div>
-          <div style="width: 45%;float: right;height: 50px; text-align: left;padding-left: 20px;">
-            <a class="lightertext"
-              style=";text-decoration: none;margin-top: -15px; background-color: #FFEBEE; font-size: 12px;color:#EB4763"><span
-                class="MuiTypography-root MuiTypography-subtitle3 mui-wc8r4m" dir="ltr"><svg width="16" height="16"
-                  fill="none" xmlns="http://www.w3.org/2000/svg"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1r9jt6h" focusable="false" aria-hidden="true"
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M17.073 9H6.925c-.823 0-1.235 1.063-.652 1.685l4.44 4.745c.711.76 1.869.76 2.58 0l4.44-4.745c.574-.623.162-1.685-.66-1.685z"
-                    fill="currentColor"></path>
-                </svg> -0.37٪</span></a><br>
-            <a class="normaltext" style="font-size: 12px;text-decoration: none;"><span
-                class="MuiTypography-root MuiTypography-subtitle3 mui-swazh6"><span>1,020</span><span
-                  class="MuiTypography-root MuiTypography-overline mui-1hcbdw1">تومان</span></span></a>
-          </div>
-
-        </div>
-        <div style="width:50%; float: left; height: 50%;border: solid rgba(150, 150, 150, .15) 1px;">
-          <div style="width: 20%;float: right;height: 50px;">
-            <img src="https://api.wallex.ir/coins/SHIB/icon/svg" style="height: 65%; margin-top:15%" alt="">
-          </div>
-          <div style="width: 35%;float: right;height: 50px; margin-top:10px; text-align: right;">
-            <h6 class="lightertext" style="margin-top: -5px">شیبا</h6>
-            <h6 class="normaltext" style="font-size: 12px;">SHIB</h6>
-          </div>
-          <div style="width: 45%;float: right;height: 50px; text-align: left;padding-left: 20px;">
-            <a class="lightertext"
-              style=";text-decoration: none;margin-top: -15px; background-color: #FFEBEE; font-size: 12px;color:#EB4763"><span
-                class="MuiTypography-root MuiTypography-subtitle3 mui-wc8r4m" dir="ltr"><svg width="16" height="16"
-                  fill="none" xmlns="http://www.w3.org/2000/svg"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-1r9jt6h" focusable="false" aria-hidden="true"
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M17.073 9H6.925c-.823 0-1.235 1.063-.652 1.685l4.44 4.745c.711.76 1.869.76 2.58 0l4.44-4.745c.574-.623.162-1.685-.66-1.685z"
-                    fill="currentColor"></path>
-                </svg> -0.37٪</span></a><br>
-            <a class="normaltext" style="font-size: 12px;text-decoration: none;"><span
-                class="MuiTypography-root MuiTypography-subtitle3 mui-swazh6"><span>1,020</span><span
-                  class="MuiTypography-root MuiTypography-overline mui-1hcbdw1">تومان</span></span></a>
+                class="MuiTypography-root MuiTypography-subtitle3 mui-swazh6"><span><a v-if="item.rial / 10 > 999"> {{
+                  parseInt(item.rial / 10)
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</a>
+                  <a v-else style="text-align: center; padding: 25px 4% 25px 4%" class="lightertext">
+                    {{ parseFloat(item.rial / 10).toFixed(4) }}</a></span><span
+                  class="MuiTypography-root MuiTypography-overline mui-1hcbdw1"></span></span></a>
           </div>
 
         </div>
@@ -416,20 +348,18 @@
       <div style="clear:both"></div><br>
 
 
-      <div style="width: 92%;margin:auto;border-radius: 5px; max-height: 500px; overflow: auto"
-        class="lightercard notphone">
+      <div style="margin:auto;border-radius: 5px; max-height: 464px; overflow: auto" class="lightercard lists notphone">
         <h6 style="font-weight: 800; font-size: 16px; padding: 4% 3%; float: right">بازارهای معاملاتی </h6>
 
         <table class="table" style="direction: rtl;text-align: center;">
           <tr style="border-bottom: solid rgba(150, 150, 150, 0.3) 1px">
-            <td style="text-align: right; padding: 0% 2% 20px 2%" class="lightertext col-2">بازار</td>
+            <td style="text-align: center; padding: 0% 2% 20px 2%" class="lightertext col-2">بازار</td>
             <td style="text-align: center; padding: 0% 4% 20px 4%" class="lightertext">آخرین قیمت</td>
             <td style="text-align: center; padding: 0% 4% 20px 4%" class="lightertext">تغییرات (24h)</td>
             <td style="text-align: center; padding: 0% 4% 20px 4%" class="lightertext">حجم معاملات (24h)</td>
-            <td style="text-align: left; padding: 0% 4% 20px 4%" class="lightertext">تغییرات هفتگی</td>
           </tr>
           <tr style="border-bottom: solid rgba(150, 150, 150, 0.3) 1px">
-            <td style="text-align: right; padding: 10px 1% 10px 1%" class="lightertext col-2">
+            <td style="text-align: center; padding: 10px 1% 10px 1%" class="lightertext col-2">
               <div style="width:25%; float:right; text-align: right">
                 <img style="width: 24px"
                   src="https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/64/tether.png" alt="" />
@@ -446,15 +376,16 @@
                 </h6>
               </div>
             </td>
-            <td style="text-align: center; padding: 0% 4% 20px 4%" class="lightertext">{{ parseInt(USDTrial)
+            <td style="text-align: center;" class="lightertext">{{ parseInt(USDTrial / 10)
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</td>
-            <td style="text-align: center; padding: 0% 4% 20px 4%" class="lightertext">-</td>
-            <td style="text-align: center; padding: 0% 4% 20px 4%" class="lightertext">-</td>
-            <td style="text-align: left; padding: 0% 4% 20px 4%" class="lightertext">-</td>
+            <td style="text-align: center;" class="lightertext">-</td>
+            <td style="text-align: center;" class="lightertext">-</td>
           </tr>
           <tr v-for="(item, idx) in markets" style="border-bottom: solid rgba(150, 150, 150, 0.3) 1px">
-            <td style="text-align: right; padding: 10px 1% 10px 1%" class="lightertext col-2">
+            <td
+              v-if="item.symbol.replace('USDT', '') === 'BTC' | item.symbol.replace('USDT', '') === 'ETH' | item.symbol.replace('USDT', '') === 'TRX' | item.symbol.replace('USDT', '') === 'DOGE' | item.symbol.replace('USDT', '') === 'ADA' | item.symbol.replace('USDT', '') === 'SOL' | item.symbol.replace('USDT', '') === 'XRP'"
+              style="text-align: right; padding: 10px 1% 10px 1%" class="lightertext col-2">
               <div style="width:25%; float:right; text-align: right">
                 <img style="width: 24px" class="" :src="`/color/${item.symbol
                   .replace('USDT', '')
@@ -476,46 +407,87 @@
               </div>
 
             </td>
-            <td style="text-align: center; padding: 25px 4% 25px 4%" class="lightertext">
-              <a v-if="item.rial > 999"> {{ parseInt(item.rial)
+            <td
+              v-if="item.symbol.replace('USDT', '') === 'BTC' | item.symbol.replace('USDT', '') === 'ETH' | item.symbol.replace('USDT', '') === 'TRX' | item.symbol.replace('USDT', '') === 'DOGE' | item.symbol.replace('USDT', '') === 'ADA' | item.symbol.replace('USDT', '') === 'SOL' | item.symbol.replace('USDT', '') === 'XRP'"
+              style="text-align: center; padding: 25px 4% 25px 4%" class="lightertext">
+              <a v-if="item.rial / 10 > 999"> {{ parseInt(item.rial / 10)
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</a>
               <a v-else style="text-align: center; padding: 25px 4% 25px 4%" class="lightertext">
-                {{ parseFloat(item.rial).toFixed(4) }}</a>
+                {{ parseFloat(item.rial / 10).toFixed(4) }}</a>
             </td>
 
-            <td style="text-align: center; padding: 25px 4% 25px 4%;" class="lightertext"><span
-                class="MuiTypography-root MuiTypography-subtitle2 mui-121v8kr" dir="ltr"><svg width="24" height="24"
-                  fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M17.727 14.315l-2.753-2.94-1.68-1.805a1.745 1.745 0 00-2.581 0l-4.441 4.745c-.584.623-.163 1.685.651 1.685h10.152c.823 0 1.235-1.063.652-1.685z"
-                    fill="currentColor"></path>
-                </svg><a v-if="String(item.change).includes('-')" style="; color:rgb(235, 71, 99)">{{
-                  item.change.toFixed(1)
-                }}٪</a><a v-else style=" color: #34B288">{{ item.change.toFixed(1) }}٪</a> </span></td>
-            <td style="text-align: center; padding: 25px 4% 25px 4%" class="lightertext">{{ parseInt(item.volume) }} </td>
-            <td style="text-align: left; padding: 25px 4% 25px 4%" class="lightertext"><span
-                class="MuiTypography-root MuiTypography-subtitle2 mui-1h4ro4m" dir="ltr"><svg width="24" height="24"
-                  fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M17.073 9H6.925c-.823 0-1.235 1.063-.652 1.685l4.44 4.745c.711.76 1.869.76 2.58 0l4.44-4.745c.574-.623.162-1.685-.66-1.685z"
-                    fill="currentColor"></path>
-                </svg>-</span></td>
+            <td
+              v-if="item.symbol.replace('USDT', '') === 'BTC' | item.symbol.replace('USDT', '') === 'ETH' | item.symbol.replace('USDT', '') === 'TRX' | item.symbol.replace('USDT', '') === 'DOGE' | item.symbol.replace('USDT', '') === 'ADA' | item.symbol.replace('USDT', '') === 'SOL' | item.symbol.replace('USDT', '') === 'XRP'"
+              style="text-align: center; padding: 25px 4% 25px 4%;" class="lightertext"><span
+                class="MuiTypography-root MuiTypography-subtitle2 mui-121v8kr" dir="ltr"><a
+                  v-if="String(item.change).includes('-')" style="; color:rgb(235, 71, 99)">{{
+                    item.change.toFixed(1)
+                  }}٪</a><a v-else style=" color: #34B288">{{ item.change.toFixed(1) }}٪</a> </span></td>
+            <td
+              v-if="item.symbol.replace('USDT', '') === 'BTC' | item.symbol.replace('USDT', '') === 'ETH' | item.symbol.replace('USDT', '') === 'TRX' | item.symbol.replace('USDT', '') === 'DOGE' | item.symbol.replace('USDT', '') === 'ADA' | item.symbol.replace('USDT', '') === 'SOL' | item.symbol.replace('USDT', '') === 'XRP'"
+              style="text-align: center; padding: 25px 4% 25px 4%" class="lightertext">{{ parseInt(item.volume) }} </td>
+          </tr>
+          <tr v-for="(item, idx) in markets" style="border-bottom: solid rgba(150, 150, 150, 0.3) 1px">
+
+            <td
+              v-if="!(item.symbol.replace('USDT', '') === 'BTC' | item.symbol.replace('USDT', '') === 'ETH' | item.symbol.replace('USDT', '') === 'TRX' | item.symbol.replace('USDT', '') === 'DOGE' | item.symbol.replace('USDT', '') === 'ADA' | item.symbol.replace('USDT', '') === 'SOL' | item.symbol.replace('USDT', '') === 'XRP')"
+              style="text-align: right; padding: 10px 1% 10px 1%" class="lightertext col-2">
+              <div style="width:25%; float:right; text-align: right">
+                <img style="width: 24px" class="" :src="`/color/${item.symbol
+                  .replace('USDT', '')
+                  .toLowerCase()}.svg`" :onerror="`javascript:this.src='/color/${item.symbol
+    .replace('USDT', '')
+    .toLowerCase()}.png';`" alt="" />
+              </div>
+              <div style="width:75%; float:left; text-align: right;padding-right: 2%">
+                <h6 style="margin-top: -2px;font-size: 14px;font-weight: 600">
+                  <div class="MuiBox-root mui-k008qs">
+                    <span class="normaltext">TMN/</span><span class="lightertext">{{ item.symbol
+                      .replace('USDT', '') }}</span>
+                  </div>
+                </h6>
+                <h6 style="margin-top: -2px;font-size: 11px;font-weight: 600">
+                  <div class="MuiBox-root mui-k008qs"><span class="lightertext">{{ item.fa_symbol }}</span><span
+                      class="normaltext">/تومان</span></div>
+                </h6>
+              </div>
+
+            </td>
+            <td
+              v-if="!(item.symbol.replace('USDT', '') === 'BTC' | item.symbol.replace('USDT', '') === 'ETH' | item.symbol.replace('USDT', '') === 'TRX' | item.symbol.replace('USDT', '') === 'DOGE' | item.symbol.replace('USDT', '') === 'ADA' | item.symbol.replace('USDT', '') === 'SOL' | item.symbol.replace('USDT', '') === 'XRP')"
+              style="text-align: center; padding: 25px 4% 25px 4%" class="lightertext">
+              <a v-if="item.rial / 10 > 999"> {{ parseInt(item.rial / 10)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</a>
+              <a v-else style="text-align: center; padding: 25px 4% 25px 4%" class="lightertext">
+                {{ parseFloat(item.rial / 10).toFixed(4) }}</a>
+            </td>
+
+            <td
+              v-if="!(item.symbol.replace('USDT', '') === 'BTC' | item.symbol.replace('USDT', '') === 'ETH' | item.symbol.replace('USDT', '') === 'TRX' | item.symbol.replace('USDT', '') === 'DOGE' | item.symbol.replace('USDT', '') === 'ADA' | item.symbol.replace('USDT', '') === 'SOL' | item.symbol.replace('USDT', '') === 'XRP')"
+              style="text-align: center; padding: 25px 4% 25px 4%;" class="lightertext"><span
+                class="MuiTypography-root MuiTypography-subtitle2 mui-121v8kr" dir="ltr"><a
+                  v-if="String(item.change).includes('-')" style="; color:rgb(235, 71, 99)">{{
+                    item.change.toFixed(1)
+                  }}٪</a><a v-else style=" color: #34B288">{{ item.change.toFixed(1) }}٪</a> </span></td>
+            <td
+              v-if="!(item.symbol.replace('USDT', '') === 'BTC' | item.symbol.replace('USDT', '') === 'ETH' | item.symbol.replace('USDT', '') === 'TRX' | item.symbol.replace('USDT', '') === 'DOGE' | item.symbol.replace('USDT', '') === 'ADA' | item.symbol.replace('USDT', '') === 'SOL' | item.symbol.replace('USDT', '') === 'XRP')"
+              style="text-align: center; padding: 25px 4% 25px 4%" class="lightertext">{{ parseInt(item.volume) }} </td>
           </tr>
         </table><br><br>
       </div>
-      <div style="width: 92%;margin:auto;border-radius: 5px; max-height: 400px; overflow: auto"
-        class="lightercard onphone">
+      <div style="margin:auto;border-radius: 5px; max-height: 400px; overflow: auto" class="lightercard lists onphone">
         <h6 style="font-weight: 800; font-size: 16px; padding: 4% 3%; float: right">بازارهای معاملاتی </h6>
 
         <table class="table" style="direction: rtl;text-align: center;">
           <tr style="border-bottom: solid rgba(150, 150, 150, 0.3) 1px">
-            <td style="text-align: right; padding: 0% 2% 20px 2% ; width: 33%" class="lightertext col-2">بازار</td>
+            <td style="text-align: center; padding: 0% 2% 20px 2% ; width: 33%" class="lightertext col-2">بازار</td>
             <td style="text-align: center; padding: 0% 4% 20px 4%; width: 33%" class="lightertext"> قیمت</td>
-            <td style="text-align: left; padding: 0% 4% 20px 4%" class="lightertext"> (24h)</td>
+            <td style="text-align: center; padding: 0% 4% 20px 4%" class="lightertext"> (24h)</td>
           </tr>
           <tr style="border-bottom: solid rgba(150, 150, 150, 0.3) 1px">
-            <td style="text-align: right; padding: 10px 1% 10px 1%" class="lightertext col-2">
+            <td style="text-align: center; padding: 10px 1% 10px 1%" class="lightertext col-2">
               <div style="width:25%; float:right; text-align: right">
                 <img style="width: 24px"
                   src="https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/64/tether.png" alt="" />
@@ -532,15 +504,17 @@
                 </h6>
               </div>
             </td>
-            <td style="text-align: center; padding: 25px 0 25px 0" class="lightertext">{{ parseInt(USDTrial)
+            <td style="text-align: center; padding: 25px 0 25px 0" class="lightertext">{{ parseInt(USDTrial / 10)
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</td>
-            <td style="text-align: left; padding-left: 40px;" class="lightertext"><span
+            <td style="text-align: center; padding-left: 40px;" class="lightertext"><span
                 class="MuiTypography-root MuiTypography-subtitle2 mui-121v8kr" dir="ltr">-</span></td>
           </tr>
 
           <tr v-for="(item, idx) in markets" style="border-bottom: solid rgba(150, 150, 150, 0.3) 1px">
-            <td style="text-align: right; padding: 10px 1% 10px 1%" class="lightertext col-2">
+            <td
+              v-if="item.symbol.replace('USDT', '') === 'BTC' | item.symbol.replace('USDT', '') === 'ETH' | item.symbol.replace('USDT', '') === 'TRX' | item.symbol.replace('USDT', '') === 'DOGE' | item.symbol.replace('USDT', '') === 'ADA' | item.symbol.replace('USDT', '') === 'SOL' | item.symbol.replace('USDT', '') === 'XRP'"
+              style="text-align: center; padding: 10px 1% 10px 1%" class="lightertext col-2">
               <div style="width:25%; float:right; text-align: right">
                 <img style="width: 24px; margin-left: 3px" class="" :src="`/color/${item.symbol
                   .replace('USDT', '')
@@ -562,15 +536,64 @@
               </div>
 
             </td>
-            <td style="text-align: center; padding: 25px 4% 25px 4%" class="lightertext">
-              <a v-if="item.rial > 999"> {{ parseInt(item.rial)
+            <td
+              v-if="item.symbol.replace('USDT', '') === 'BTC' | item.symbol.replace('USDT', '') === 'ETH' | item.symbol.replace('USDT', '') === 'TRX' | item.symbol.replace('USDT', '') === 'DOGE' | item.symbol.replace('USDT', '') === 'ADA' | item.symbol.replace('USDT', '') === 'SOL' | item.symbol.replace('USDT', '') === 'XRP'"
+              style="text-align: center; padding: 25px 4% 25px 4%" class="lightertext">
+              <a v-if="item.rial / 10 > 999"> {{ parseInt(item.rial / 10)
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</a>
               <a v-else style="text-align: center; padding: 25px 4% 25px 4%" class="lightertext">
-                {{ parseFloat(item.rial).toFixed(4) }}</a>
+                {{ parseFloat(item.rial / 10).toFixed(4) }}</a>
             </td>
 
-            <td style="text-align: left; padding: 25px 25px 25px 25px;" class="lightertext"><span
+          </tr>
+          <tr v-for="(item, idx) in markets" style="border-bottom: solid rgba(150, 150, 150, 0.3) 1px">
+
+
+            <td
+              v-if="item.symbol.replace('USDT', '') === 'BTC' | item.symbol.replace('USDT', '') === 'ETH' | item.symbol.replace('USDT', '') === 'TRX' | item.symbol.replace('USDT', '') === 'DOGE' | item.symbol.replace('USDT', '') === 'ADA' | item.symbol.replace('USDT', '') === 'SOL' | item.symbol.replace('USDT', '') === 'XRP'"
+              style="text-align: center; padding: 25px 25px 25px 25px;" class="lightertext"><span
+                class="MuiTypography-root MuiTypography-subtitle2 mui-121v8kr" dir="ltr"><a
+                  v-if="String(item.change).includes('-')" style="; color:rgb(235, 71, 99)">{{
+                    item.change.toFixed(1)
+                  }}٪</a><a v-else style=" color: #34B288">{{ item.change.toFixed(1) }}٪</a></span></td>
+            <td
+              v-if="!(item.symbol.replace('USDT', '') === 'BTC' | item.symbol.replace('USDT', '') === 'ETH' | item.symbol.replace('USDT', '') === 'TRX' | item.symbol.replace('USDT', '') === 'DOGE' | item.symbol.replace('USDT', '') === 'ADA' | item.symbol.replace('USDT', '') === 'SOL' | item.symbol.replace('USDT', '') === 'XRP')"
+              style="text-align: center; padding: 10px 1% 10px 1%" class="lightertext col-2">
+              <div style="width:25%; float:right; text-align: right">
+                <img style="width: 24px; margin-left: 3px" class="" :src="`/color/${item.symbol
+                  .replace('USDT', '')
+                  .toLowerCase()}.svg`" :onerror="`javascript:this.src='/color/${item.symbol
+    .replace('USDT', '')
+    .toLowerCase()}.png';`" alt="" />
+              </div>
+              <div style="width:65%; float:left; text-align: right;padding-right: 2%">
+                <h6 style="margin-top: -2px;font-size: 14px;font-weight: 600">
+                  <div class="MuiBox-root mui-k008qs">
+                    <span class="normaltext">TMN/</span><span class="lightertext">{{ item.symbol
+                      .replace('USDT', '') }}</span>
+                  </div>
+                </h6>
+                <h6 style="margin-top: -2px;font-size: 11px;font-weight: 600">
+                  <div class="MuiBox-root mui-k008qs"><span class="lightertext">{{ item.fa_symbol }}</span><span
+                      class="normaltext">/تومان</span></div>
+                </h6>
+              </div>
+
+            </td>
+            <td
+              v-if="!(item.symbol.replace('USDT', '') === 'BTC' | item.symbol.replace('USDT', '') === 'ETH' | item.symbol.replace('USDT', '') === 'TRX' | item.symbol.replace('USDT', '') === 'DOGE' | item.symbol.replace('USDT', '') === 'ADA' | item.symbol.replace('USDT', '') === 'SOL' | item.symbol.replace('USDT', '') === 'XRP')"
+              style="text-align: center; padding: 25px 4% 25px 4%" class="lightertext">
+              <a v-if="item.rial / 10 > 999"> {{ parseInt(item.rial / 10)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</a>
+              <a v-else style="text-align: center; padding: 25px 4% 25px 4%" class="lightertext">
+                {{ parseFloat(item.rial / 10).toFixed(4) }}</a>
+            </td>
+
+            <td
+              v-if="!(item.symbol.replace('USDT', '') === 'BTC' | item.symbol.replace('USDT', '') === 'ETH' | item.symbol.replace('USDT', '') === 'TRX' | item.symbol.replace('USDT', '') === 'DOGE' | item.symbol.replace('USDT', '') === 'ADA' | item.symbol.replace('USDT', '') === 'SOL' | item.symbol.replace('USDT', '') === 'XRP')"
+              style="text-align: center; padding: 25px 25px 25px 25px;" class="lightertext"><span
                 class="MuiTypography-root MuiTypography-subtitle2 mui-121v8kr" dir="ltr"><a
                   v-if="String(item.change).includes('-')" style="; color:rgb(235, 71, 99)">{{
                     item.change.toFixed(1)
@@ -880,7 +903,7 @@ export default {
       }
       setTimeout(() => {
         this.count()
-      }, 10000);
+      }, 5000);
     },
   },
   created() {
@@ -928,6 +951,26 @@ li {
 
 .svgs {
   fill: currentColor
+}
+
+.positive {
+  background: #E5FAF3;
+  text-decoration: none !important
+}
+
+.dark .positive {
+  background: rgb(33, 34, 52);
+  text-decoration: none !important
+}
+
+.negative {
+  background: #FFEBEE;
+  text-decoration: none !important
+}
+
+.dark .negative {
+  background: rgb(22, 42, 56);
+  text-decoration: none !important
 }
 
 .dark .h1 {
