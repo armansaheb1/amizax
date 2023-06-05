@@ -49,9 +49,9 @@
         <div v-for="item in board"
           style="width:25%; float: left; height: 50px;border-right: solid rgba(150, 150, 150, .15) 2px;margin-top: 15px;">
           <div style="width: 20%;float: right;height: 50px;">
-            <img class="" :src="`https://amizax.com/icons/color/${item.symbol
+            <img class="" :src="`/color/${item.symbol
               .replace('USDT', '')
-              .toLowerCase()}.svg`" :onerror="`javascript:this.src='https://amizax.com/icons/color/${item.symbol
+              .toLowerCase()}.svg`" :onerror="`javascript:this.src='/color/${item.symbol
     .replace('USDT', '')
     .toLowerCase()}.png';`" style="height: 65%; margin-top:15%" alt="">
           </div>
@@ -456,9 +456,9 @@
           <tr v-for="(item, idx) in markets" style="border-bottom: solid rgba(150, 150, 150, 0.3) 1px">
             <td style="text-align: right; padding: 10px 1% 10px 1%" class="lightertext col-2">
               <div style="width:25%; float:right; text-align: right">
-                <img style="width: 24px" class="" :src="`https://amizax.com/icons/color/${item.symbol
+                <img style="width: 24px" class="" :src="`/color/${item.symbol
                   .replace('USDT', '')
-                  .toLowerCase()}.svg`" :onerror="`javascript:this.src='https://amizax.com/icons/color/${item.symbol
+                  .toLowerCase()}.svg`" :onerror="`javascript:this.src='/color/${item.symbol
     .replace('USDT', '')
     .toLowerCase()}.png';`" alt="" />
               </div>
@@ -542,9 +542,9 @@
           <tr v-for="(item, idx) in markets" style="border-bottom: solid rgba(150, 150, 150, 0.3) 1px">
             <td style="text-align: right; padding: 10px 1% 10px 1%" class="lightertext col-2">
               <div style="width:25%; float:right; text-align: right">
-                <img style="width: 24px; margin-left: 3px" class="" :src="`https://amizax.com/icons/color/${item.symbol
+                <img style="width: 24px; margin-left: 3px" class="" :src="`/color/${item.symbol
                   .replace('USDT', '')
-                  .toLowerCase()}.svg`" :onerror="`javascript:this.src='https://amizax.com/icons/color/${item.symbol
+                  .toLowerCase()}.svg`" :onerror="`javascript:this.src='/color/${item.symbol
     .replace('USDT', '')
     .toLowerCase()}.png';`" alt="" />
               </div>
