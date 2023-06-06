@@ -8,4 +8,9 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://www.amizax.com/api/v1/'
 
-createApp(App).use(store).use(router).use(IonicVue).mount('#app')
+const app = createApp(App)
+app.use(store)
+app.component("modal", {template: "#modal-template"})
+app.use(router)
+app.use(IonicVue)
+app.mount('#app')

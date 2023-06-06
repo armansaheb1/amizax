@@ -366,13 +366,15 @@
     line-height: 1.75;
     padding: 4px 16px;
     border-color: #E2E9F3;
-    margin-left: 8px;">ورود</button>
+    margin-left: 8px;" @click="showModal = true">ورود</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+        <modal v-if="showModal" @close="showModal = false">
+            <login />
+        </modal>
     </div>
 </template>
 <script setup>
@@ -392,7 +394,12 @@ export default {
         msg: String
     },
     components: {
-        login
+        login,
+    },
+    data() {
+        return {
+            showModal: false
+        }
     },
     methods: {
         phonemenu() {
