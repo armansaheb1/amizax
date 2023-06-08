@@ -6,12 +6,51 @@
 
 <script setup>
 import { useDark, useToggle } from "@vueuse/core";
+import axios from 'axios'
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
+
+
+</script>
+
+<script>
+export default {
+  name: 'app',
+  metaInfo: {
+    title: 'Index',
+    titleTemplate: '%s - Appwork'
+  },
+  beforeCreate() {
+    this.$store.commit('initializeStore')
+    const token = this.$store.state.token
+    if (token) {
+      axios.defaults.headers.common.Authorization = 'Token ' + token
+      this.$store.state.isAuthenticated = true
+    } else {
+      axios.defaults.headers.common.Authorization = ''
+    }
+  },
+}
 </script>
 
 <style lang="scss">
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+td,
+th,
+p,
+span,
+label,
+button {
+  font-family: 'iranyekan-fanum' !important;
+}
+
 [theme="dark"] {
   background: rgb(13, 23, 38);
   color: #fff;
@@ -164,10 +203,16 @@ nav {
   width: 92%;
 }
 
+.modal-vue3-content {
+  width: 50% !important;
+  top: 4% !important;
+}
+
 @media only screen and (max-width: 1100px) {
   .lists {
     width: 100%;
   }
+
 
 }
 
@@ -175,6 +220,11 @@ nav {
   .half {
     width: 100%;
     text-align: center;
+  }
+
+  .modal-vue3-content {
+    width: 90% !important;
+    top: 10% !important;
   }
 
   .text-half {

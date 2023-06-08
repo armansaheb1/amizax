@@ -5,6 +5,8 @@ import store from './store'
 import { IonicVue } from '@ionic/vue';
 import styles from './index.css'
 import axios from 'axios';
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 axios.defaults.baseURL = 'https://www.amizax.com/api/v1/'
 
@@ -13,4 +15,5 @@ app.use(store)
 app.component("modal", {template: "#modal-template"})
 app.use(router)
 app.use(IonicVue)
+app.use(VueSweetalert2);
 app.mount('#app')

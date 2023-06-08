@@ -2,107 +2,102 @@
     <div>
 
         <!-- Header -->
-        <b-container class="">
-            <b-row>
-                <b-col>
-                    <b-card no-body class="border-0 mb-0">
-                        <b-card-header class="bg-transparent" style="border-style:none"><br>
-                            <img src="/img/logo.png" style="width:10%;margin-left:45%;margin-right:40%; clear:both" alt="">
-                        </b-card-header>
-                        <b-tabs>
-                            <b-tab title="ورود" style="padding:10% 0">
-                                <Vcode style="direction:ltr" :show="isShow" @success="onSuccess" @close="onClose"
-                                    successText="با موفقیت تایید شد" failText="موفق نشدید لطفا مجددا تلاش نمایید"
-                                    sliderText="لطفا پازل را کامل نمایید" />
-                                <div class="text-center text-muted mb-4">
+        <div class="container login" style="overflow: hidden;">
+            <div no-body class="card">
+                <div class="bg-transparent card-header" style="border-style:none; padding: 0"><br>
+                    <img src="/img/logo.png" style="width:10%;margin-left:45%;margin-right:40%; clear:both" alt="">
+                </div>
+                <div class="card-body" style="text-align: right!important;padding: 5%">
+                    <ul class="nav nav-tabs" style="direction: rtl;">
+                        <li class="nav-item">
+                            <a @click="vorood = true" class="nav-link" :class="{ active: vorood }">ورود</a>
+                        </li>
+                        <li class="nav-item">
+                            <a @click="vorood = false" class="nav-link" :class="{ active: !vorood }">ثبت نام</a>
+                        </li>
+                    </ul>
+                    <b-tab v-if="vorood" style="padding:10% 0">
+
+                        <div class="text-center text-muted mb-4">
+                        </div>
+                        <form class="my-1" @submit.prevent="submitForm()">
+                            <label style="text-align: right!important;;">نام کاربری</label>
+                            <input v-model="username" class="form-control username" />
+                            <div class="invalid-tooltip">{{ utool }}</div>
+
+
+                            <label>کلمه عبور</label>
+                            <input type="password" v-model="password" class="form-control pass" />
+                            <div class="invalid-tooltip">{{ ptool }}</div>
+                            <br>
+
+                            <button class="btn btn-dark form-control" id="submit">ورود</button>
+
+                            <div style="width:100%"><br>
+                                <b-col>
+                                    <router-link style="color:#444;float:right; text-decoration: none;"
+                                        to="/forgetpassword">رمز عبور خود را
+                                        فراموش کرده اید ؟</router-link>
+                                </b-col>
+                                <b-col class="text-right">
+                                    <a @click="vorood = false" style="color:#444;float:left; cursor: pointer"> ثبت نام
+                                        کنید</a>
+                                </b-col>
+                            </div>
+                        </form>
+                    </b-tab>
+
+                    <b-tab v-if="!vorood" style="padding:7% 0">
+                        <form class="my-1" @submit.prevent="RsubmitForm()">
+                            <label>ایمیل</label>
+                            <input v-model="Remail" class="form-control Remail" />
+                            <div class="invalid-tooltip">{{ Retool }}</div>
+
+                            <b-form-group>
+                                <label>کلمه عبور</label>
+                                <input type="password" v-model="Rpassword" class="form-control Rpass" />
+                                <div class="invalid-tooltip">{{ Rptool }}</div>
+                                <p style="font-size:10px;margin:0">برای امنیت بیشتر توصیه میشود از سمبل ها استفاده
+                                    کنید (#,@,&,...)</p>
+                            </b-form-group>
+                            <b-form-group>
+                                <label>تکرار کلمه عبور</label>
+                                <input type="password" v-model="Rrepassword" class="form-control Rrepass" />
+                                <div class="invalid-tooltip">{{ Rreptool }}</div>
+                            </b-form-group>
+
+                            <div>
+                                <div class="form-check form-switch" style="margin-top: 15px">
+                                    <input @input="Rchecked()" style="float: right;margin-left: 20px"
+                                        class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                    <label style="float: right;" class="form-check-label" for="flexSwitchCheckDefault">من
+                                        بیش از ۱۸ سال سن
+                                        دارم</label>
                                 </div>
-                                <form class="my-1">
-                                    <b-form-group label="نام کاربری">
-                                        <input v-model="username" class="form-control username" />
-                                        <div class="invalid-tooltip">{{ utool }}</div>
-                                    </b-form-group>
-                                    <b-form-group>
-                                        <div slot="label" class="d-flex justify-content-between align-items-end">
-                                            <div>کلمه عبور</div>
-                                        </div>
-                                        <input type="password" v-model="password" class="form-control pass" />
-                                        <div class="invalid-tooltip">{{ ptool }}</div>
-                                    </b-form-group>
-
-                                    <div class="d-flex justify-content-between align-items-center m-0">
-                                        <b-btn variant="dark" id="submit" @click="submit">ورود</b-btn>
-                                    </div><br>
-                                    <b-row style="width:105% ; margin-right:-3%">
-                                        <b-col>
-                                            <router-link style="color:#444;float:left" to="/forgetpassword">رمز عبور خود را
-                                                فراموش کرده اید ؟</router-link>
-                                        </b-col>
-                                        <b-col class="text-right">
-                                            <router-link style="color:#444;float:left" to="/register"> ثبت نام
-                                                کنید</router-link>
-                                        </b-col>
-                                    </b-row>
-                                </form>
-                            </b-tab>
-
-                            <b-tab title="ثبت نام" style="padding:7% 0">
-                                <Vcode style="direction:ltr" :show="RisShow" @success="RonSuccess" @close="RonClose"
-                                    successText="با موفقیت تایید شد" failText="موفق نشدید لطفا مجددا تلاش نمایید"
-                                    sliderText="لطفا پازل را کامل نمایید" />
-                                <form class="my-1">
-                                    <b-form-group label="ایمیل">
-                                        <input v-model="Remail" class="form-control Remail" />
-                                        <div class="invalid-tooltip">{{ Retool }}</div>
-                                    </b-form-group>
-                                    <b-form-group>
-                                        <div slot="label" class="d-flex justify-content-between align-items-end">
-                                            <div>کلمه عبور</div>
-                                        </div>
-                                        <input type="password" v-model="Rpassword" class="form-control Rpass" />
-                                        <div class="invalid-tooltip">{{ Rptool }}</div>
-                                        <p style="font-size:10px;margin:0">برای امنیت بیشتر توصیه میشود از سمبل ها استفاده
-                                            کنید (#,@,&,...)</p>
-                                    </b-form-group>
-                                    <b-form-group>
-                                        <div slot="label" class="d-flex justify-content-between align-items-end">
-                                            <div>تکرار کلمه عبور</div>
-                                        </div>
-                                        <input type="password" v-model="Rrepassword" class="form-control Rrepass" />
-                                        <div class="invalid-tooltip">{{ Rreptool }}</div>
-                                    </b-form-group>
-
-                                    <div class="d-flex justify-content-between align-items-center m-0">
-                                        <b-card><input type="checkbox" @input="Rchecked()"> من بیش از ۱۸ سال سن
-                                            دارم</b-card>
-
-                                        <button class="btn btn-dark" type="button" id="submit2" disabled
-                                            @click="Rsubmit()">ثبت نام</button>
+                                <br>
+                                <button class="btn btn-dark form-control" type="button" id="submit2" disabled>ثبت
+                                    نام</button>
 
 
-                                    </div>
-                                </form><br>
-                                <b-row class="mt-3">
-                                    <router-link style="color:#444;text-align:center;width:100%" to="/login">وارد
-                                        شوید</router-link>
-                                </b-row>
-                            </b-tab>
-                        </b-tabs>
-                    </b-card>
-                </b-col>
-            </b-row>
-        </b-container>
+                            </div>
+                        </form><br>
+                        <a @click="vorood = true"
+                            style="color:#444;text-align:center;width:100%; display: block; cursor: pointer">وارد
+                            شوید</a>
+
+                    </b-tab>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
 import axios from 'axios'
-import Vcode from "vue-puzzle-vcode";
+
 export default {
     name: 'pages-authentication-login-v1',
     metaInfo: {
         title: 'Login v1 - Pages'
-    },
-    components: {
-        Vcode
     },
     data: () => ({
         errors: [],
@@ -110,6 +105,7 @@ export default {
         ptool: '',
         utool: '',
         username: '',
+        vorood: true,
         password: '',
         isShow: false,
         Rerrors: [],
@@ -132,7 +128,7 @@ export default {
         },
 
         RonSuccess(msg) {
-            this.RisShow = false; // 通过验证后，需要手动关闭模态框
+            this.RisShow = false;
             this.RsubmitForm()
         },
         RonClose() {
@@ -211,7 +207,7 @@ export default {
                     .then(response => {
                         this.sendmail()
                         setTimeout(() => {
-                            this.$modal.hide('modal')
+
                             const toPath = this.$route.query.to || '/login'
                             this.$router.push(toPath)
                         }, 2000)
@@ -266,17 +262,6 @@ export default {
                     this.$swal(`<div class="swal2-icon swal2-error swal2-icon-show" style="display: flex;"><span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span></div><h5>${response.data}</h5>‍‍`)
                 })
         },
-        submit() {
-            this.isShow = true;
-        },
-
-        onSuccess(msg) {
-            this.isShow = false; // 通过验证后，需要手动关闭模态框
-            this.submitForm()
-        },
-        onClose() {
-            this.isShow = false;
-        },
         async submitForm() {
             document.querySelector('.username').className = document.querySelector('.username').className.replace(' is-invalid', '')
             document.querySelector('.pass').className = document.querySelector('.pass').className.replace(' is-invalid', '')
@@ -303,13 +288,11 @@ export default {
                     username: this.username.toLowerCase(),
                     password: this.password
                 }
-                this.$loading(true)
                 await axios
                     .post('/login', formData)
                     .then(response => {
                         if (response.data !== 1) {
-                            this.$modal.hide('modal')
-                            this.$loading(false)
+                            console.log(response.data.auth_token)
                             const token = response.data.auth_token
                             this.$store.commit('setToken', token)
                             axios.defaults.headers.common.Authorization = 'Token ' + token
@@ -319,7 +302,6 @@ export default {
                             this.$router.push(toPath)
                         }
                         else {
-                            this.$loading(false)
                             this.$swal({
                                 html: '<h3 style="text-align:center">کد تایید ارسال شده </h3> <input autocomplete="off" type="number" class="form-control" id="code">',
                                 confirmButtonClass: 'btn btn-success btn-fill',
@@ -330,7 +312,6 @@ export default {
                         }
                     })
                     .catch(error => {
-                        this.$loading(false)
                         if (error.response) {
                             for (const property in error.response.data) {
                                 if (property === 'non_field_errors') {
@@ -345,7 +326,6 @@ export default {
                     })
             }
             if (this.errors.length) {
-                this.$loading(false)
                 var errors = this.errors
                 var error = '<div class="swal2-icon swal2-error swal2-icon-show" style="display: flex;"><span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span></div><h5>'
                 for (var er = 0; er < errors.length; er++) {
@@ -358,11 +338,31 @@ export default {
     }
 }
 </script>
-<style>.invalid-tooltip {
+<style>
+.invalid-tooltip {
     position: relative;
     top: 0;
     background-color: rgba(0, 0, 0, 0);
     color: red;
     text-align: left;
-}</style>
+}
+
+.login a {
+    color: #052B61 !important
+}
+
+.login .active {
+    color: black !important
+}
+
+.form-check-input:checked {
+    background-color: #000;
+    border-color: #000;
+}
+
+.form-check-input {
+    background-color: #e1dfdf;
+
+}
+</style>
   

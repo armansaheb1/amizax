@@ -44,23 +44,8 @@
                             border-style: solid;
                             border-color: rgb(236, 241, 249);">
                     </a>
-                    <a href="/" style="text-decoration: none!important">
-                        <div style="padding: 2.5% 5%;text-align: right;">
-                            <div style="float: right; margin-left: 20px;"><svg width="24" height="24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M13.25 6.5a5.25 5.25 0 1110.5 0 5.25 5.25 0 01-10.5 0zm5.25-3.75a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zM9.58 3.91A6.25 6.25 0 004.75 10a.75.75 0 01-1.5 0A7.74 7.74 0 0111 2.25a.75.75 0 01.64 1.14L10.6 5.14a.75.75 0 01-1.28-.78l.27-.45zM2.97 14.47c-.1.1-.22.34-.22 1.23v.61h8.5v-.61c0-.89-.13-1.14-.22-1.23-.1-.1-.35-.22-1.25-.22H4.22c-.9 0-1.16.13-1.25.22zm9.78 1.23c0-.87-.1-1.72-.67-2.3-.57-.56-1.42-.65-2.3-.65H4.22c-.88 0-1.74.1-2.3.66-.58.57-.67 1.42-.67 2.29v4.11c0 .87.09 1.72.66 2.3.57.56 1.43.65 2.3.65h5.57c.88 0 1.73-.1 2.3-.66.58-.57.67-1.42.67-2.29V15.7zm-1.5 2.11h-8.5v2c0 .89.13 1.14.22 1.23.1.1.35.22 1.25.22h5.56c.9 0 1.15-.13 1.25-.22.09-.1.22-.34.22-1.23v-2zM22 13.25c.41 0 .75.34.75.75A7.74 7.74 0 0115 21.75a.75.75 0 01-.64-1.14l1.05-1.75a.75.75 0 111.28.78l-.27.45A6.25 6.25 0 0021.25 14c0-.41.33-.75.75-.75z"
-                                        fill="currentColor"></path>
-                                </svg></div>
-                            <div><span style="; font-family: 'iranyekan-fanum';">معامله</span>
-                            </div><span></span>
-                        </div>
-                        <hr style="margin: 0px 12px 0px 0px;
-                            flex-shrink: 0;
-                            border-width: 0px 0px thin;
-                            border-style: solid;
-                            border-color: rgb(236, 241, 249);">
-                    </a>
+
+
                     <a href="/" style="text-decoration: none!important">
                         <div style="padding: 2.5% 5%;text-align: right;">
                             <div style="float: right; margin-left: 20px;"><svg width="24" height="24" fill="none"
@@ -133,7 +118,7 @@
                 <div
                     style="width: 100%; height: 64px; box-shadow: rgba(0, 0, 0, 0.2) 0px -3px 4px 1px; position: absolute; bottom: 0;">
                     <div style="width: 50%; padding: 2.7% 1% 0 3.6%; float:left; box-sizing: border-box">
-                        <button class="buttonblue" style="display: inline-flex;
+                        <button class="btn btn-danger" style="display: inline-flex;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -161,7 +146,7 @@
                     </div>
 
                     <div style="width: 50%; padding: 2.7% 1% 0 3.6%; float:left; box-sizing: border-box">
-                        <button @click="login()" class="buttongrey" style="display: inline-flex;
+                        <button @click="login()" class="btn btn-success" style="display: inline-flex;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -181,7 +166,6 @@
     font-family: iranyekan-fanum, sans-serif;
     text-transform: uppercase;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    background-color: transparent;
     width: 100%;
     box-shadow: none;
     border-radius: 8px;
@@ -214,52 +198,147 @@
             </div>
             <div class="pcnav" style="position: relative; height: 100%; width: 100%">
                 <div style="float: right; width: 100%; font-size: 20px; font-family: 'BebasNeue-Regular';margin-left: -5px">
-                    <h3
-                        style="height: 22px; float: right; margin: 10px; font-size: 26px; font-family: 'BebasNeue-Regular';margin-left: -5px; color: rgb(138 184 52)">
-                        AMIZAX</h3>
-                    <img style="height: 32px; float: right; margin: 18px; margin-top: 12px"
-                        src="https://www.amizax.com/img/logo.png" alt="">
-
-                    <div style="float: right;margin-right: 30px; margin: 10px;">
-                        <a href=""
-                            style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;">معامله</a>
-                    </div>
-                    <div style="float: right;margin-right: 30px; margin: 10px; padding: 6px">
-                        <a href=""
-                            style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;">
-                            <svg style="float: left;color:#8D9FB9; margin-right: 2px;" width="20" height="20" fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
+                    <a href="/">
+                        <h3 style="height: 22px; float: right; margin: 10px;margin-top: 15px; font-size: 26px;
+                            font-family: 'BebasNeue-Regular' ;margin-left: -5px; color: rgb(138 184 52)">
+                            AMIZAX</h3>
+                        <img style="height: 32px; float: right; margin: 18px; margin-top: 12px"
+                            src="https://www.amizax.com/img/logo.png" alt="">
+                    </a>
+                    <div @mouseover="mainMenu = true" @mouseleave="mainMenu = false"
+                        style="float: right;margin-right: 30px; margin: 10px;margin-bottom: 0;     padding-bottom: 6px;">
+                        <a style="cursor: pointer">
+                            <svg style="float: left;color:#8D9FB9; margin-right: 2px;margin-top:6px" width="20" height="20"
+                                fill="none" xmlns="http://www.w3.org/2000/svg"
                                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-nqvzgt" focusable="false"
                                 aria-hidden="true" viewBox="0 0 24 24">
                                 <path
                                     d="M17.073 9H6.925c-.823 0-1.235 1.063-.652 1.685l4.44 4.745c.711.76 1.869.76 2.58 0l4.44-4.745c.574-.623.162-1.685-.66-1.685z"
                                     fill="currentColor"></path>
-                            </svg><a style="float: right;">کوین‌ها</a></a>
-                    </div>
-                    <div style="float: right;margin-right: 30px; margin: 10px; padding: 6px">
-                        <a href=""
-                            style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;">
-                            <svg style="float: left;color:#8D9FB9; margin-right: 2px;" width="20" height="20" fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-nqvzgt" focusable="false"
-                                aria-hidden="true" viewBox="0 0 24 24">
-                                <path
-                                    d="M17.073 9H6.925c-.823 0-1.235 1.063-.652 1.685l4.44 4.745c.711.76 1.869.76 2.58 0l4.44-4.745c.574-.623.162-1.685-.66-1.685z"
-                                    fill="currentColor"></path>
-                            </svg><a style="float: right;">خرید فروش آنی</a></a>
+                            </svg><i class="material-symbols-outlined" style="width: 32px; font-size: 32px">apps</i>
+                        </a>
+                        <div class="navdark" v-if="mainMenu"
+                            style="position: absolute; width: 88%;height: 390px;  margin:auto;margin-top: 5px;left: 6%">
+                            <div class="submenus">
+                                <div style="width: 20%; float: right; margin-top: 6px">
+                                    <img src="/exchange.png" alt="">
+                                </div>
+                                <div style="width: 80%; float: right">
+                                    <h4>اکسچینج</h4>
+                                    <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
+                                </div>
+
+
+                            </div>
+                            <div class="submenus">
+                                <div style="width: 20%; float: right; margin-top: 6px">
+                                    <img src="/exchange.png" alt="">
+                                </div>
+                                <div style="width: 80%; float: right">
+                                    <h4>خرید</h4>
+                                    <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
+                                </div>
+
+
+                            </div>
+                            <div class="submenus">
+                                <div style="width: 20%; float: right; margin-top: 6px">
+                                    <img src="/exchange.png" alt="">
+                                </div>
+                                <div style="width: 80%; float: right">
+                                    <h4>فروش</h4>
+                                    <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
+                                </div>
+
+
+                            </div>
+                            <div class="submenus">
+                                <div style="width: 20%; float: right; margin-top: 6px">
+                                    <img src="/exchange.png" alt="">
+                                </div>
+                                <div style="width: 80%; float: right">
+                                    <h4>معاملات اسپات</h4>
+                                    <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
+                                </div>
+
+
+                            </div>
+                            <div class="submenus">
+                                <div style="width: 20%; float: right; margin-top: 6px">
+                                    <img src="/exchange.png" alt="">
+                                </div>
+                                <div style="width: 80%; float: right">
+                                    <h4>معاملات مرجین</h4>
+                                    <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
+                                </div>
+
+
+                            </div>
+                            <div class="submenus">
+                                <div style="width: 20%; float: right; margin-top: 6px">
+                                    <img src="/exchange.png" alt="">
+                                </div>
+                                <div style="width: 80%; float: right">
+                                    <h4>معاملات فیوچرز</h4>
+                                    <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
+                                </div>
+
+
+                            </div>
+                            <div class="submenus">
+                                <div style="width: 20%; float: right; margin-top: 6px">
+                                    <img src="/exchange.png" alt="">
+                                </div>
+                                <div style="width: 80%; float: right">
+                                    <h4>حسابداری</h4>
+                                    <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
+                                </div>
+
+
+                            </div>
+                            <div class="submenus">
+                                <div style="width: 20%; float: right; margin-top: 6px">
+                                    <img src="/exchange.png" alt="">
+                                </div>
+                                <div style="width: 80%; float: right">
+                                    <h4>امنیت</h4>
+                                    <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
+                                </div>
+
+
+                            </div>
+                            <div class="submenus">
+                                <div style="width: 20%; float: right; margin-top: 6px">
+                                    <img src="/exchange.png" alt="">
+                                </div>
+                                <div style="width: 80%; float: right">
+                                    <h4>تاریخچه</h4>
+                                    <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
+                                </div>
+
+
+                            </div>
+                        </div>
                     </div>
 
                     <div style="float: right;margin-right: 30px; margin: 10px;">
-                        <a href=""
-                            style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;">بات
-                            معامله‌گر</a>
+                        <a
+                            style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;">
+                            درباره ما</a>
+                    </div>
+
+                    <div style="float: right;margin-right: 30px; margin: 10px;">
+                        <a
+                            style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;">تماس
+                            با ما</a>
                     </div>
                     <div style="float: right;margin-right: 30px; margin: 10px;">
-                        <a href=""
+                        <a
                             style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;">بلاگ</a>
                     </div>
-                    <div style="float: right;margin-right: 30px; margin: 10px; padding: 6px">
-                        <a href=""
+                    <div
+                        style="float: right;margin-right: 30px; margin: 10px; padding: 6px;margin-bottom: 0;     padding-bottom: 20px;">
+                        <a
                             style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;">
                             <svg style="float: left;color:#8D9FB9; margin-right: 2px;" width="20" height="20" fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -283,16 +362,16 @@
                     </div>
                     <div style="float: left;margin: 10px; margin-right: 0">
                         <div style="float: left;">
-                            <button class="buttonblue" style="display: inline-flex;
+                            <button v-if="!$store.state.isAuthenticated" class="btn btn-danger" style="display: inline-flex;
     align-items: center;
     justify-content: center;
     position: relative;
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
-    background-color: transparent;
     outline: 0;
     border: 0;
     margin: 0;
+    margin-right: 10px;
     border-radius: 0;
     padding: 0;
     cursor: pointer;
@@ -321,12 +400,16 @@
     font-size: 0.875rem;
     font-weight: 700;
     line-height: 1.75;
-    padding: 4px 16px;">ثبت نام</button>
+    padding: 4px 16px;" @click="signupisVisible = !signupisVisible">ثبت نام</button>
                         </div>
                     </div>
                     <div style="float: left;margin-right: 30px;margin: 10px; margin-left: 0">
                         <div style="float: left;">
-                            <button class="buttongrey" style="display: inline-flex;
+                            <button v-if="!$store.state.isAuthenticated" class="btn btn-success" style="
+
+    padding: 4px 16px;" @click="loginisVisible = !loginisVisible">ورود</button>
+
+                            <router-link v-if="$store.state.isAuthenticated" class="buttonblue" style="display: inline-flex;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -335,7 +418,7 @@
     background-color: transparent;
     outline: 0;
     border: 0;
-    margin: 0;
+    margin-right: 10px;
     border-radius: 0;
     padding: 0;
     cursor: pointer;
@@ -351,11 +434,11 @@
     font-family: iranyekan-fanum,sans-serif;
     text-transform: uppercase;
     min-width: 64px;
-    padding: 3px 9px;
+    padding: 4px 10px;
     border-radius: 4px;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    border: 1px solid rgba(5, 43, 97, 0.5);
-    color: #052B61;
+    color: #fff;
+    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
     box-shadow: none;
     border-radius: 8px;
     padding: 6px 16px;
@@ -364,22 +447,31 @@
     font-size: 0.875rem;
     font-weight: 700;
     line-height: 1.75;
-    padding: 4px 16px;
-    border-color: #E2E9F3;
-    margin-left: 8px;" @click="showModal = true">ورود</button>
+    padding: 4px 16px;" to="/dashboard">داشبورد</router-link>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <modal v-if="showModal" @close="showModal = false">
-            <login />
-        </modal>
+        <div style="clear:both"></div>
+
+
     </div>
+    <Modal v-model:visible="loginisVisible" title="Login" type="clean" width="65%" offsetTop="30px">
+        <login />
+    </Modal>
+
+    <Modal v-model:visible="signupisVisible" title="Login" type="clean" width="65%" offsetTop="30px">
+        <signup />
+    </Modal>
 </template>
 <script setup>
+import { ref } from 'vue';
+import { Modal } from 'usemodal-vue3';
 import { useDark, useToggle } from "@vueuse/core";
 import login from './../components/modals/login.vue'
+import signup from './../components/modals/signup.vue'
+
 const isDark = useDark({
     selector: "body",
     attribute: "theme",
@@ -395,10 +487,13 @@ export default {
     },
     components: {
         login,
+        signup
     },
     data() {
         return {
-            showModal: false
+            loginisVisible: ref(false),
+            signupisVisible: ref(false),
+            mainMenu: false
         }
     },
     methods: {
@@ -544,5 +639,29 @@ nav {
 
 .navdark a {
     color: #052B61;
+}
+
+.modal {
+    margin-top: -30px;
+}
+
+.submenus {
+    width: 30%;
+    margin: 15px 1.5%;
+    height: 100px;
+    border-radius: 15px;
+    float: right;
+    padding: 2%;
+    text-align: right;
+}
+
+.submenus h6 {
+    font-size: 12px;
+}
+
+.submenus:hover {
+
+    background-color: rgba(150, 150, 150, 0.1);
+
 }
 </style>

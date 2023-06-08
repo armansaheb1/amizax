@@ -895,7 +895,6 @@ export default {
     },
     count() {
       this.board = this.markets.slice(this.counter, this.counter + 4)
-      console.log(this.board)
       if (this.counter > this.markets.length - 4) {
         this.counter = 0
       } else {
@@ -920,21 +919,6 @@ export default {
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-a,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-td,
-th,
-p,
-span,
-button {
-  font-family: 'iranyekan-fanum' !important;
-}
-
 .h3 {
   margin: 40px 0 0;
 }
