@@ -1,12 +1,15 @@
 <template>
   <div class="bg">
+    <chatside v-if="$store.state.chatside" />
     <router-view />
   </div>
 </template>
 
 <script setup>
+
 import { useDark, useToggle } from "@vueuse/core";
 import axios from 'axios'
+import chatside from './components/modals/ChatSide.vue'
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
@@ -15,11 +18,26 @@ const toggleDark = useToggle(isDark);
 </script>
 
 <script>
+window.onscroll = function () { myFunction() };
+
+function myFunction() {
+  if (document.querySelector('.side')) {
+    var pos = 56 - parseInt(document.documentElement.scrollTop)
+    if (pos < 0) {
+      pos = 0
+    }
+    document.querySelector('.side').style.top = pos + 'px'
+  }
+
+}
 export default {
   name: 'app',
   metaInfo: {
     title: 'Index',
     titleTemplate: '%s - Appwork'
+  },
+  components: {
+    chatside
   },
   beforeCreate() {
     this.$store.commit('initializeStore')
@@ -35,20 +53,38 @@ export default {
 </script>
 
 <style lang="scss">
+@font-face {
+  font-family: "UD";
+  src: url("./../public/URWDIN-Demi.woff") format('woff');
+}
+
+div,
 a,
+b,
 h1,
 h2,
 h3,
 h4,
 h5,
+select,
 h6,
+tr,
 td,
 th,
+input,
 p,
 span,
 label,
 button {
   font-family: 'iranyekan-fanum' !important;
+}
+
+.center {
+  text-align: center;
+}
+
+.darkalert {
+  background-color: rgba(30, 70, 250, .1);
 }
 
 [theme="dark"] {
@@ -111,6 +147,10 @@ nav {
   color: #052B61
 }
 
+.lightertext a {
+  color: #052B61
+}
+
 .normaltext {
   color: rgb(134, 158, 192);
 }
@@ -130,6 +170,14 @@ nav {
   background: rgb(244 247 251);
 }
 
+.bg2 {
+  background: rgb(208, 218, 230);
+}
+
+.dark .bg2 {
+  background: #070d16;
+}
+
 .dark .darkercard {
   background: rgb(229, 240, 255);
   color: #052B61;
@@ -140,6 +188,12 @@ nav {
 }
 
 .dark .lightertext {
+  color: white
+}
+
+.dark .lightertext a,
+.dark .lightertext div,
+.dark .lightertext i {
   color: white
 }
 
@@ -208,15 +262,85 @@ nav {
   top: 4% !important;
 }
 
+.stick {
+  border-radius: 20px;
+}
+
+.userbar {
+  width: 450px;
+}
+
+.rightmenu {
+
+  padding: 2%;
+  padding-right: 260px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px
+}
+
+.on600 {
+  display: none;
+}
+
+.curbtn {
+  border: 0.2px solid rgba(150, 150, 150, 0.3) !important;
+}
+
+.half2 {
+  padding-left: 20%
+}
+
+.chatbox {
+  width: 45%;
+}
+
+.notchat {
+  width: 55%;
+}
+
+
 @media only screen and (max-width: 1100px) {
   .lists {
     width: 100%;
   }
 
 
+
 }
 
 @media only screen and (max-width: 899px) {
+  .chatbox {
+    width: 65%;
+  }
+
+  .notchat {
+    width: 35%;
+  }
+
+  .css-vurnku {
+    width: 120%
+  }
+
+  .smalltext {
+    font-size: 9px;
+  }
+
+  .half2 {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .stick {
+    border-radius: 10px;
+  }
+
+  .userbar {
+    width: 200px;
+  }
+
   .half {
     width: 100%;
     text-align: center;
@@ -232,11 +356,11 @@ nav {
   }
 
   .text-half input {
-    width: 80%
+    width: 75%
   }
 
   .text-half button {
-    width: 20%;
+    width: 25%;
     text-align: center;
   }
 
@@ -262,7 +386,56 @@ nav {
 
 }
 
+
+
+@media only screen and (max-width:600px) {
+  .chatbox {
+    width: 100%;
+  }
+
+  .notchat {
+    width: 0%;
+  }
+
+  .css-vurnku {
+    width: 110%
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px
+  }
+
+  .not600 {
+    display: none;
+  }
+
+  .on600 {
+    display: block;
+  }
+
+  .rightmenu {
+    padding-right: 0
+  }
+}
+
+@media only screen and (max-width:500px) {
+  .css-vurnku {
+    width: 140%
+  }
+
+
+}
+
 @media only screen and (max-width:400px) {
+  .stick {
+    border-radius: 5px;
+  }
+
+  .css-vurnku {
+    width: 185%
+  }
+
   .half {
     width: 100%;
     text-align: center;
@@ -273,11 +446,19 @@ nav {
   }
 
   .text-half input {
-    width: 70%
+    width: 65%
   }
 
   .text-half button {
-    width: 30%;
+    width: 35%;
+  }
+
+
+}
+
+@media only screen and (max-width:300px) {
+  .css-vurnku {
+    width: 210%
   }
 
 
@@ -285,6 +466,8 @@ nav {
 
 
 /* width */
+
+
 ::-webkit-scrollbar {
   width: 3px;
 }
@@ -317,4 +500,57 @@ nav {
 .dark ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.noscrollbar ::-webkit-scrollbar {
+  background: transparent;
+  display: none !important;
+}
+
+
+.noscrollbar ::-webkit-scrollbar-track {
+  background: transparent;
+  display: none !important;
+}
+
+/* Handle */
+.noscrollbar ::-webkit-scrollbar-thumb {
+  background: transparent;
+  display: none !important;
+}
+
+/* Handle on hover */
+.noscrollbar ::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+  display: none !important;
+}
+
+.navdark {
+  background-color: white;
+}
+
+.dark .navdark {
+  background-color: rgb(15, 28, 46);
+  color: rgb(229, 240, 255);
+}
+
+.dark .navdark a {
+  color: rgb(229, 240, 255);
+}
+
+.navdark a {
+  color: #052B61;
+}
+
+.buttongrey {
+  color: rgb(5, 43, 97) !important;
+}
+
+
+.dark .buttongrey {
+  color: rgb(226, 233, 243) !important;
+}
+
+
+
+@import'~bootstrap/dist/css/bootstrap.css'
 </style>

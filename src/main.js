@@ -7,8 +7,9 @@ import styles from './index.css'
 import axios from 'axios';
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
+import 'bootstrap'
 
-axios.defaults.baseURL = 'https://www.amizax.com/api/v1/'
+axios.defaults.baseURL = 'https://amizax.com/api/v1/'
 
 const app = createApp(App)
 app.use(store)

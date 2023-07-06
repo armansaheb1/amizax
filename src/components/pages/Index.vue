@@ -1,15 +1,16 @@
 <template>
   <div class="hello">
     <div style="">
-      <div class="half text-half" style=" float: right; clear: bottom;">
-        <h1 class="lightertext" style="    margin: 0px;
+      <div>
+        <div class="half text-half" style=" float: right; clear: bottom;">
+          <h1 class="lightertext" style="    margin: 0px;
     font-size: 3rem;
     font-weight: 600;
     line-height: 1.75;
     font-family: iranyekan-fanum, sans-serif;
     ">{{ general.fa_name }}</h1>
 
-        <h2 style="margin: 0px;
+          <h2 style="margin: 0px;
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.75;
@@ -17,35 +18,39 @@
     color: rgb(134, 158, 192);
     display: block;
     clear:both">
-          {{ general.fa_title }}
+            {{ general.fa_title }}
 
-        </h2>
-        <div style="width: 100%">
-          <input type="text" class="form-control"
-            style="margin-top: 10px; background: transparent; float: right; height: 48px;border-color: rgb(108 125 147); text-align: right; color : rgb(229 240 255); font-family: 'iranyekan-fanum'"
-            placeholder="شماره موبایلتان را وارد کنید">
-          <button class="form-control btn buttonblue"
-            style="margin-top: 10px; float: right; height: 48px;margin-right: -10px; background: rgb(134, 158, 192); text-align: right; font-family: 'iranyekan-fanum'; clear: bottom: ;;"><svg
-              width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M10.1 6.46A.75.75 0 109.04 5.4l-6.07 6.07a.75.75 0 000 1.06l6.07 6.07a.75.75 0 101.06-1.06l-4.79-4.79H20.5a.75.75 0 000-1.5H5.31l4.79-4.79z"
-                fill="currentColor"></path>
-            </svg> شروع</button><br><br><br>
-          <p class="lightertext" style="font-size: 10px;margin-top: -10px;font-family: 'iranyekan-fanum';">در کمتر
-            از ۵ دقیقه ثبت‌نام و اولین معامله
-            خود را شروع کنید.</p>
+          </h2>
+          <div style="width: 100%">
+            <input type="text" class="form-control"
+              style="margin-top: 10px; background: transparent; float: right; height: 48px;border-color: rgb(108 125 147); text-align: right; color : rgb(229 240 255); font-family: 'iranyekan-fanum'"
+              placeholder="شماره موبایلتان را وارد کنید">
+            <button class="form-control btn buttonblue"
+              style="margin-top: 10px; float: right; height: 48px;margin-right: -10px; background: rgb(134, 158, 192); text-align: right; font-family: 'iranyekan-fanum'; clear: bottom: ;;"><svg
+                width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M10.1 6.46A.75.75 0 109.04 5.4l-6.07 6.07a.75.75 0 000 1.06l6.07 6.07a.75.75 0 101.06-1.06l-4.79-4.79H20.5a.75.75 0 000-1.5H5.31l4.79-4.79z"
+                  fill="currentColor"></path>
+              </svg> شروع</button><br><br><br>
+            <p class="lightertext" style="font-size: 10px;margin-top: -10px;font-family: 'iranyekan-fanum';">در کمتر
+              از ۵ دقیقه ثبت‌نام و اولین معامله
+              خود را شروع کنید.</p>
+          </div>
+
+
+
         </div>
-
-
-
-      </div>
-      <div class="half" style="float: right; padding-top:40px ">
-        <img class="mobimage" src="/banner-mobiles.png" style=" height: 100%;" alt="">
+        <div class="half half2" style="float: right; padding-top:40px; ; height: 475px; margin-bottom: -3px">
+          <div class=""
+            style=" border-radius: 20px 20px 0 0; background: white;width: 100%; height: 100%; box-shadow: rgba(100, 100, 100, 0.6) 0px 0px 2px, rgba(100, 100, 100, 0.3) 0px 4px 10px">
+            <indexexchange />
+          </div>
+        </div>
       </div>
       <div style="clear:both"></div>
 
       <div class="lightercard notphone"
-        style="width:90%; margin:auto; height:75px; margin-top: -1px;position: relative;border-radius: 20px; box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 4px 10px; margin-bottom: 30px;">
+        style="width:90%; margin:auto; height:75px; margin-top: -2px;position: relative;border-radius: 20px; box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 4px 10px; margin-bottom: 30px;">
         <div v-for="item in board"
           style="width:25%; float: left; height: 50px;border-right: solid rgba(150, 150, 150, .15) 2px;margin-top: 15px;">
           <div style="width: 20%;float: right;height: 50px;">
@@ -119,7 +124,7 @@
       <div style="width: 100%; height: 168px; padding: 3%;padding-top: 2%">
         <a v-for="item in topsticker" v-bind:key="item" :href="item.link"
           style="width: 33%; float: left; border-radius: 20px; padding: 0.5%;">
-          <img style="border-radius: 20px;width: 100%; height: 100%" :src="item.get_pic" alt="">
+          <img class="stick" style="width: 100%; height: 100%" :src="item.get_pic" alt="">
         </a>
       </div>
       <div style="clear: both"></div>
@@ -133,7 +138,8 @@
             d="M23 8a.692.692 0 00-.131-.403l-3.91-5.333A.644.644 0 0018.445 2H5.555a.644.644 0 00-.514.264l-3.91 5.333a.684.684 0 00.011.82l10.356 13.334A.64.64 0 0012 22a.64.64 0 00.502-.25L22.858 8.419A.692.692 0 0023 8zM5.442 3.924l1.648 3.41H2.942l2.5-3.41zM15 8.667l-3 10.346L9 8.667h6zM9.42 7.333L12 3.778l2.578 3.555H9.422zm3.868-4h4.114l-1.646 3.404-2.468-3.404zM8.243 6.737L6.598 3.333h4.113L8.243 6.737zm-.59 1.93l2.78 9.585L2.99 8.667h4.664zm8.694 0h4.664l-7.444 9.585 2.78-9.585zm.563-1.334l1.648-3.41 2.5 3.41H16.91z">
           </path>
         </svg>
-        <h2 style="text-align: right;float:right; font-size: 1.4rem; margin-right: 10px;" class="lightertext">چرا والکس؟
+        <h2 style="text-align: right;float:right; font-size: 1.4rem; margin-right: 10px;" class="lightertext">چرا آمیزاکس
+          ؟
         </h2>
       </div>
       <div class="notphone">
@@ -351,13 +357,14 @@
       <div style="margin:auto;border-radius: 5px; max-height: 464px; overflow: auto" class="lightercard lists notphone">
         <h6 style="font-weight: 800; font-size: 16px; padding: 4% 3%; float: right">بازارهای معاملاتی </h6>
 
-        <table class="table" style="direction: rtl;text-align: center;">
+        <table style="direction: rtl;text-align: center; width: 100%">
           <tr style="border-bottom: solid rgba(150, 150, 150, 0.3) 1px">
             <td style="text-align: center; padding: 0% 2% 20px 2%" class="lightertext col-2">بازار</td>
             <td style="text-align: center; padding: 0% 4% 20px 4%" class="lightertext">آخرین قیمت</td>
             <td style="text-align: center; padding: 0% 4% 20px 4%" class="lightertext">تغییرات (24h)</td>
             <td style="text-align: center; padding: 0% 4% 20px 4%" class="lightertext">حجم معاملات (24h)</td>
           </tr>
+
           <tr style="border-bottom: solid rgba(150, 150, 150, 0.3) 1px">
             <td style="text-align: center; padding: 10px 1% 10px 1%" class="lightertext col-2">
               <div style="width:25%; float:right; text-align: right">
@@ -480,7 +487,7 @@
       <div style="margin:auto;border-radius: 5px; max-height: 400px; overflow: auto" class="lightercard lists onphone">
         <h6 style="font-weight: 800; font-size: 16px; padding: 4% 3%; float: right">بازارهای معاملاتی </h6>
 
-        <table class="table" style="direction: rtl;text-align: center;">
+        <table style="direction: rtl;text-align: center;width: 100%">
           <tr style="border-bottom: solid rgba(150, 150, 150, 0.3) 1px">
             <td style="text-align: center; padding: 0% 2% 20px 2% ; width: 33%" class="lightertext col-2">بازار</td>
             <td style="text-align: center; padding: 0% 4% 20px 4%; width: 33%" class="lightertext"> قیمت</td>
@@ -546,10 +553,6 @@
                 {{ parseFloat(item.rial / 10).toFixed(4) }}</a>
             </td>
 
-          </tr>
-          <tr v-for="(item, idx) in markets" style="border-bottom: solid rgba(150, 150, 150, 0.3) 1px">
-
-
             <td
               v-if="item.symbol.replace('USDT', '') === 'BTC' | item.symbol.replace('USDT', '') === 'ETH' | item.symbol.replace('USDT', '') === 'TRX' | item.symbol.replace('USDT', '') === 'DOGE' | item.symbol.replace('USDT', '') === 'ADA' | item.symbol.replace('USDT', '') === 'SOL' | item.symbol.replace('USDT', '') === 'XRP'"
               style="text-align: center; padding: 25px 25px 25px 25px;" class="lightertext"><span
@@ -557,6 +560,12 @@
                   v-if="String(item.change).includes('-')" style="; color:rgb(235, 71, 99)">{{
                     item.change.toFixed(1)
                   }}٪</a><a v-else style=" color: #34B288">{{ item.change.toFixed(1) }}٪</a></span></td>
+
+          </tr>
+          <tr v-for="(item, idx) in markets" style="border-bottom: solid rgba(150, 150, 150, 0.3) 1px">
+
+
+
             <td
               v-if="!(item.symbol.replace('USDT', '') === 'BTC' | item.symbol.replace('USDT', '') === 'ETH' | item.symbol.replace('USDT', '') === 'TRX' | item.symbol.replace('USDT', '') === 'DOGE' | item.symbol.replace('USDT', '') === 'ADA' | item.symbol.replace('USDT', '') === 'SOL' | item.symbol.replace('USDT', '') === 'XRP')"
               style="text-align: center; padding: 10px 1% 10px 1%" class="lightertext col-2">
@@ -825,11 +834,15 @@
   
 <script>
 import axios from 'axios';
+import indexexchange from '../pages/IndexExchange.vue'
 
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  components: {
+    indexexchange
   },
   data() {
     return {

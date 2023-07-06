@@ -1,25 +1,20 @@
 <template>
-    <div v-if="false" style="width: 100%; height: 56px">
-        <img style="
-    inset: 0px;
-    box-sizing: border-box;
-    padding: 0px;
-    border: none;
-    margin: auto;
-    display: block;
-    width: 0px;
-    height: 0px;
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    object-position: center center" src="/website-banner-xs.webp" alt="">
+    <topbanner />
+    <navbar />
+    <div style="padding: 2% 8%">
+        <router-view />
     </div>
 </template>
 
 <script>
+
+import navbar from '../layouts/Navbar.vue'
+import topbanner from '../layouts/topbanner.vue'
 export default {
+    components: {
+        navbar,
+        topbanner
+    },
     name: 'HelloWorld',
     props: {
         msg: String

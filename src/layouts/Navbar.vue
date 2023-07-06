@@ -99,7 +99,7 @@
                                 </svg></div>
                             <div><span style="; font-family: 'iranyekan-fanum';">انتخاب تم</span>
                                 <div style="float: left;">
-                                    <input type="checkbox" v-model="isDark" @click="toggleDark()"
+                                    <input type="checkbox" v-model="isDark" @click="toggleDark();"
                                         data-onlabel='<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mui-9gf0ym" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12.745 22c-.163 0-.326 0-.49-.01-5.368-.232-9.854-4.427-10.228-9.543-.326-4.39 2.291-8.492 6.51-10.213 1.198-.483 1.83-.111 2.099.159.268.26.642.865.144 1.971a7.428 7.428 0 00-.652 3.116c.019 4.121 3.546 7.618 7.85 7.786a8.533 8.533 0 001.832-.121c1.265-.223 1.792.27 1.994.586.2.316.431.995-.336 2C19.436 20.428 16.205 22 12.745 22zm-9.29-9.655c.327 4.428 4.219 8.055 8.858 8.25 3.154.15 6.145-1.246 7.986-3.683.143-.195.21-.335.24-.41a1.554 1.554 0 00-.48.029c-.7.12-1.428.167-2.147.14-5.062-.196-9.203-4.317-9.232-9.172 0-1.284.259-2.52.786-3.683.096-.205.115-.344.125-.419-.086 0-.24.019-.49.121C5.45 5.006 3.188 8.56 3.457 12.345z" fill="currentColor"></path></svg>'
                                         data-size="sm" data-onstyle="secondary"
                                         data-offlabel='<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mui-1m98bj6" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12.02 19.283a7.268 7.268 0 01-7.263-7.263 7.268 7.268 0 017.263-7.263 7.268 7.268 0 017.263 7.263 7.268 7.268 0 01-7.263 7.263zm0-13.023a5.768 5.768 0 00-5.76 5.76 5.768 5.768 0 005.76 5.76 5.768 5.768 0 005.76-5.76 5.768 5.768 0 00-5.76-5.76zM12.02 23c-.551 0-1.002-.41-1.002-.962v-.08c0-.55.451-1.002 1.002-1.002.551 0 1.002.451 1.002 1.002 0 .551-.451 1.042-1.002 1.042zm7.153-2.825c-.26 0-.51-.1-.711-.29l-.13-.13a.998.998 0 111.412-1.413l.13.13a.998.998 0 01-.701 1.703zm-14.306 0c-.26 0-.51-.1-.711-.29a.998.998 0 010-1.413l.13-.13a.998.998 0 111.413 1.412l-.13.13c-.191.19-.452.29-.702.29zm17.171-7.153h-.08c-.55 0-1.002-.451-1.002-1.002 0-.551.451-1.002 1.002-1.002.551 0 1.042.451 1.042 1.002 0 .551-.41 1.002-.962 1.002zm-19.956 0h-.08C1.45 13.022 1 12.57 1 12.02c0-.551.45-1.002 1.002-1.002.55 0 1.042.451 1.042 1.002 0 .551-.411 1.002-.962 1.002zm16.96-7.023c-.26 0-.51-.1-.71-.29a.998.998 0 010-1.413l.13-.13a.998.998 0 111.412 1.412l-.13.13c-.19.19-.44.291-.701.291zM4.998 6c-.26 0-.51-.1-.711-.29l-.13-.14a.998.998 0 111.412-1.413l.13.13a.998.998 0 010 1.413c-.19.2-.45.3-.7.3zm7.023-2.955c-.551 0-1.002-.411-1.002-.962v-.08C11.018 1.45 11.47 1 12.02 1c.551 0 1.002.45 1.002 1.002 0 .55-.451 1.042-1.002 1.042z" fill="currentColor"></path></svg>'
@@ -146,7 +146,7 @@
                     </div>
 
                     <div style="width: 50%; padding: 2.7% 1% 0 3.6%; float:left; box-sizing: border-box">
-                        <button @click="login()" class="btn btn-success" style="display: inline-flex;
+                        <button @click="loginisVisible = !loginisVisible" class="btn btn-success" style="display: inline-flex;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -184,8 +184,8 @@
                         AMIZAX</h3>
                 </div>
                 <div>
-                    <button @click="phonemenu()"
-                        style="margin-top: 15px; float:right; border: none;background-color: transparent;color: rgba(0, 0, 0, 0.54)">
+                    <button @click="phonemenu()" class="lightertext"
+                        style="margin-top: 15px; float:right; border: none;background-color: transparent">
                         <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-10dohqv" focusable="false"
                             aria-hidden="true" viewBox="0 0 24 24">
@@ -206,7 +206,7 @@
                             src="https://www.amizax.com/img/logo.png" alt="">
                     </a>
                     <div @mouseover="mainMenu = true" @mouseleave="mainMenu = false"
-                        style="float: right;margin-right: 30px; margin: 10px;margin-bottom: 0;     padding-bottom: 6px;">
+                        style="float: right;margin-right: 30px; margin: 10px;margin-bottom: 0; z-index: 1000;    padding-bottom: 6px;">
                         <a style="cursor: pointer">
                             <svg style="float: left;color:#8D9FB9; margin-right: 2px;margin-top:6px" width="20" height="20"
                                 fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -218,54 +218,63 @@
                             </svg><i class="material-symbols-outlined" style="width: 32px; font-size: 32px">apps</i>
                         </a>
                         <div class="navdark" v-if="mainMenu"
-                            style="position: absolute; width: 88%;height: 390px;  margin:auto;margin-top: 5px;left: 6%">
+                            style="position: absolute; width: 84%;height: 390px;  margin:auto;margin-top: 5px;left: 8%;z-index: 1000;">
                             <div class="submenus">
-                                <div style="width: 20%; float: right; margin-top: 6px">
-                                    <img src="/exchange.png" alt="">
-                                </div>
-                                <div style="width: 80%; float: right">
-                                    <h4>اکسچینج</h4>
-                                    <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
-                                </div>
+                                <router-link @click="mainMenu = false" to="/exchange">
+                                    <div style="width: 20%; float: right; margin-top: 6px">
+                                        <i class="material-symbols-outlined">
+                                            currency_exchange</i>
+                                    </div>
+                                    <div style="width: 80%; float: right">
+                                        <h4>اکسچینج</h4>
+                                        <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
+                                    </div>
+                                </router-link>
+
+                            </div>
+                            <div class="submenus">
+                                <router-link @click="mainMenu = false" to="/buy">
+                                    <div style="width: 20%; float: right; margin-top: 6px">
+                                        <i class="material-symbols-outlined">
+                                            shopping_cart</i>
+                                    </div>
+                                    <div style="width: 80%; float: right">
+                                        <h4>خرید</h4>
+                                        <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
+                                    </div>
+                                </router-link>
+                            </div>
+                            <div class="submenus">
+                                <router-link @click="mainMenu = false" to="/sell">
+                                    <div style="width: 20%; float: right; margin-top: 6px">
+                                        <i class="material-symbols-outlined">
+                                            storefront</i>
+                                    </div>
+                                    <div style="width: 80%; float: right">
+                                        <h4>فروش</h4>
+                                        <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
+                                    </div>
+                                </router-link>
+
+                            </div>
+                            <div class="submenus">
+                                <router-link @click="mainMenu = false" to="/p2p">
+                                    <div style="width: 20%; float: right; margin-top: 6px">
+                                        <i class="material-symbols-outlined">
+                                            monitoring</i>
+                                    </div>
+                                    <div style="width: 80%; float: right">
+                                        <h4>معاملات P2P</h4>
+                                        <h6 class="normaltext">معاملات کاربر به کاربر</h6>
+                                    </div>
+                                </router-link>
 
 
                             </div>
                             <div class="submenus">
                                 <div style="width: 20%; float: right; margin-top: 6px">
-                                    <img src="/exchange.png" alt="">
-                                </div>
-                                <div style="width: 80%; float: right">
-                                    <h4>خرید</h4>
-                                    <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
-                                </div>
-
-
-                            </div>
-                            <div class="submenus">
-                                <div style="width: 20%; float: right; margin-top: 6px">
-                                    <img src="/exchange.png" alt="">
-                                </div>
-                                <div style="width: 80%; float: right">
-                                    <h4>فروش</h4>
-                                    <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
-                                </div>
-
-
-                            </div>
-                            <div class="submenus">
-                                <div style="width: 20%; float: right; margin-top: 6px">
-                                    <img src="/exchange.png" alt="">
-                                </div>
-                                <div style="width: 80%; float: right">
-                                    <h4>معاملات اسپات</h4>
-                                    <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
-                                </div>
-
-
-                            </div>
-                            <div class="submenus">
-                                <div style="width: 20%; float: right; margin-top: 6px">
-                                    <img src="/exchange.png" alt="">
+                                    <i class="material-symbols-outlined">
+                                        monitoring</i>
                                 </div>
                                 <div style="width: 80%; float: right">
                                     <h4>معاملات مرجین</h4>
@@ -276,7 +285,8 @@
                             </div>
                             <div class="submenus">
                                 <div style="width: 20%; float: right; margin-top: 6px">
-                                    <img src="/exchange.png" alt="">
+                                    <i class="material-symbols-outlined">
+                                        monitoring</i>
                                 </div>
                                 <div style="width: 80%; float: right">
                                     <h4>معاملات فیوچرز</h4>
@@ -287,7 +297,8 @@
                             </div>
                             <div class="submenus">
                                 <div style="width: 20%; float: right; margin-top: 6px">
-                                    <img src="/exchange.png" alt="">
+                                    <i class="material-symbols-outlined">
+                                        account_balance</i>
                                 </div>
                                 <div style="width: 80%; float: right">
                                     <h4>حسابداری</h4>
@@ -298,10 +309,11 @@
                             </div>
                             <div class="submenus">
                                 <div style="width: 20%; float: right; margin-top: 6px">
-                                    <img src="/exchange.png" alt="">
+                                    <i class="material-symbols-outlined">
+                                        person</i>
                                 </div>
                                 <div style="width: 80%; float: right">
-                                    <h4>امنیت</h4>
+                                    <h4>حساب کاربری</h4>
                                     <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
                                 </div>
 
@@ -309,7 +321,8 @@
                             </div>
                             <div class="submenus">
                                 <div style="width: 20%; float: right; margin-top: 6px">
-                                    <img src="/exchange.png" alt="">
+                                    <i class="material-symbols-outlined">
+                                        work_history</i>
                                 </div>
                                 <div style="width: 80%; float: right">
                                     <h4>تاریخچه</h4>
@@ -353,7 +366,7 @@
 
                     <div style="float: left;padding: 11px;border-right: solid 1.5px lightgrey;">
                         <div style="float: left;">
-                            <input type="checkbox" v-model="isDark" @click="toggleDark()"
+                            <input type="checkbox" v-model="isDark" @click="toggleDark();"
                                 data-onlabel='<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mui-9gf0ym" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12.745 22c-.163 0-.326 0-.49-.01-5.368-.232-9.854-4.427-10.228-9.543-.326-4.39 2.291-8.492 6.51-10.213 1.198-.483 1.83-.111 2.099.159.268.26.642.865.144 1.971a7.428 7.428 0 00-.652 3.116c.019 4.121 3.546 7.618 7.85 7.786a8.533 8.533 0 001.832-.121c1.265-.223 1.792.27 1.994.586.2.316.431.995-.336 2C19.436 20.428 16.205 22 12.745 22zm-9.29-9.655c.327 4.428 4.219 8.055 8.858 8.25 3.154.15 6.145-1.246 7.986-3.683.143-.195.21-.335.24-.41a1.554 1.554 0 00-.48.029c-.7.12-1.428.167-2.147.14-5.062-.196-9.203-4.317-9.232-9.172 0-1.284.259-2.52.786-3.683.096-.205.115-.344.125-.419-.086 0-.24.019-.49.121C5.45 5.006 3.188 8.56 3.457 12.345z" fill="currentColor"></path></svg>'
                                 data-size="sm" data-onstyle="secondary"
                                 data-offlabel='<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mui-1m98bj6" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12.02 19.283a7.268 7.268 0 01-7.263-7.263 7.268 7.268 0 017.263-7.263 7.268 7.268 0 017.263 7.263 7.268 7.268 0 01-7.263 7.263zm0-13.023a5.768 5.768 0 00-5.76 5.76 5.768 5.768 0 005.76 5.76 5.768 5.768 0 005.76-5.76 5.768 5.768 0 00-5.76-5.76zM12.02 23c-.551 0-1.002-.41-1.002-.962v-.08c0-.55.451-1.002 1.002-1.002.551 0 1.002.451 1.002 1.002 0 .551-.451 1.042-1.002 1.042zm7.153-2.825c-.26 0-.51-.1-.711-.29l-.13-.13a.998.998 0 111.412-1.413l.13.13a.998.998 0 01-.701 1.703zm-14.306 0c-.26 0-.51-.1-.711-.29a.998.998 0 010-1.413l.13-.13a.998.998 0 111.413 1.412l-.13.13c-.191.19-.452.29-.702.29zm17.171-7.153h-.08c-.55 0-1.002-.451-1.002-1.002 0-.551.451-1.002 1.002-1.002.551 0 1.042.451 1.042 1.002 0 .551-.41 1.002-.962 1.002zm-19.956 0h-.08C1.45 13.022 1 12.57 1 12.02c0-.551.45-1.002 1.002-1.002.55 0 1.042.451 1.042 1.002 0 .551-.411 1.002-.962 1.002zm16.96-7.023c-.26 0-.51-.1-.71-.29a.998.998 0 010-1.413l.13-.13a.998.998 0 111.412 1.412l-.13.13c-.19.19-.44.291-.701.291zM4.998 6c-.26 0-.51-.1-.711-.29l-.13-.14a.998.998 0 111.412-1.413l.13.13a.998.998 0 010 1.413c-.19.2-.45.3-.7.3zm7.023-2.955c-.551 0-1.002-.411-1.002-.962v-.08C11.018 1.45 11.47 1 12.02 1c.551 0 1.002.45 1.002 1.002 0 .55-.451 1.042-1.002 1.042z" fill="currentColor"></path></svg>'
@@ -409,46 +422,14 @@
 
     padding: 4px 16px;" @click="loginisVisible = !loginisVisible">ورود</button>
 
-                            <router-link v-if="$store.state.isAuthenticated" class="buttonblue" style="display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-    background-color: transparent;
-    outline: 0;
-    border: 0;
-    margin-right: 10px;
-    border-radius: 0;
-    padding: 0;
-    cursor: pointer;
-    user-select: none;
-    vertical-align: middle;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    text-decoration: none;
-    color: inherit;
-    font-size: 0.8125rem;
-    font-weight: 700;
-    line-height: 1.75;
-    font-family: iranyekan-fanum,sans-serif;
-    text-transform: uppercase;
-    min-width: 64px;
-    padding: 4px 10px;
-    border-radius: 4px;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    color: #fff;
-    box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12);
-    box-shadow: none;
-    border-radius: 8px;
-    padding: 6px 16px;
-    min-width: initial;
-    font-family: iranyekan-fanum,sans-serif;
-    font-size: 0.875rem;
-    font-weight: 700;
-    line-height: 1.75;
-    padding: 4px 16px;" to="/dashboard">داشبورد</router-link>
+                            <a @click="mainMenu = false" v-if="$store.state.isAuthenticated" class=""
+                                style="text-decoration: none;" href="/dashboard"><i class="material-symbols-outlined"
+                                    style="width: 32px; font-size: 32px; margin: 0 5px">person</i></a>
+
+
                         </div>
+                        <i @click="$store.state.chatside = true" class="material-symbols-outlined"
+                            style="width: 32px; font-size: 26px;margin: 4px 5px">chat</i>
                     </div>
                 </div>
             </div>
@@ -660,8 +641,8 @@ nav {
 }
 
 .submenus:hover {
-
-    background-color: rgba(150, 150, 150, 0.1);
+    cursor: pointer;
+    background-color: rgba(150, 150, 150, 0.2);
 
 }
 </style>
