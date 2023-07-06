@@ -309,6 +309,7 @@
 
                             </div>
                             <div class="submenus">
+
                                 <router-link @click="mainMenu = false" to="/wallets">
                                     <div style="width: 20%; float: right; margin-top: 6px">
                                         <i class="material-symbols-outlined">
