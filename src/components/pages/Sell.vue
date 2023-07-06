@@ -329,7 +329,7 @@
                                         <a style=";font-size:10px; float: right">حداقل میزان خرید ۱۰۰۰,۰۰۰ ریال
                                             میباشد</a><br>
                                         <p style="font-size: 15px;float:right; color:rgba(150,150,150, .8)" v-if="price">
-                                            دریافتی : <a style="font:16px 'UD'; padding:5px 20px ">{{ getting.toFixed(4)
+                                            دریافتی : <a style="font:16px 'UD'; padding:5px 20px ">{{ getting
                                             }}</a></p>
                                     </div>
                                     <div style="clear: both;"></div>

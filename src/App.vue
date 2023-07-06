@@ -1,5 +1,6 @@
 <template>
   <div class="bg">
+    <supportchatbox />
     <chatside v-if="$store.state.chatside" />
     <router-view />
   </div>
@@ -10,6 +11,7 @@
 import { useDark, useToggle } from "@vueuse/core";
 import axios from 'axios'
 import chatside from './components/modals/ChatSide.vue'
+import supportchatbox from './components/modals/SupportChat.vue'
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
@@ -37,7 +39,8 @@ export default {
     titleTemplate: '%s - Appwork'
   },
   components: {
-    chatside
+    chatside,
+    supportchatbox
   },
   beforeCreate() {
     this.$store.commit('initializeStore')
