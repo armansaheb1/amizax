@@ -129,8 +129,6 @@ export default {
         document.title = ' AMIZAX Exchange | شارژ حساب '
         this.tv(true)
         this.getalert()
-        this.checklevel()
-        this.check()
         this.getc()
         this.getlev()
         this.getuserfee()

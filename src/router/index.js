@@ -51,6 +51,10 @@ const routes = [{
     component: layout3,
     children: [
       {
+        path: '/login',
+        component: () => import(/* webpackChunkName: "demo" */ '../components/modals/login.vue')
+    },
+      {
         path: '/buy',
         component: () => import(/* webpackChunkName: "demo" */ '../components/pages/Buy.vue')
       },

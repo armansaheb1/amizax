@@ -296,27 +296,29 @@
 
                             </div>
                             <div class="submenus">
-                                <div style="width: 20%; float: right; margin-top: 6px">
-                                    <i class="material-symbols-outlined">
-                                        account_balance</i>
-                                </div>
-                                <div style="width: 80%; float: right">
-                                    <h4>حسابداری</h4>
-                                    <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
-                                </div>
-
+                                <router-link @click="mainMenu = false" to="/deposit">
+                                    <div style="width: 20%; float: right; margin-top: 6px">
+                                        <i class="material-symbols-outlined">
+                                            account_balance</i>
+                                    </div>
+                                    <div style="width: 80%; float: right">
+                                        <h4>حسابداری</h4>
+                                        <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
+                                    </div>
+                                </router-link>
 
                             </div>
                             <div class="submenus">
-                                <div style="width: 20%; float: right; margin-top: 6px">
-                                    <i class="material-symbols-outlined">
-                                        person</i>
-                                </div>
-                                <div style="width: 80%; float: right">
-                                    <h4>حساب کاربری</h4>
-                                    <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
-                                </div>
-
+                                <router-link @click="mainMenu = false" to="/wallets">
+                                    <div style="width: 20%; float: right; margin-top: 6px">
+                                        <i class="material-symbols-outlined">
+                                            person</i>
+                                    </div>
+                                    <div style="width: 80%; float: right">
+                                        <h4>حساب کاربری</h4>
+                                        <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
+                                    </div>
+                                </router-link>
 
                             </div>
                             <div class="submenus">
