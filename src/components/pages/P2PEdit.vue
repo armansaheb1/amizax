@@ -398,7 +398,7 @@ export default {
                                 const toPath = this.$route.query.to || '/user-level'
                                 this.$router.push(toPath)
                             } else {
-                                const toPath = this.$route.query.to || '/dashboard'
+                                const toPath = this.$route.query.to || '/'
                                 this.$router.push(toPath)
                             }
                         })
@@ -493,7 +493,7 @@ label {
 }
 
 .address h3::-webkit-scrollbar {
-    width: 1px;
+    width: 0px;
 }
 
 .address h3::-webkit-scrollbar-track {

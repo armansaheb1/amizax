@@ -1,7 +1,8 @@
 <template>
     <topbanner />
     <navbar />
-    <div style=" overflow: hidden;width: 100%; position: relative; top: -5px; height: 100%" class="noscrollbar">
+    <div style="margin-top: 56px; overflow: hidden;width: 100%; position: relative; top: -5px; height: 100%"
+        class="noscrollbar">
         <div style="width: 200px;border-left: solid 1px rgba(150,150,150, 0.4);float: right; height: 100%; position: fixed; right: 0; z-index: 100;"
             class="navdark side not600">
             <a href="/deposit" :class='$route.fullPath === "/deposit" ? "lightertext" : ""'
@@ -119,6 +120,8 @@
 import navbar from '../layouts/Navbar.vue'
 import topbanner from '../layouts/topbanner.vue'
 import axios from 'axios';
+import "bootstrap";
+
 export default {
     components: {
         navbar,

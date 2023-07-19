@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="onphone" v-if="!notphone">
-            <div class="card darkalert" v-if="(!price || !sym) && alert">
+            <div class="card darkalert" v-if="(!price || !sym) && alert && false">
                 <div class="card-body" style="text-align: right;">
                     <h5 class="lightertext">{{ alert.title }}</h5><br>
                     <p class="normaltext" style="font-size: 14px">{{ alert.text }}</p>
@@ -60,7 +60,7 @@
                                     style="width: 80%;margin: auto;border-radius: 5px 5px 0 0; border-color:rgba(150,150,150, .8) !important; text-align: center;">
                                 <div style="width: 80%;margin: auto;height:165px; overflow-x:hidden ;overflow-y:scroll ; border: solid rgba(150,150,150, .8) .2px ; border-radius: 0 0 5px 5px; font-size: 13px!important"
                                     id="my-list-id">
-                                    <button v-if="'USDT'.includes(searchtxt.toUpperCase())" class=" curbtn"
+                                    <button id="USDT" v-if="'USDT'.includes(searchtxt.toUpperCase())" class=" curbtn"
                                         onMouseOver="this.style.background='rgba(150, 150, 150, 0.4)'"
                                         onMouseOut="this.style.background='rgba(0,0,0,0)'" type="button"
                                         style="height:55px; width: 100% ; background: none ;border-style: none; border-bottom: solid .2px rgba(150,150,150, .8) ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
@@ -169,7 +169,7 @@
         </div>
         <div class="notphone" v-if="notphone">
             <div style="width: 68%; float: left" class="">
-                <div class="card darkalert" v-if="(!price || !sym) && alert">
+                <div class="card darkalert" v-if="(!price || !sym) && alert && false">
                     <div class="card-body" style="text-align: right;">
                         <h4>{{ alert.title }}</h4>
                         <p>{{ alert.text }}</p>
@@ -238,7 +238,7 @@
                                         style="width: 80%;margin: auto;border-radius: 5px 5px 0 0; border-color:rgba(150,150,150, .8) !important; border: 0.2px solid rgba(150, 150, 150, 0.3) !important;">
                                     <div style="width: 80%;margin: auto;height:165px; overflow-x:hidden ;overflow-y:scroll ; border: solid rgba(150,150,150, .8) .2px ; border-radius: 0 0 5px 5px; font-size: 13px!important"
                                         id="my-list-id">
-                                        <button v-if="'USDT'.includes(searchtxt.toUpperCase())" class=" curbtn"
+                                        <button id="USDT" v-if="'USDT'.includes(searchtxt.toUpperCase())" class=" curbtn"
                                             onMouseOver="this.style.background='rgba(150, 150, 150, 0.4)'"
                                             onMouseOut="this.style.background='rgba(0,0,0,0)'" type="button"
                                             style="height:55px; width: 100% ; background: none ;border-style: none; border-bottom: solid .2px rgba(150,150,150, .8) ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
@@ -413,11 +413,17 @@ export default {
             });
         },
         checksym() {
-            if (this.$route.params.symbol) {
-                setTimeout(() => {
-                    document.getElementById(this.$route.params.symbol).click()
-                }, 1000)
-            }
+            setTimeout(() => {
+                if (this.$route.params.symbol) {
+                    setTimeout(() => {
+                        document.getElementById(this.$route.params.symbol).click()
+                    }, 100)
+                } else {
+                    setTimeout(() => {
+                        document.getElementById('USDT').click()
+                    }, 100)
+                }
+            }, 100);
         },
         gettings() {
             if ((this.sym in this.leverage || this.sym === 'USDT')) {
@@ -502,8 +508,10 @@ export default {
                 .then(response => {
                     this.leverage = response.data
                     this.leverageback = response.data
-                    this.checksym()
-                    this.search()
+                    setTimeout(() => {
+                        this.checksym()
+                        this.search()
+                    }, 500);
                 })
         },
         async getprice() {
@@ -586,7 +594,7 @@ export default {
                                 const toPath = this.$route.query.to || '/user-level'
                                 this.$router.push(toPath)
                             } else {
-                                const toPath = this.$route.query.to || '/dashboard'
+                                const toPath = this.$route.query.to || '/'
                                 this.$router.push(toPath)
                             }
                         })

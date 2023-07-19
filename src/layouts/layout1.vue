@@ -1,16 +1,22 @@
 <template>
     <topbanner />
     <navbar />
-    <router-view />
+    <router-view style="margin-top: 56px" />
+    <footers />
 </template>
 
 <script>
 import navbar from '../layouts/Navbar.vue'
+import footers from '../layouts/footer.vue'
 import topbanner from '../layouts/topbanner.vue'
+import "bootstrap";
+
+
 export default {
     components: {
         navbar,
-        topbanner
+        topbanner,
+        footers
     },
     name: 'HelloWorld',
     props: {

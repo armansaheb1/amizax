@@ -94,11 +94,11 @@
                             <br>
                             <div :style="[chain_error ? { 'border': 'solid red 1px !important' } : {}]"
                                 class="btn-group btn-group-toggle" data-toggle="buttons" style="float:left">
-                                <label @click="chain_error = ''" v-for="item in chains" v-bind:key="item"
-                                    class="btn btn-primary" style="width: 80px"
+                                <label v-for="item in chains" @click="currency = item.id; chain_error = ''"
+                                    v-bind:key="item" class="btn btn-primary" style="width: 80px"
                                     :class="[chain === `${item.chain}` ? 'active' : '']">
-                                    <input @click="currency = item.id" required v-model="chain" :value="item.chain" hidden
-                                        type="radio" name="options" autocomplete="off"> {{ item.chain }}
+                                    <input required v-model="chain" :value="item.chain" hidden type="radio" name="options"
+                                        autocomplete="off"> {{ item.chain }}
                                 </label>
 
                             </div>
@@ -156,16 +156,16 @@
                                 </h5>
                             </button>
                         </div><br><br>
-
-                        <div :style="[chain_error ? { 'border': 'solid red 1px !important' } : {}]"
-                            class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-primary" :class="[price_type === `auto` ? 'active' : '']">
-                                <input required v-model="price_type" :value="'auto'" hidden type="radio" name="options"
-                                    autocomplete="off"> قیمت پیشنهادی آمیزاکس
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label @click="price_type = 'auto'" class="btn btn-primary"
+                                :class="[price_type === `auto` ? 'active' : '']">
+                                <input required checked value="auto" hidden type="radio" name="options" autocomplete="off">
+                                قیمت پیشنهادی آمیزاکس
                             </label>
-                            <label class="btn btn-primary" :class="[price_type === `custom` ? 'active' : '']">
-                                <input required v-model="price_type" :value="'custom'" hidden type="radio" name="options"
-                                    autocomplete="off"> قیمت پیشنهادی شما
+                            <label @click="price_type = 'custom'" class="btn btn-primary"
+                                :class="[price_type === `custom` ? 'active' : '']">
+                                <input required value="custom" hidden type="radio" name="options" autocomplete="off"> قیمت
+                                پیشنهادی شما
                             </label>
 
                         </div><br><br><br>
@@ -235,13 +235,13 @@
 
                             <div :style="[chain_error ? { 'border': 'solid red 1px !important' } : {}]"
                                 class="btn-group btn-group-toggle" data-toggle="buttons" style="float: left;">
-                                <label class="btn btn-primary" :class="[change_world ? 'active' : '']">
-                                    <input required v-model="change_world" :value="true" hidden type="radio" name="options"
-                                        autocomplete="off">بله
+                                <label @click="change_world = true" class="btn btn-primary"
+                                    :class="[change_world ? 'active' : '']">
+                                    <input required :value="true" hidden type="radio" name="options" autocomplete="off">بله
                                 </label>
-                                <label class="btn btn-primary" :class="[!change_world ? 'active' : '']">
-                                    <input required v-model="change_world" :value="false" hidden type="radio" name="options"
-                                        autocomplete="off">خیر
+                                <label @click="change_world = false" class="btn btn-primary"
+                                    :class="[!change_world ? 'active' : '']">
+                                    <input required :value="false" hidden type="radio" name="options" autocomplete="off">خیر
                                 </label>
 
                             </div>
@@ -262,13 +262,13 @@
 
                             <div :style="[chain_error ? { 'border': 'solid red 1px !important' } : {}]"
                                 class="btn-group btn-group-toggle" data-toggle="buttons" style="float: left;">
-                                <label class="btn btn-primary" :class="[limit_world ? 'active' : '']">
-                                    <input required v-model="limit_world" :value="true" hidden type="radio" name="options"
-                                        autocomplete="off">بله
+                                <label @click="limit_world = true" class="btn btn-primary"
+                                    :class="[limit_world ? 'active' : '']">
+                                    <input required :value="true" hidden type="radio" name="options" autocomplete="off">بله
                                 </label>
-                                <label class="btn btn-primary" :class="[!limit_world ? 'active' : '']">
-                                    <input required v-model="limit_world" :value="false" hidden type="radio" name="options"
-                                        autocomplete="off">خیر
+                                <label @click="limit_world = false" class="btn btn-primary"
+                                    :class="[!limit_world ? 'active' : '']">
+                                    <input required :value="false" hidden type="radio" name="options" autocomplete="off">خیر
                                 </label>
 
                             </div><br><br>
@@ -330,7 +330,8 @@ export default {
         change_world: false,
         limit_world: false,
         limit_min: '',
-        limit_max: ''
+        limit_max: '',
+
     }),
     forumPath: [
         { text: 'کیف ها', active: true }
@@ -390,9 +391,8 @@ export default {
                 .then(response => response.data)
                 .then(response => {
                     this.chains = response
-                    if (response.length === 1) {
-                        this.chain = response[0].chain
-                    }
+                    this.chain = response[0].chain
+                    this.currency = response[0].id
                 })
         },
         search() {
@@ -434,7 +434,7 @@ export default {
                                 const toPath = this.$route.query.to || '/user-level'
                                 this.$router.push(toPath)
                             } else {
-                                const toPath = this.$route.query.to || '/dashboard'
+                                const toPath = this.$route.query.to || '/'
                                 this.$router.push(toPath)
                             }
                         })
@@ -442,11 +442,21 @@ export default {
                 })
         },
         async submit() {
-            var price = this.price
+            var price = this.world_price
+            var lmin = 0
+            var lmax = 0
             if (!this.myprice) {
                 price = this.myprice
             }
+
+            if (this.limit_min) {
+                lmin = this.limit_min
+            }
+            if (this.limit_max) {
+                lmax = this.limit_max
+            }
             await axios
+
                 .post(`/p2prequests`, {
                     "currency": this.currency,
                     "price": price,
@@ -455,8 +465,8 @@ export default {
                     "maximum_time": this.maximum_time,
                     "chain": this.chain,
                     "limit_world": this.limit_world,
-                    "limit_min": this.limit_min,
-                    "limit_max": this.limit_max,
+                    "limit_min": lmin,
+                    "limit_max": lmax,
                     "change_world": this.change_world
                 })
                 .then(response => {
@@ -465,6 +475,7 @@ export default {
                     this.$swal('<div class="swal2-header"><ul class="swal2-progress-steps" style="display: none;"></ul><div class="swal2-icon swal2-success swal2-icon-show" style="display: flex;"><div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div><span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span><div class="swal2-success-ring"></div> <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div><div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div></div><img class="swal2-image" style="display: none;"><button type="button" class="swal2-close" aria-label="Close this dialog" style="display: none;">×</button></div>' + '<h5>درخواست برداشت ریالی شما با موفقیت ثبت شد</h5>')
                     this.getw()
                 }).catch(error => {
+                    console.log(error)
                 })
         },
     },
@@ -540,7 +551,7 @@ label {
 }
 
 .address h3::-webkit-scrollbar {
-    width: 1px;
+    width: 0px;
 }
 
 .address h3::-webkit-scrollbar-track {

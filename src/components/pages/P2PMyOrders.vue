@@ -219,7 +219,7 @@ td {
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 0px;
 }
 
 /* Track */

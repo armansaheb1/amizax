@@ -16,7 +16,10 @@ const routes = [{
       path: '/',
       component: () => import(/* webpackChunkName: "demo" */ '../components/pages/Index.vue')
     },
-    
+    {
+      path: 'logout',
+      component: () => import(/* webpackChunkName: "demo" */ '../components/pages/Logout.vue')
+    },
   ]
 },
 {
@@ -51,15 +54,27 @@ const routes = [{
     component: layout3,
     children: [
       {
+        path: 'wallets',
+        component: () => import(/* webpackChunkName: "demo" */ '../components/pages/Wallets.vue')
+      },
+      {
         path: '/login',
         component: () => import(/* webpackChunkName: "demo" */ '../components/modals/login.vue')
-    },
+      },
       {
         path: '/buy',
         component: () => import(/* webpackChunkName: "demo" */ '../components/pages/Buy.vue')
       },
       {
         path: '/sell',
+        component: () => import(/* webpackChunkName: "demo" */ '../components/pages/Sell.vue')
+      },
+      {
+        path: '/buy/:symbol',
+        component: () => import(/* webpackChunkName: "demo" */ '../components/pages/Buy.vue')
+      },
+      {
+        path: '/sell/:symbol',
         component: () => import(/* webpackChunkName: "demo" */ '../components/pages/Sell.vue')
       },
       {
@@ -102,6 +117,7 @@ const routes = [{
     redirect: '/p2p/buy',
     component: layout5,
     children: [
+      
       {
         path: 'buy',
         component: () => import(/* webpackChunkName: "demo" */ '../components/pages/P2PBuy.vue')

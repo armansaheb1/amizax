@@ -1,114 +1,127 @@
 <template>
-    <div style="border-radius: 20px 20px 0 0;width: 100%; background-color: white;height: 100%" class="card lightercard">
+    <div>
+        <div style="width: 300px;border: none ; margin: auto" class="card">
 
-        <div class="card-body lightercard" style="padding: 10%;border-radius: 20px 20px 0 0">
-            <h5 class="alert alert-danger" v-for="error in errors" v-bind:key="error">{{ error }}</h5>
-            <fieldset class="demo-vertical-spacing-sm">
+            <div style=" width: 100%;height:395px; float: left; z-index: 10000;position:absolute">
+                <div style="padding: 2%;">
+                    <div class="  lightercard" style="height:440px;border-radius:   30px; z-index: -1; padding: 10%">
+                        <h5 class="alert alert-danger" v-for="error in errors" v-bind:key="error">{{ error }}</h5>
 
-                <button class=" curbtn" onMouseOver="this.style.background='rgba(150, 150, 150, 0.4)'"
-                    onMouseOut="this.style.background='rgba(0,0,0,0)'" type="button"
-                    style="border-radius: 5px;width: 100%;margin: auto;height:55px; background: none ;border-style: none; border-bottom: solid .2px rgba(150,150,150, .3) !important ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
-                    @click="listshow()" selected>
-                    <img style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/${sym.toLowerCase()}.svg`
-                        " :onerror="`javascript:this.src='/color/${sym.toLowerCase()}.png';`" alt=""><br>{{ sym }}
-                </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                style=" width: 100%;height:450px;background: url('/frame.png');background-size: 100% 100%;padding: 1%; float: left; z-index: 10000;position:absolute;padding: 15%">
+                <fieldset class="demo-vertical-spacing-sm" style="; z-index: 100001;position: relative">
+
+                    <button class=" curbtn" onMouseOver="this.style.background='rgba(150, 150, 150, 0.4)'"
+                        onMouseOut="this.style.background='rgba(0,0,0,0)'" type="button"
+                        style="border-radius: 5px;width: 100%;margin: auto;height:55px; background: none ;border-style: none; border-bottom: solid .2px rgba(100,100,100, .3) !important ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
+                        @click="listshow()" selected>
+                        <img style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/${sym.toLowerCase()}.svg`
+                            " :onerror="`javascript:this.src='/color/${sym.toLowerCase()}.png';`" alt=""><br>{{
+        sym
+    }}
+                    </button>
 
 
-                <div class="list card" hidden>
-                    <div class=" navdark card-body"
-                        style="position: absolute; width: 100%;background:rgb(244, 247, 251); margin: auto;overflow-y:scroll;height:245px">
-                        <input @input="search()" type="text" class="form-control navdark list" placeholder="نام ارز"
-                            v-model="searchtxt"
-                            style="width: 95%;margin: auto;border-radius: 5px ; border-color:#999!important; border: 0.2px solid rgba(150, 150, 150, 0.3) !important;text-align: center!important;margin: 2.5%">
-                        <div style="width: 100%;margin: auto; overflow-x:hidden  ;  border-radius: 0 0 5px 5px; font-size: 13px!important"
-                            id="my-list-id">
-                            <button v-if="'USDT'.includes(searchtxt.toUpperCase())" class=" "
-                                onMouseOver="this.style.background='rgba(150, 150, 150, 0.4)'"
-                                onMouseOut="this.style.background='rgba(0,0,0,0)'" type="button"
-                                style="height:55px; width: 100% ;color: black; background: none ;border-style: none; border-bottom: solid .2px rgba(150,150,150, .3) !important ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
-                                @click="buttonchange('USDT')" selected><img
-                                    style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/usdt.svg`"
-                                    :onerror="`javascript:this.src='/color/usdt.png';`" alt=""><br>USDT
-                            </button>
-                            <button class=" " onMouseOver="this.style.background='rgba(150, 150, 150, 0.4)'"
-                                onMouseOut="this.style.background='rgba(0,0,0,0)'" v-for="( value, key ) in  leverage "
-                                v-bind:key="'n' + key" :id="key" type="button"
-                                style="height:55px; width: 100% ;color: black; background: none ;border-style: none; border-bottom: solid .2px rgba(150,150,150, .3) !important ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
-                                @click="buttonchange(key.replace('USDT', ''))" selected><img
-                                    style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/${key
-                                        .replace('USDT', '')
-                                        .toLowerCase()}.svg`
-                                        " :onerror="`javascript:this.src='/color/${key
+                    <div class="list card" hidden>
+                        <div class=" navdark card-body"
+                            style="position: absolute; width: 100%;background:rgb(244, 247, 251); margin: auto;overflow-y:scroll;height:245px">
+                            <input @input="search()" type="text" class="form-control navdark list" placeholder="نام ارز"
+                                v-model="searchtxt"
+                                style="width: 95%;margin: auto;border-radius: 5px ; border-color:#999!important; border: 0.2px solid rgba(150, 150, 150, 0.3) !important;text-align: center!important;margin: 2.5%">
+                            <div style="width: 100%;margin: auto; overflow-x:hidden  ;  border-radius: 0 0 5px 5px; font-size: 13px!important"
+                                id="my-list-id">
+                                <button v-if="'USDT'.includes(searchtxt.toUpperCase())" class=" "
+                                    onMouseOver="this.style.background='rgba(150, 150, 150, 0.4)'"
+                                    onMouseOut="this.style.background='rgba(0,0,0,0)'" type="button"
+                                    style="height:55px; width: 100% ;color: black; background: none ;border-style: none; border-bottom: solid .2px rgba(100,100,100, .3) !important ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
+                                    @click="buttonchange('USDT')" selected><img
+                                        style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/usdt.svg`"
+                                        :onerror="`javascript:this.src='/color/usdt.png';`" alt=""><br>USDT
+                                </button>
+                                <button class=" " onMouseOver="this.style.background='rgba(150, 150, 150, 0.4)'"
+                                    onMouseOut="this.style.background='rgba(0,0,0,0)'" v-for="( value, key ) in  leverage "
+                                    v-bind:key="'n' + key" :id="key" type="button"
+                                    style="height:55px; width: 100% ;color: black; background: none ;border-style: none; border-bottom: solid .2px rgba(100,100,100, .3) !important ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
+                                    @click="buttonchange(key.replace('USDT', ''))" selected><img
+                                        style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/${key
+                                            .replace('USDT', '')
+                                            .toLowerCase()}.svg`
+                                            " :onerror="`javascript:this.src='/color/${key
         .replace('USDT', '')
         .toLowerCase()}.png';`
         " alt=""><br>{{ key.replace('USDT', '') }} </button>
+                            </div>
+                            <br><br>
                         </div>
-                        <br><br>
                     </div>
-                </div>
-                <br><br>
+                    <br><br>
 
-                <input class="form-control navdark" autocomplete="off" step="any" required id="amount" type="number"
-                    style="text-align: center;" :placeholder="`(${sym}) مبلغ پرداختی `" v-model="amount">
-                <br>
+                    <input class="form-control navdark" autocomplete="off" step="any" required id="amount" type="number"
+                        style="text-align: center;" :placeholder="`(${sym}) مبلغ پرداختی `" v-model="amount">
+                    <br>
 
-                <button class=" curbtn" onMouseOver="this.style.background='rgba(150, 150, 150, 0.4)'"
-                    onMouseOut="this.style.background='rgba(0,0,0,0)'" type="button"
-                    style="border-radius: 5px;width: 100%;margin: auto;height:55px; background: none ;border-style: none; border-bottom: solid .2px rgba(150,150,150, .3) !important ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
-                    @click="listshow2()" selected>
-                    <img style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/${sym2.toLowerCase()}.svg`
-                        " :onerror="`javascript:this.src='/color/${sym2.toLowerCase()}.png';`" alt=""><br>{{ sym2 }}
-                </button>
-                <div class="listtwo card" hidden>
+                    <button class=" curbtn" onMouseOver="this.style.background='rgba(150, 150, 150, 0.4)'"
+                        onMouseOut="this.style.background='rgba(0,0,0,0)'" type="button"
+                        style="border-radius: 5px;width: 100%;margin: auto;height:55px; background: none ;border-style: none; border-bottom: solid .2px rgba(100,100,100, .3) !important ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
+                        @click="listshow2()" selected>
+                        <img style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/${sym2.toLowerCase()}.svg`
+                            " :onerror="`javascript:this.src='/color/${sym2.toLowerCase()}.png';`" alt=""><br>{{
+        sym2
+    }}
+                    </button>
+                    <div class="listtwo card" hidden>
 
-                    <div class=" navdark card-body"
-                        style="position: absolute; width: 100%;background:rgb(244, 247, 251); margin: auto;overflow-y:scroll;height:245px">
-                        <input @input="search2()" type="text" class="form-control navdark list" placeholder="search ..."
-                            v-model="searchtxt"
-                            style="width: 100%;margin: auto;border-radius: 5px 5px 0 0; border-color:#999!important; border: 0.2px solid rgba(150, 150, 150, 0.3) !important;">
-                        <div style="width: 100%;margin: auto;height:165px; overflow-x:hidden ;overflow-y:scroll ; border: solid rgba(150,150,150, .3) !important .2px ; border-radius: 0 0 5px 5px; font-size: 13px!important"
-                            id="my-list-id navdark">
-                            <button v-if="'USDT'.includes(searchtxt.toUpperCase())" class="  navdark" type="button"
-                                style="height:55px; width: 100% ;color: black; background: none!important ;border-style: none; border-bottom: solid .2px rgba(150,150,150, .3) !important ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
-                                @click="buttonchange2('USDT')" selected><img
-                                    style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/usdt.svg`"
-                                    :onerror="`javascript:this.src='/color/usdt.png';`" alt=""><br>USDT
-                            </button>
-                            <button class="  navdark" v-for="( value, key ) in  leverage " v-bind:key="'n' + key" :id="key"
-                                type="button"
-                                style="height:55px; width: 100% ;color: black; background: none!important ;border-style: none; border-bottom: solid .2px rgba(150,150,150, .3) !important ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
-                                @click="buttonchange2(key.replace('USDT', ''))" selected><img
-                                    style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/${key
-                                        .replace('USDT', '')
-                                        .toLowerCase()}.svg`
-                                        " :onerror="`javascript:this.src='/color/${key
+                        <div class=" navdark card-body"
+                            style="position: absolute; width: 100%;background:rgb(244, 247, 251); margin: auto;overflow-y:scroll;height:245px">
+                            <input @input="search2()" type="text" class="form-control navdark list" placeholder="search ..."
+                                v-model="searchtxt"
+                                style="width: 100%;margin: auto;border-radius: 5px 5px 0 0; border-color:#999!important; border: 0.2px solid rgba(150, 150, 150, 0.3) !important;">
+                            <div style="width: 100%;margin: auto;height:165px; overflow-x:hidden ;overflow-y:scroll ; border: solid rgba(100,100,100, .3) !important .2px ; border-radius: 0 0 5px 5px; font-size: 13px!important"
+                                id="my-list-id navdark">
+                                <button v-if="'USDT'.includes(searchtxt.toUpperCase())" class="  navdark" type="button"
+                                    style="height:55px; width: 100% ;color: black; background: none!important ;border-style: none; border-bottom: solid .2px rgba(100,100,100, .3) !important ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
+                                    @click="buttonchange2('USDT')" selected><img
+                                        style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/usdt.svg`"
+                                        :onerror="`javascript:this.src='/color/usdt.png';`" alt=""><br>USDT
+                                </button>
+                                <button class="  navdark" v-for="( value, key ) in  leverage " v-bind:key="'n' + key"
+                                    :id="key" type="button"
+                                    style="height:55px; width: 100% ;color: black; background: none!important ;border-style: none; border-bottom: solid .2px rgba(100,100,100, .3) !important ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
+                                    @click="buttonchange2(key.replace('USDT', ''))" selected><img
+                                        style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/${key
+                                            .replace('USDT', '')
+                                            .toLowerCase()}.svg`
+                                            " :onerror="`javascript:this.src='/color/${key
         .replace('USDT', '')
         .toLowerCase()}.png';`
         " alt=""><br>{{ key.replace('USDT', '') }} </button>
+                            </div>
+                            <br><br>
                         </div>
-                        <br><br>
                     </div>
-                </div>
-                <br><br>
+                    <br><br>
 
 
 
 
-                <input class="form-control navdark" autocomplete="off" step="any" required id="amount" type="number"
-                    style="text-align: center;" :placeholder="`(${sym2}) مبلغ دریافتی `" v-model="getting">
-                <br>
-                <h6 style="font-family: 'UD';text-align: left;">1 {{ sym2 }} = <a
-                        v-if="(this.price2.buy / this.price.buy) > 999">{{
-                            parseInt(this.price2.buy / this.price.buy) }}</a> <a v-else>{{
+                    <input class="form-control navdark" autocomplete="off" step="any" required id="amount" type="number"
+                        style="text-align: center;" :placeholder="`(${sym2}) مبلغ دریافتی `" v-model="getting">
+                    <br>
+                    <h6 class="lightertext" style="font-family: 'UD';text-align: left;">1 {{ sym2 }} = <a
+                            v-if="(this.price2.buy / this.price.buy) > 999">{{
+                                parseInt(this.price2.buy / this.price.buy) }}</a> <a v-else>{{
         (this.price2.buy / this.price.buy).toFixed(6) }}</a> {{ sym }}</h6>
 
-                <div style="clear: both;"></div><br>
+                    <div style="clear: both;"></div><br>
 
-                <button class="btn buttonblue form-control" style="margin:auto" id="submit" type="submit"
-                    variant="dark">تایید</button>
-                <br><br>
-            </fieldset>
-        </div><br><br>
+                    <button class="btn buttonblue form-control" style="margin:auto" id="submit" type="submit"
+                        variant="dark">تایید</button>
+                </fieldset>
+            </div>
+        </div>
     </div>
 </template>
   
@@ -341,7 +354,7 @@ export default {
                                 const toPath = this.$route.query.to || '/user-level'
                                 this.$router.push(toPath)
                             } else {
-                                const toPath = this.$route.query.to || '/dashboard'
+                                const toPath = this.$route.query.to || '/'
                                 this.$router.push(toPath)
                             }
                         })

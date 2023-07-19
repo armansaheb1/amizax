@@ -1,50 +1,59 @@
 <template>
   <div class="hello">
     <div style="">
-      <div style="height: 475px; background: url('/banner2.jpeg'); background-size: 100% 100%">
-        <div class="half text-half" style=" float: right; clear: bottom;">
-          <h1 class="lightertext" style="    margin: 0px;
-    font-size: 3rem;
-    font-weight: 600;
-    line-height: 1.75;
-    font-family: iranyekan-fanum, sans-serif;
-    color: white!important">{{ general.fa_name }}</h1>
 
-          <h2 style=" margin: 0px; font-size: 1.5rem; font-weight: 700; line-height: 1.75; font-family:
-          iranyekan-fanum, sans-serif; color: rgb(134, 158, 192); display: block; clear:both">
-            {{ general.fa_title }}
+      <div style="filter: invert(100%);height: 475px; background: url('/banner2.jpeg'); background-size: 100% 100%; ">
+      </div>
+      <div class="half text-half" style="    z-index: 1000;
+    position: relative;margin-top: -475px; float: right; clear: bottom;">
+        <h1 class="lightertext" style="    margin: 0px;
+            font-size: 3rem;
+            font-weight: 600;
+            line-height: 1.75;
+            font-family: iranyekan-fanum, sans-serif;
+            ">{{ general.fa_name }}</h1>
 
-          </h2>
-          <div style="width: 100%" class="theinput">
-            <input type="text" class="form-control"
-              style="margin-top: 10px; background: rgba(0,0,0,0.5); float: right; height: 48px;border-color: rgb(108 125 147); text-align: right; color: white!important; font-family: 'iranyekan-fanum'"
-              placeholder="شماره موبایلتان را وارد کنید">
-            <button class="form-control btn buttonblue"
-              style="margin-top: 10px; float: right; height: 48px;margin-right: -10px; background: rgb(134, 158, 192); text-align: right; font-family: 'iranyekan-fanum'; clear: bottom: ;;"><svg
-                width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M10.1 6.46A.75.75 0 109.04 5.4l-6.07 6.07a.75.75 0 000 1.06l6.07 6.07a.75.75 0 101.06-1.06l-4.79-4.79H20.5a.75.75 0 000-1.5H5.31l4.79-4.79z"
-                  fill="currentColor"></path>
-              </svg> شروع</button><br><br><br>
-            <p class="lightertext"
-              style="font-size: 10px;margin-top: -10px;font-family: 'iranyekan-fanum';color: white!important">در کمتر
-              از ۵ دقیقه ثبت‌نام و اولین معامله
-              خود را شروع کنید.</p>
-          </div>
+        <h2 style="margin: 0px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.75;
+            font-family: iranyekan-fanum, sans-serif;
+            color: rgb(134, 158, 192);
+            display: block;
+            clear:both">
+          {{ general.fa_title }}
 
-
-
+        </h2>
+        <div style="width: 100%">
+          <input type="text" class="form-control"
+            style="margin-top: 10px; background: transparent; float: right; height: 48px;border-color: rgb(108 125 147); text-align: right; color : rgb(229 240 255); font-family: 'iranyekan-fanum'"
+            placeholder="شماره موبایلتان را وارد کنید">
+          <button class="form-control btn buttonblue"
+            style="margin-top: 10px; float: right; height: 48px;margin-right: -10px; background: rgb(134, 158, 192); text-align: right; font-family: 'iranyekan-fanum'; clear: bottom: ;;"><svg
+              width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10.1 6.46A.75.75 0 109.04 5.4l-6.07 6.07a.75.75 0 000 1.06l6.07 6.07a.75.75 0 101.06-1.06l-4.79-4.79H20.5a.75.75 0 000-1.5H5.31l4.79-4.79z"
+                fill="currentColor"></path>
+            </svg> شروع</button><br><br><br>
+          <p class="lightertext" style="font-size: 10px;margin-top: -10px;font-family: 'iranyekan-fanum';">در کمتر
+            از ۵ دقیقه ثبت‌نام و اولین معامله
+            خود را شروع کنید.</p>
         </div>
-        <div class="half half2" style="float: right; padding-top:10px; ; height: 375px; margin-bottom: -3px">
-          <div class="" style=" border-radius: 20px 20px 0 0; width: 80%;margin: auto; height: 100%; ">
-            <indexexchange />
-          </div>
+
+
+
+      </div>
+      <div class="half half2"
+        style="margin-top: -475px;float: left; padding-top:40px; ; height: 475px; margin-bottom: -3px">
+        <div class=""
+          style=" border-radius: 20px 20px 0 0; background: white;width: 80%;margin: auto; height: 100%; box-shadow: rgba(100, 100, 100, 0.6) 0px 0px 2px, rgba(100, 100, 100, 0.3) 0px 4px 10px">
+          <indexexchange />
         </div>
       </div>
       <div style="clear:both"></div>
 
       <div class="lightercard notphone"
-        style="width:90%; margin:auto; height:75px; margin-top: 2px;position: relative;border-radius: 20px; box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 4px 10px; margin-bottom: 30px;">
+        style="width:90%; margin:auto; height:75px; margin-top: -2px;position: relative;border-radius: 20px; box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 4px 10px; margin-bottom: 30px;">
         <div v-for="item in board"
           style="width:25%; float: left; height: 50px;border-right: solid rgba(150, 150, 150, .15) 2px;margin-top: 15px;">
           <div style="width: 20%;float: right;height: 50px;">
@@ -55,7 +64,8 @@
     .toLowerCase()}.png';`" style="height: 65%; margin-top:15%" alt="">
           </div>
           <div style="width: 40%;float: right;height: 50px; margin-top:10px; text-align: right;">
-            <h6 class="lightertext" style="margin-top: -5px; font-size: 13px; font-weight: 600">{{ item.fa_symbol }}</h6>
+            <h6 class="lightertext" style="margin-top: -5px; font-size: 13px; font-weight: 600">{{ item.fa_symbol }}
+            </h6>
             <h6 class="normaltext" style="font-size: 11px;">{{ item.symbol.replace('USDT', '') }}</h6>
           </div>
           <div style="width: 40%;float: right;height: 50px; text-align: left;padding-left: 20px;">
@@ -77,12 +87,10 @@
 
         </div>
 
-
-
       </div>
 
       <div class="lightercard onphone"
-        style="width:100%; margin:auto; height:150px; margin-top: 100px;position: relative; box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 4px 10px; margin-bottom: 30px;">
+        style="width:100%; margin:auto; height:150px; margin-top: -1px;position: relative; box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 4px 10px; margin-bottom: 30px;">
         <div v-for="item in board"
           style="width:50%; float: left; height: 50%;border: solid rgba(150, 150, 150, .15) 1px;">
           <div style="width: 20%;float: right;height: 50px;">
@@ -967,10 +975,6 @@ li {
 
 .dark .h1 {
   color: rgb(229, 240, 255)
-}
-
-.theinput ::placeholder {
-  color: white !important
 }
 </style>
   

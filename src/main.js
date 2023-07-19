@@ -3,11 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { IonicVue } from '@ionic/vue';
-import styles from './index.css'
 import axios from 'axios';
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
-import 'bootstrap'
+import 'bootstrap';
+import 'bootstrap/scss/bootstrap.scss';
 
 axios.defaults.baseURL = 'https://amizax.com/api/v1/'
 

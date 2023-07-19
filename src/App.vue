@@ -12,6 +12,8 @@ import { useDark, useToggle } from "@vueuse/core";
 import axios from 'axios'
 import chatside from './components/modals/ChatSide.vue'
 import supportchatbox from './components/modals/SupportChat.vue'
+import boot from "../public/statics/bootstrap";
+import "../public/statics/popper";
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
@@ -41,6 +43,11 @@ export default {
   components: {
     chatside,
     supportchatbox
+  },
+  mounted() {
+  },
+  updated() {
+    new boot()
   },
   beforeCreate() {
     this.$store.commit('initializeStore')
@@ -159,12 +166,12 @@ nav {
 }
 
 .lightercard {
-  background: white;
+  background-color: white;
   border: solid 1px rgb(217, 229, 245);
 }
 
 .darkercard {
-  background: #052B61;
+  background-color: #052B61;
   color: rgb(229, 240, 255);
 }
 
@@ -211,7 +218,7 @@ nav {
 }
 
 .dark .lightercard {
-  background: rgb(15, 28, 46);
+  background-color: rgb(15, 28, 46);
   color: rgb(229, 240, 255);
   border: solid 2px rgb(11, 21, 36)
 }
@@ -307,7 +314,7 @@ nav {
 
 @media only screen and (max-width: 1100px) {
   .lists {
-    width: 100%;
+    width: 92%;
   }
 
 
@@ -472,7 +479,7 @@ nav {
 
 
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 0px;
 }
 
 /* Track */
@@ -531,6 +538,15 @@ nav {
   background-color: white;
 }
 
+.navlight {
+  background-color: rgb(15, 28, 46);
+  color: rgb(229, 240, 255);
+}
+
+.dark .navlight {
+  background-color: white;
+}
+
 .dark .navdark {
   background-color: rgb(15, 28, 46);
   color: rgb(229, 240, 255);
@@ -539,6 +555,15 @@ nav {
 .dark .navdark a {
   color: rgb(229, 240, 255);
 }
+
+.dark .navlight a {
+  color: #052B61;
+}
+
+.navlight a {
+  color: rgb(229, 240, 255);
+}
+
 
 .navdark a {
   color: #052B61;

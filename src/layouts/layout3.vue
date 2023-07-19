@@ -1,7 +1,7 @@
 <template>
     <topbanner />
     <navbar />
-    <div style="padding: 2% 8%">
+    <div style="margin-top: 56px;padding: 2% 8%">
         <router-view />
     </div>
 </template>
@@ -10,6 +10,8 @@
 
 import navbar from '../layouts/Navbar.vue'
 import topbanner from '../layouts/topbanner.vue'
+import "bootstrap";
+
 export default {
     components: {
         navbar,

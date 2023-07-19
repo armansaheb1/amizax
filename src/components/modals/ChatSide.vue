@@ -1,5 +1,5 @@
 <template>
-    <div style="position: fixed;width: 100%;height: 100%;background: rgba(0, 0, 0, 0.5);top: 0;right:0; z-index: 1000;">
+    <div style="position: fixed;width: 100%;height: 100%;background: rgba(0, 0, 0, 0.5);top: 0;right:0; z-index: 1000000;">
         <div v-if="$store.state.chatting" class="chatbox"
             style=" height: 100%; position: absolute; top: 0; left: 0; z-index: 1000;">
             <div class="card navdark" style="height: 100%">

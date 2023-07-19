@@ -1,14 +1,14 @@
 <template>
-    <div class="navdark" style="width: 100%; height: 56px; box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1)">
+    <div class="navlight"
+        style="width: 100%; height: 56px; box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1); position: fixed; top: 0; left: 0; z-index: 1000000">
         <div id="phone">
             <div class="phonemenu bg-mine dark:bg-dark"
                 style="position: absolute; width: 100%; height: 100%; height: 100%; z-index: 10;top: -100%; overflow: hidden;">
                 <div style="width: 100%; height: 56px; box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);">
                     <div>
-                        <img style="height: 32px; float: left; margin: 18px; margin-top: 12px"
-                            src="https://www.amizax.com/img/logo.png" alt="">
+                        <img style="height: 32px; float: left; margin: 18px; margin-top: 12px" src="/img/logo.png" alt="">
                         <h3
-                            style="height: 22px; float: left; margin: 14px; font-size: 26px; font-family: 'BebasNeue-Regular';margin-left: -5px; color: rgb(138 184 52)">
+                            style="height: 22px; float: left; margin: 14px;margin-left: 25px font-size: 26px; font-family: 'BebasNeue-Regular'; color: rgb(138 184 52)">
                             AMIZAX</h3>
                     </div>
                     <div>
@@ -99,11 +99,8 @@
                                 </svg></div>
                             <div><span style="; font-family: 'iranyekan-fanum';">انتخاب تم</span>
                                 <div style="float: left;">
-                                    <input type="checkbox" v-model="isDark" @click="toggleDark();"
-                                        data-onlabel='<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mui-9gf0ym" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12.745 22c-.163 0-.326 0-.49-.01-5.368-.232-9.854-4.427-10.228-9.543-.326-4.39 2.291-8.492 6.51-10.213 1.198-.483 1.83-.111 2.099.159.268.26.642.865.144 1.971a7.428 7.428 0 00-.652 3.116c.019 4.121 3.546 7.618 7.85 7.786a8.533 8.533 0 001.832-.121c1.265-.223 1.792.27 1.994.586.2.316.431.995-.336 2C19.436 20.428 16.205 22 12.745 22zm-9.29-9.655c.327 4.428 4.219 8.055 8.858 8.25 3.154.15 6.145-1.246 7.986-3.683.143-.195.21-.335.24-.41a1.554 1.554 0 00-.48.029c-.7.12-1.428.167-2.147.14-5.062-.196-9.203-4.317-9.232-9.172 0-1.284.259-2.52.786-3.683.096-.205.115-.344.125-.419-.086 0-.24.019-.49.121C5.45 5.006 3.188 8.56 3.457 12.345z" fill="currentColor"></path></svg>'
-                                        data-size="sm" data-onstyle="secondary"
-                                        data-offlabel='<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mui-1m98bj6" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12.02 19.283a7.268 7.268 0 01-7.263-7.263 7.268 7.268 0 017.263-7.263 7.268 7.268 0 017.263 7.263 7.268 7.268 0 01-7.263 7.263zm0-13.023a5.768 5.768 0 00-5.76 5.76 5.768 5.768 0 005.76 5.76 5.768 5.768 0 005.76-5.76 5.768 5.768 0 00-5.76-5.76zM12.02 23c-.551 0-1.002-.41-1.002-.962v-.08c0-.55.451-1.002 1.002-1.002.551 0 1.002.451 1.002 1.002 0 .551-.451 1.042-1.002 1.042zm7.153-2.825c-.26 0-.51-.1-.711-.29l-.13-.13a.998.998 0 111.412-1.413l.13.13a.998.998 0 01-.701 1.703zm-14.306 0c-.26 0-.51-.1-.711-.29a.998.998 0 010-1.413l.13-.13a.998.998 0 111.413 1.412l-.13.13c-.191.19-.452.29-.702.29zm17.171-7.153h-.08c-.55 0-1.002-.451-1.002-1.002 0-.551.451-1.002 1.002-1.002.551 0 1.042.451 1.042 1.002 0 .551-.41 1.002-.962 1.002zm-19.956 0h-.08C1.45 13.022 1 12.57 1 12.02c0-.551.45-1.002 1.002-1.002.55 0 1.042.451 1.042 1.002 0 .551-.411 1.002-.962 1.002zm16.96-7.023c-.26 0-.51-.1-.71-.29a.998.998 0 010-1.413l.13-.13a.998.998 0 111.412 1.412l-.13.13c-.19.19-.44.291-.701.291zM4.998 6c-.26 0-.51-.1-.711-.29l-.13-.14a.998.998 0 111.412-1.413l.13.13a.998.998 0 010 1.413c-.19.2-.45.3-.7.3zm7.023-2.955c-.551 0-1.002-.411-1.002-.962v-.08C11.018 1.45 11.47 1 12.02 1c.551 0 1.002.45 1.002 1.002 0 .55-.451 1.042-1.002 1.042z" fill="currentColor"></path></svg>'
-                                        checked data-toggle="switchbutton">
+                                    <img @click="toggleDark();" v-if="isDark" src="/day.png" style="cursor: pointer"> 
+                                    <img @click="toggleDark();" v-if="!isDark" src="/night.png" style="cursor: pointer"> 
                                 </div>
                             </div><span></span>
 
@@ -177,11 +174,11 @@
             </div>
             <div class="phonenav" style="position: relative; height: 100%">
                 <div>
-                    <img style="height: 32px; float: left; margin: 18px; margin-top: 12px"
-                        src="https://www.amizax.com/img/logo.png" alt="">
+
                     <h3
-                        style="height: 22px; float: left; margin: 14px; font-size: 26px; font-family: 'BebasNeue-Regular';margin-left: -5px; color: rgb(138 184 52)">
-                        AMIZAX</h3>
+                        style="height: 22px; float: left; margin: 14px; font-size: 26px; font-family: 'BebasNeue-Regular'; color: rgb(138 184 52)">
+                        AMIZAX</h3><img style="height: 32px; float: left; margin: 18px; margin-top: 12px"
+                        src="/img/logo.png" alt="">
                 </div>
                 <div>
                     <button @click="phonemenu()" class="lightertext"
@@ -198,15 +195,15 @@
             </div>
             <div class="pcnav" style="position: relative; height: 100%; width: 100%">
                 <div style="float: right; width: 100%; font-size: 20px; font-family: 'BebasNeue-Regular';margin-left: -5px">
-                    <a href="/">
-                        <h3 style="height: 22px; float: right; margin: 10px;margin-top: 15px; font-size: 26px;
+                    <a href="/"><img style="height: 32px; float: right; margin: 15px; margin-top: 12px" src="/img/logo.png"
+                            alt="">
+                        <h3 style="height: 22px; float: right; margin: 0px;margin-top: 15px; font-size: 26px; margin-left:25px
                             font-family: 'BebasNeue-Regular' ;margin-left: -5px; color: rgb(138 184 52)">
                             AMIZAX</h3>
-                        <img style="height: 32px; float: right; margin: 18px; margin-top: 12px"
-                            src="https://www.amizax.com/img/logo.png" alt="">
+
                     </a>
-                    <div @mouseover="mainMenu = true" @mouseleave="mainMenu = false"
-                        style="float: right;margin-right: 30px; margin: 10px;margin-bottom: 0; z-index: 1000;    padding-bottom: 6px;">
+                    <div v-if="false" @mouseover="mainMenu = true" @mouseleave="mainMenu = false"
+                        style="float: right;margin-right: 40px; margin: 10px;margin-bottom: 0; z-index: 1000;    padding-bottom: 6px;">
                         <a style="cursor: pointer">
                             <svg style="float: left;color:#8D9FB9; margin-right: 2px;margin-top:6px" width="20" height="20"
                                 fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -218,7 +215,7 @@
                             </svg><i class="material-symbols-outlined" style="width: 32px; font-size: 32px">apps</i>
                         </a>
                         <div class="navdark" v-if="mainMenu"
-                            style="position: absolute; width: 84%;height: 390px;  margin:auto;margin-top: 5px;left: 8%;z-index: 1000;">
+                            style="position: absolute; width: 84%;height: 390px;  margin:auto;margin-top: 5px;left: 8%;z-index: 100000;">
                             <div class="submenus">
                                 <router-link @click="mainMenu = false" to="/exchange">
                                     <div style="width: 20%; float: right; margin-top: 6px">
@@ -313,16 +310,16 @@
                                 <router-link @click="mainMenu = false" to="/wallets">
                                     <div style="width: 20%; float: right; margin-top: 6px">
                                         <i class="material-symbols-outlined">
-                                            person</i>
+                                            wallet</i>
                                     </div>
                                     <div style="width: 80%; float: right">
-                                        <h4>حساب کاربری</h4>
+                                        <h4>دارایی ها</h4>
                                         <h6 class="normaltext">تبدیل ارزها به یک دیگر به صورت آنی</h6>
                                     </div>
                                 </router-link>
 
                             </div>
-                            <div class="submenus">
+                            <div v-if="false" class="submenus">
                                 <div style="width: 20%; float: right; margin-top: 6px">
                                     <i class="material-symbols-outlined">
                                         work_history</i>
@@ -336,44 +333,74 @@
                             </div>
                         </div>
                     </div>
+                    <div style="float: right; margin: 10px;margin-right: 30px;direction: rtl" class="dropdown">
+                        <a style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;background: none; border:none"
+                            class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            P2P معاملات
+                        </a>
+                        <div class="dropdown-menu navlight" aria-labelledby="dropdownMenuButton">
+                            <router-link to="/p2p/buy" class="dropdown-item" href="#">خرید</router-link>
+                            <router-link to="/p2p/sell" class="dropdown-item" href="#">فروش</router-link>
+                            <router-link to="/p2p/my-orders" class="dropdown-item" href="#">معاملات من</router-link>
+                            <router-link to="/p2p/my-sells" class="dropdown-item" href="#">فروش های من</router-link>
 
-                    <div style="float: right;margin-right: 30px; margin: 10px;">
-                        <a
-                            style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;">
-                            درباره ما</a>
+                        </div>
                     </div>
 
-                    <div style="float: right;margin-right: 30px; margin: 10px;">
-                        <a
-                            style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;">تماس
-                            با ما</a>
+                    <div style="float: right;margin-right: 30px; margin: 8px;direction: rtl" class="dropdown">
+                        <a style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;background: none; border:none"
+                            class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            معاملات آنی
+                        </a>
+                        <div class="dropdown-menu navlight" aria-labelledby="dropdownMenuButton">
+                            <router-link to="/buy" class="dropdown-item" href="#">خرید</router-link>
+                            <router-link to="/sell" class="dropdown-item" href="#">فروش</router-link>
+                            <router-link to="/exchange" class="dropdown-item" href="#">اکسچینج</router-link>
+                        </div>
                     </div>
-                    <div style="float: right;margin-right: 30px; margin: 10px;">
-                        <a
-                            style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;">بلاگ</a>
+
+                    <div style="float: right;margin-right: 30px; margin: 8px;direction: rtl" class="dropdown">
+                        <a style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;background: none; border:none"
+                            class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            معاملات اهرمی
+                        </a>
+                        <div class="dropdown-menu navlight" aria-labelledby="dropdownMenuButton">
+                            <router-link to="/margin/BTCUSDT" class="dropdown-item" href="#">مرجین</router-link>
+                            <router-link to="/perpetual/BTCUSDT" class="dropdown-item" href="#">پرپشوال</router-link>
+                        </div>
                     </div>
-                    <div
-                        style="float: right;margin-right: 30px; margin: 10px; padding: 6px;margin-bottom: 0;     padding-bottom: 20px;">
-                        <a
-                            style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;">
-                            <svg style="float: left;color:#8D9FB9; margin-right: 2px;" width="20" height="20" fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-nqvzgt" focusable="false"
-                                aria-hidden="true" viewBox="0 0 24 24">
-                                <path
-                                    d="M17.073 9H6.925c-.823 0-1.235 1.063-.652 1.685l4.44 4.745c.711.76 1.869.76 2.58 0l4.44-4.745c.574-.623.162-1.685-.66-1.685z"
-                                    fill="currentColor"></path>
-                            </svg><a style="float: right;">سایر</a></a>
+
+
+                    <div style="float: right;margin-right: 30px; margin: 8px;direction: rtl" class="dropdown">
+                        <a style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;background: none; border:none"
+                            class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            حسابداری
+                        </a>
+                        <div class="dropdown-menu navlight" aria-labelledby="dropdownMenuButton">
+                            <router-link to="/deposit" class="dropdown-item" href="#">واریز</router-link>
+                            <router-link to="/withdraw" class="dropdown-item" href="#">برداشت</router-link>
+                            <router-link to="/transactions" class="dropdown-item" href="#">تاریخچه</router-link>
+                            <router-link to="/addcard" class="dropdown-item" href="#">اضافه کردن کارت</router-link>
+
+                        </div>
                     </div>
+                    <div style="float: right;margin-right: 30px; margin: 8px;">
+                        <router-link to="/wallets"
+                            style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;background: none; border:none">
+                            ولت ها(است)
+                        </router-link>
+                    </div>
+
 
 
                     <div style="float: left;padding: 11px;border-right: solid 1.5px lightgrey;">
                         <div style="float: left;">
-                            <input type="checkbox" v-model="isDark" @click="toggleDark();"
-                                data-onlabel='<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mui-9gf0ym" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12.745 22c-.163 0-.326 0-.49-.01-5.368-.232-9.854-4.427-10.228-9.543-.326-4.39 2.291-8.492 6.51-10.213 1.198-.483 1.83-.111 2.099.159.268.26.642.865.144 1.971a7.428 7.428 0 00-.652 3.116c.019 4.121 3.546 7.618 7.85 7.786a8.533 8.533 0 001.832-.121c1.265-.223 1.792.27 1.994.586.2.316.431.995-.336 2C19.436 20.428 16.205 22 12.745 22zm-9.29-9.655c.327 4.428 4.219 8.055 8.858 8.25 3.154.15 6.145-1.246 7.986-3.683.143-.195.21-.335.24-.41a1.554 1.554 0 00-.48.029c-.7.12-1.428.167-2.147.14-5.062-.196-9.203-4.317-9.232-9.172 0-1.284.259-2.52.786-3.683.096-.205.115-.344.125-.419-.086 0-.24.019-.49.121C5.45 5.006 3.188 8.56 3.457 12.345z" fill="currentColor"></path></svg>'
-                                data-size="sm" data-onstyle="secondary"
-                                data-offlabel='<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall mui-1m98bj6" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path d="M12.02 19.283a7.268 7.268 0 01-7.263-7.263 7.268 7.268 0 017.263-7.263 7.268 7.268 0 017.263 7.263 7.268 7.268 0 01-7.263 7.263zm0-13.023a5.768 5.768 0 00-5.76 5.76 5.768 5.768 0 005.76 5.76 5.768 5.768 0 005.76-5.76 5.768 5.768 0 00-5.76-5.76zM12.02 23c-.551 0-1.002-.41-1.002-.962v-.08c0-.55.451-1.002 1.002-1.002.551 0 1.002.451 1.002 1.002 0 .551-.451 1.042-1.002 1.042zm7.153-2.825c-.26 0-.51-.1-.711-.29l-.13-.13a.998.998 0 111.412-1.413l.13.13a.998.998 0 01-.701 1.703zm-14.306 0c-.26 0-.51-.1-.711-.29a.998.998 0 010-1.413l.13-.13a.998.998 0 111.413 1.412l-.13.13c-.191.19-.452.29-.702.29zm17.171-7.153h-.08c-.55 0-1.002-.451-1.002-1.002 0-.551.451-1.002 1.002-1.002.551 0 1.042.451 1.042 1.002 0 .551-.41 1.002-.962 1.002zm-19.956 0h-.08C1.45 13.022 1 12.57 1 12.02c0-.551.45-1.002 1.002-1.002.55 0 1.042.451 1.042 1.002 0 .551-.411 1.002-.962 1.002zm16.96-7.023c-.26 0-.51-.1-.71-.29a.998.998 0 010-1.413l.13-.13a.998.998 0 111.412 1.412l-.13.13c-.19.19-.44.291-.701.291zM4.998 6c-.26 0-.51-.1-.711-.29l-.13-.14a.998.998 0 111.412-1.413l.13.13a.998.998 0 010 1.413c-.19.2-.45.3-.7.3zm7.023-2.955c-.551 0-1.002-.411-1.002-.962v-.08C11.018 1.45 11.47 1 12.02 1c.551 0 1.002.45 1.002 1.002 0 .55-.451 1.042-1.002 1.042z" fill="currentColor"></path></svg>'
-                                checked data-toggle="switchbutton">
+                            <img @click="toggleDark();" v-if="isDark" src="/day.png" style="cursor: pointer"> 
+                                    <img @click="toggleDark();" v-if="!isDark" src="/night.png" style="cursor: pointer"> 
                         </div>
                     </div>
                     <div style="float: left;margin: 10px; margin-right: 0">
@@ -425,14 +452,33 @@
 
     padding: 4px 16px;" @click="loginisVisible = !loginisVisible">ورود</button>
 
-                            <a @click="mainMenu = false" v-if="$store.state.isAuthenticated" class=""
-                                style="text-decoration: none;" href="/dashboard"><i class="material-symbols-outlined"
-                                    style="width: 32px; font-size: 32px; margin: 0 5px">person</i></a>
+
+                            <div v-if="$store.state.isAuthenticated" style="float: left;margin-right: 5px;direction: rtl"
+                                class="dropdown">
+                                <a style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;background: none; border:none"
+                                    class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-symbols-outlined"
+                                        style="width: 32px; font-size: 32px; margin: 0 5px">person</i>
+                                </a>
+                                <div class="dropdown-menu navlight" aria-labelledby="dropdownMenuButton">
+                                    <router-link to="/dashboard" class="dropdown-item" href="#">داشبورد</router-link>
+                                    <router-link to="/security" class="dropdown-item" href="#">امنیت</router-link>
+                                    <router-link to="/verify" class="dropdown-item" href="#">تایید هویت</router-link>
+                                    <router-link to="/refferals" class="dropdown-item" href="#">زیر مجموعه ها</router-link>
+                                    <hr>
+                                    <router-link to="/logout" class="dropdown-item" href="#">خروج</router-link>
+                                </div>
+                            </div>
 
 
                         </div>
-                        <i @click="$store.state.chatside = true" class="material-symbols-outlined"
-                            style="width: 32px; font-size: 26px;margin: 4px 5px">chat</i>
+                        <a v-if="$store.state.isAuthenticated"
+                            style="font-family: 'iranyekan-fanum';text-decoration: none; font-size: 0.9rem;font-weight: 800;background: none; border:none">
+                            <i @click="$store.state.chatside = true" class="material-symbols-outlined"
+                                style="width: 32px; font-size: 26px;margin: 4px 5px; font-weight: normal; cursor:pointer">chat</i>
+                        </a>
+
                     </div>
                 </div>
             </div>
@@ -455,6 +501,8 @@ import { Modal } from 'usemodal-vue3';
 import { useDark, useToggle } from "@vueuse/core";
 import login from './../components/modals/login.vue'
 import signup from './../components/modals/signup.vue'
+import boot from "../../public/statics/bootstrap";
+import "../../public/statics/popper";
 
 const isDark = useDark({
     selector: "body",
@@ -472,6 +520,9 @@ export default {
     components: {
         login,
         signup
+    },
+    updated(){
+        new boot()
     },
     data() {
         return {
@@ -647,5 +698,9 @@ nav {
     cursor: pointer;
     background-color: rgba(150, 150, 150, 0.2);
 
+}
+
+.dropdown-item {
+    text-align: right;
 }
 </style>
