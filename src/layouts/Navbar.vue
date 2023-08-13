@@ -2,8 +2,8 @@
     <div class="navlight"
         style="width: 100%; height: 56px; box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1); position: fixed; top: 0; left: 0; z-index: 1000000">
         <div id="phone">
-            <div class="phonemenu bg-mine dark:bg-dark"
-                style="position: absolute; width: 100%; height: 100%; height: 100%; z-index: 10;top: -100%; overflow: hidden;">
+            <div class="phonemenu navlight"
+                :style="`position: absolute; width: 100%; height: ${winheight}px; z-index: 10;top: -${winheight}px; overflow: hidden;`">
                 <div style="width: 100%; height: 56px; box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);">
                     <div>
                         <img style="height: 32px; float: left; margin: 18px; margin-top: 12px" src="/img/logo.png" alt="">
@@ -12,7 +12,7 @@
                             AMIZAX</h3>
                     </div>
                     <div>
-                        <button @click="phonemenu()"
+                        <button class="normaltext" @click="phonemenu()"
                             style="margin-top: 8px;margin-right: 16px; float:right; border: none;color: rgba(0, 0, 0, 0.54); border-radius: 8px;width: 40px; height: 44px">
                             <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"
                                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-10dohqv" focusable="false"
@@ -24,72 +24,92 @@
                     </div>
                 </div>
                 <nav style="width: 100%;box-sizing: border-box;padding: 0;">
-                    <a href="/" style="text-decoration: none!important">
+                    <div style="text-decoration: none!important" class="mobmenubtn">
                         <div style="padding: 2.5% 5%;text-align: right;">
-                            <div style="float: right; margin-left: 20px;"><svg width="22" height="22" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M17.79 22.75H6.21c-2.74 0-4.96-2.232-4.96-4.975v-7.418c0-1.362.84-3.074 1.92-3.915l5.39-4.204c1.62-1.262 4.21-1.322 5.89-.14l6.18 4.334c1.19.831 2.12 2.613 2.12 4.065v7.288a4.968 4.968 0 01-4.96 4.965zM9.48 3.419L4.09 7.623c-.71.561-1.34 1.832-1.34 2.734v7.418c0 1.912 1.55 3.473 3.46 3.473h11.58c1.91 0 3.46-1.551 3.46-3.463v-7.288c0-.961-.69-2.293-1.48-2.833l-6.18-4.335c-1.14-.801-3.02-.761-4.11.09z"
-                                        fill="currentColor"></path>
-                                    <path
-                                        d="M12 18.746c-.41 0-.75-.34-.75-.751v-3.003c0-.41.34-.751.75-.751s.75.34.75.75v3.004c0 .41-.34.75-.75.75z"
-                                        fill="currentColor"></path>
-                                </svg></div>
-                            <div><span style="; font-family: 'iranyekan-fanum';">خانه</span>
+                            <div><span style="; font-family: 'iranyekan-fanum';">P2P معاملات</span>
                             </div><span></span>
-                        </div>
-                        <hr style="margin: 0px 12px 0px 0px;
-                            flex-shrink: 0;
-                            border-width: 0px 0px thin;
-                            border-style: solid;
-                            border-color: rgb(236, 241, 249);">
-                    </a>
 
 
-                    <a href="/" style="text-decoration: none!important">
-                        <div style="padding: 2.5% 5%;text-align: right;">
-                            <div style="float: right; margin-left: 20px;"><svg width="24" height="24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M12 22.75c-4 0-7.25-2.87-7.25-6.4v-3.7c0-.41.34-.75.75-.75s.75.34.75.75c0 2.62 2.47 4.6 5.75 4.6s5.75-1.98 5.75-4.6c0-.41.34-.75.75-.75s.75.34.75.75v3.7c0 3.53-3.25 6.4-7.25 6.4zm-5.75-6.29c.07 2.65 2.62 4.79 5.75 4.79s5.68-2.14 5.75-4.79c-1.3 1.41-3.36 2.29-5.75 2.29s-4.44-.88-5.75-2.29z"
-                                        fill="currentColor"></path>
-                                    <path
-                                        d="M12 13.75c-2.76 0-5.24-1.24-6.45-3.24-.52-.85-.8-1.84-.8-2.86 0-1.72.77-3.34 2.16-4.56C8.27 1.9 10.08 1.25 12 1.25s3.72.65 5.09 1.83c1.39 1.23 2.16 2.85 2.16 4.57 0 1.02-.28 2-.8 2.86-1.21 2-3.69 3.24-6.45 3.24zm0-11c-1.56 0-3.02.52-4.11 1.48-1.06.92-1.64 2.14-1.64 3.42 0 .75.2 1.45.58 2.08.95 1.56 2.93 2.52 5.17 2.52 2.24 0 4.22-.97 5.17-2.52.39-.63.58-1.33.58-2.08 0-1.28-.58-2.5-1.65-3.44-1.09-.94-2.54-1.46-4.1-1.46z"
-                                        fill="currentColor"></path>
-                                    <path
-                                        d="M12 18.75c-4.13 0-7.25-2.62-7.25-6.1v-5c0-3.53 3.25-6.4 7.25-6.4 1.92 0 3.72.65 5.09 1.83 1.39 1.23 2.16 2.85 2.16 4.57v5c0 3.48-3.12 6.1-7.25 6.1zm0-16c-3.17 0-5.75 2.2-5.75 4.9v5c0 2.62 2.47 4.6 5.75 4.6s5.75-1.98 5.75-4.6v-5c0-1.28-.58-2.5-1.65-3.44-1.09-.94-2.54-1.46-4.1-1.46z"
-                                        fill="currentColor"></path>
-                                </svg></div>
-                            <div><span style="; font-family: 'iranyekan-fanum';">کوین ها</span>
-                            </div><span></span>
+
                         </div>
+                        <a href="/p2p/buy" class="submobmenubtn">خرید</a>
+                        <a href="/p2p/sell" class="submobmenubtn">فروش</a>
+                        <a href="/p2p/my-orders" class="submobmenubtn">معاملات
+                            من</a>
+                        <a href="/p2p/my-sells" class="submobmenubtn">فروش های
+                            من</a>
+
                         <hr style="margin: 0px 12px 0px 0px;
                             flex-shrink: 0;
                             border-width: 0px 0px thin;
                             border-style: solid;
                             border-color: rgb(236, 241, 249);">
-                    </a>
-                    <a href="/" style="text-decoration: none!important">
+                    </div>
+                    <div style="text-decoration: none!important" class="mobmenubtn">
                         <div style="padding: 2.5% 5%;text-align: right;">
-                            <div style="float: right; margin-left: 20px;"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="25" fill="none">
-                                    <path fill="#4C9AFF" fill-opacity="0.5"
-                                        d="M9.5 16.893v-4.648H7.587a.5.5 0 01-.38-.826l4.413-5.148a.5.5 0 01.88.325v4.649h1.913a.5.5 0 01.38.825l-4.413 5.148a.5.5 0 01-.88-.325z">
-                                    </path>
-                                    <path fill="currentColor" fill-rule="evenodd"
-                                        d="M12 3.495a9.25 9.25 0 100 18.5 9.25 9.25 0 000-18.5zm-10.75 9.25c0-5.937 4.813-10.75 10.75-10.75s10.75 4.813 10.75 10.75-4.813 10.75-10.75 10.75-10.75-4.813-10.75-10.75zm10.8-5.962c.756-.881 2.2-.347 2.2.813v3.899h1.163c1.068 0 1.644 1.252.949 2.063l-4.413 5.149c-.755.88-2.199.347-2.199-.814v-3.898H8.587c-1.068 0-1.644-1.253-.949-2.064l4.413-5.148zm.7 1.49l-3.62 4.222h1.37a.75.75 0 01.75.75v3.972l3.62-4.222H13.5a.75.75 0 01-.75-.75V8.272z"
-                                        clip-rule="evenodd"></path>
-                                </svg></div>
-                            <div><span style="; font-family: 'iranyekan-fanum';">خرید فروش آنی</span>
+                            <div><span style="; font-family: 'iranyekan-fanum';"> معاملات آنی </span>
                             </div><span></span>
+
+
+
                         </div>
+                        <router-link to="/buy" class="submobmenubtn" href="#">خرید</router-link>
+                        <router-link to="/sell" class="submobmenubtn" href="#">فروش</router-link>
+                        <router-link to="/exchange" class="submobmenubtn" href="#">اکسچینج</router-link>
+
                         <hr style="margin: 0px 12px 0px 0px;
                             flex-shrink: 0;
                             border-width: 0px 0px thin;
                             border-style: solid;
                             border-color: rgb(236, 241, 249);">
-                    </a>
-                    <a href="/" style="text-decoration: none!important">
+                    </div>
+                    <div style="text-decoration: none!important" class="mobmenubtn">
+                        <div style="padding: 2.5% 5%;text-align: right;">
+                            <div><span style="; font-family: 'iranyekan-fanum';"> معاملات اهرمی </span>
+                            </div><span></span>
+
+
+
+                        </div>
+                        <router-link to="/margin/BTCUSDT" class="submobmenubtn" href="#">مرجین</router-link>
+                        <router-link to="/perpetual/BTCUSDT" class="submobmenubtn" href="#">پرپشوال</router-link>
+
+                        <hr style="margin: 0px 12px 0px 0px;
+                            flex-shrink: 0;
+                            border-width: 0px 0px thin;
+                            border-style: solid;
+                            border-color: rgb(236, 241, 249);">
+                    </div>
+                    <div style="text-decoration: none!important" class="mobmenubtn">
+                        <div style="padding: 2.5% 5%;text-align: right;">
+                            <div><span style="; font-family: 'iranyekan-fanum';"> حسابداری </span>
+                            </div><span></span>
+
+
+
+                        </div>
+                        <router-link to="/deposit" class="submobmenubtn" href="#">واریز</router-link>
+                        <router-link to="/withdraw" class="submobmenubtn" href="#">برداشت</router-link>
+                        <router-link to="/transactions" class="submobmenubtn" href="#">تاریخچه</router-link>
+                        <router-link to="/addcard" class="submobmenubtn" href="#">اضافه کردن کارت</router-link>
+
+                        <hr style="margin: 0px 12px 0px 0px;
+                            flex-shrink: 0;
+                            border-width: 0px 0px thin;
+                            border-style: solid;
+                            border-color: rgb(236, 241, 249);">
+                    </div>
+
+                    <div style="text-decoration: none!important" class="mobmenubtn">
+                        <div style="padding: 2.5% 5%;text-align: right;">
+                            <div><a href="/wallets"
+                                    style="; font-family: 'iranyekan-fanum';text-decoration: none; font-weight: 100;"> ولت
+                                    ها(است) </a>
+                            </div><span></span>
+                        </div>
+                    </div>
+
+                    <a style="text-decoration: none!important">
                         <div style="padding: 2.5% 5%;text-align: right;">
                             <div style="float: right; margin-left: 20px;"><svg width="24" height="24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -99,8 +119,8 @@
                                 </svg></div>
                             <div><span style="; font-family: 'iranyekan-fanum';">انتخاب تم</span>
                                 <div style="float: left;">
-                                    <img @click="toggleDark();" v-if="isDark" src="/day.png" style="cursor: pointer"> 
-                                    <img @click="toggleDark();" v-if="!isDark" src="/night.png" style="cursor: pointer"> 
+                                    <img @click="toggleDark();" v-if="isDark" src="/day.png" style="cursor: pointer">
+                                    <img @click="toggleDark();" v-if="!isDark" src="/night.png" style="cursor: pointer">
                                 </div>
                             </div><span></span>
 
@@ -181,7 +201,7 @@
                         src="/img/logo.png" alt="">
                 </div>
                 <div>
-                    <button @click="phonemenu()" class="lightertext"
+                    <button @click="phonemenu()" class="normaltext"
                         style="margin-top: 15px; float:right; border: none;background-color: transparent">
                         <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"
                             class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-10dohqv" focusable="false"
@@ -397,10 +417,10 @@
 
 
 
-                    <div style="float: left;padding: 11px;border-right: solid 1.5px lightgrey;">
+                    <div style="float: left;padding: 9px;border-right: solid 1.5px lightgrey;">
                         <div style="float: left;">
-                            <img @click="toggleDark();" v-if="isDark" src="/day.png" style="cursor: pointer"> 
-                                    <img @click="toggleDark();" v-if="!isDark" src="/night.png" style="cursor: pointer"> 
+                            <img @click="toggleDark();" v-if="isDark" src="/day.png" style="cursor: pointer">
+                            <img @click="toggleDark();" v-if="!isDark" src="/night.png" style="cursor: pointer">
                         </div>
                     </div>
                     <div style="float: left;margin: 10px; margin-right: 0">
@@ -501,8 +521,6 @@ import { Modal } from 'usemodal-vue3';
 import { useDark, useToggle } from "@vueuse/core";
 import login from './../components/modals/login.vue'
 import signup from './../components/modals/signup.vue'
-import boot from "../../public/statics/bootstrap";
-import "../../public/statics/popper";
 
 const isDark = useDark({
     selector: "body",
@@ -521,14 +539,17 @@ export default {
         login,
         signup
     },
-    updated(){
-        new boot()
+    updated() {
+    },
+    beforeMount() {
+        this.winheight = screen.height
     },
     data() {
         return {
             loginisVisible: ref(false),
             signupisVisible: ref(false),
-            mainMenu: false
+            mainMenu: false,
+            winheight: 0,
         }
     },
     methods: {
@@ -551,7 +572,7 @@ export default {
 <style lang="scss">
 @keyframes ttob {
     from {
-        top: -100%;
+        top: - v-bind('winheight');
     }
 
     to {
@@ -565,7 +586,8 @@ export default {
     }
 
     to {
-        top: -100%;
+        top: - v-bind('winheight');
+        ;
     }
 }
 
@@ -701,6 +723,21 @@ nav {
 }
 
 .dropdown-item {
+    text-align: right;
+}
+
+.mobmenubtn:hover>.submobmenubtn {
+    display: block;
+}
+
+
+.submobmenubtn {
+    width: 100%;
+    background: lightgrey;
+    color: #444 !important;
+    padding: 3%;
+    display: none;
+    text-decoration: none;
     text-align: right;
 }
 </style>

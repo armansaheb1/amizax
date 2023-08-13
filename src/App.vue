@@ -161,8 +161,11 @@ nav {
   color: #052B61
 }
 
-.normaltext {
-  color: rgb(134, 158, 192);
+.normaltext,
+.normaltext button,
+.normaltext i,
+.normaltext button i {
+  color: rgb(134, 158, 192) !important;
 }
 
 .lightercard {
@@ -208,7 +211,7 @@ nav {
 }
 
 .dark .normaltext {
-  color: rgb(134, 158, 192)
+  color: rgb(134, 158, 192) !important
 }
 
 .dark ::placeholder {
@@ -578,6 +581,11 @@ nav {
   color: rgb(226, 233, 243) !important;
 }
 
+
+.modal-vue3-wrap {
+  z-index: 100000000000000000 !important;
+  position: relative
+}
 
 
 @import'~bootstrap/dist/css/bootstrap.css'

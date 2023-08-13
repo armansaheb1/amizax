@@ -2,8 +2,8 @@
     <div>
 
         <!-- Header -->
-        <div class="container login navdark" style="overflow: hidden;">
-            <div no-body class="card">
+        <div class="container login " style="overflow: hidden;z-index: 1000000000">
+            <div no-body class="card navdark">
                 <div class="bg-transparent card-header" style="border-style:none; padding: 0"><br>
                     <img src="/img/logo.png" style="width:10%;margin-left:45%;margin-right:40%; clear:both" alt="">
                 </div>
@@ -298,7 +298,7 @@ export default {
                             axios.defaults.headers.common.Authorization = 'Token ' + token
                             this.$store.state.isAuthenticated = true
                             localStorage.setItem('token', token)
-                            const toPath = this.$route.go || '/dashboard'
+                            const toPath = this.$route.go || '/'
                             this.$router.push(toPath)
                         }
                         else {

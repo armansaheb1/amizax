@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div style="width: 300px;border: none ; margin: auto" class="card">
+        <div style="width: 250px;border: none ; margin: auto" class="card">
 
             <div style=" width: 100%;height:395px; float: left; z-index: 10000;position:absolute">
                 <div style="padding: 2%;">
@@ -60,7 +60,7 @@
                     <br><br>
 
                     <input class="form-control navdark" autocomplete="off" step="any" required id="amount" type="number"
-                        style="text-align: center;" :placeholder="`(${sym}) مبلغ پرداختی `" v-model="amount">
+                        style="text-align: center;" :placeholder="`(${sym})  پرداختی `" v-model="amount">
                     <br>
 
                     <button class=" curbtn" onMouseOver="this.style.background='rgba(150, 150, 150, 0.4)'"
@@ -108,7 +108,7 @@
 
 
                     <input class="form-control navdark" autocomplete="off" step="any" required id="amount" type="number"
-                        style="text-align: center;" :placeholder="`(${sym2}) مبلغ دریافتی `" v-model="getting">
+                        style="text-align: center;" :placeholder="`(${sym2})  دریافتی `" v-model="getting">
                     <br>
                     <h6 class="lightertext" style="font-family: 'UD';text-align: left;">1 {{ sym2 }} = <a
                             v-if="(this.price2.buy / this.price.buy) > 999">{{
@@ -172,6 +172,7 @@ export default {
     }),
     methods: {
         async getrial() {
+            if(this.$store.state.isAuthenticated){
             if (this.sym) {
                 await axios
                     .post('/cp_mg_main', { sym: this.sym })
@@ -182,6 +183,7 @@ export default {
                         }
                     })
             }
+        }
         },
         checksym() {
             if (this.$route.params.symbol) {
