@@ -61,7 +61,6 @@ export default {
         .then(response => response.data)
         .then(response => {
           this.user = response
-          console.log(response)
         })
     },
 

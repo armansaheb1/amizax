@@ -17,7 +17,12 @@
                         </li>
                     </ul>
                     <b-tab v-if="vorood" style="padding:10% 0">
-
+                        <br v-if="errors.length">
+                        <div v-if="errors.length" class="alert alert-danger">
+                            <p v-for="item in errors">
+                                {{ item }}
+                            </p>
+                        </div>
                         <div class="text-center text-muted mb-4">
                         </div>
                         <form class="my-1" @submit.prevent="submitForm()">
@@ -31,7 +36,7 @@
                             <div class="invalid-tooltip">{{ ptool }}</div>
                             <br>
 
-                            <button class="btn btn-dark form-control" id="submit">ورود</button>
+                            <button class="btn buttonblue form-control" id="submit">ورود</button>
 
                             <div style="width:100%"><br>
                                 <b-col>
@@ -48,6 +53,12 @@
                     </b-tab>
 
                     <b-tab v-if="!vorood" style="padding:7% 0">
+                        <br v-if="Rerrors.length">
+                        <div v-if="Rerrors.length" class="alert alert-danger">
+                            <p v-for="item in Rerrors">
+                                {{ item }}
+                            </p>
+                        </div>
                         <form class="my-1" @submit.prevent="RsubmitForm()">
                             <label>ایمیل</label>
                             <input v-model="Remail" class="form-control Remail" />
@@ -75,7 +86,7 @@
                                         دارم</label>
                                 </div>
                                 <br>
-                                <button class="btn btn-dark form-control" type="button" id="submit2" disabled>ثبت
+                                <button class="btn buttonblue form-control" id="submit2" type="submit" disabled>ثبت
                                     نام</button>
 
 
@@ -134,14 +145,6 @@ export default {
         RonClose() {
             this.RisShow = false;
         },
-        async Rsendmail() {
-            await axios
-                .post('/regemailverify/', { username: this.Remail.toLowerCase() })
-                .then(response => {
-                    this.Rsendmail()
-                    this.$swal('<div class="swal2-header"><ul class="swal2-progress-steps" style="display: none;"></ul><div class="swal2-icon swal2-success swal2-icon-show" style="display: flex;"><div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div><span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span><div class="swal2-success-ring"></div> <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div><div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div></div><img class="swal2-image" style="display: none;"><button type="button" class="swal2-close" aria-label="Close this dialog" style="display: none;">×</button></div>' + '<h5>ثبت نام شما با موفقیت انجام شد . لطفا برای تایید حساب ایمیل خود را چک کنید</h5>')
-                })
-        },
         Rchecked() {
             document.querySelector('#submit2').disabled = !document.querySelector('#submit2').disabled
         },
@@ -185,12 +188,12 @@ export default {
                 }
             }
             if (this.Rrepassword === '') {
-                this.errors2.push('1')
+                this.Rerrors2.push('1')
                 document.querySelector('.Rrepass').className += ' is-invalid'
                 this.Rreptool = ' تکرار کلمه عبور را وارد نکرده اید'
             }
             if (this.Rpassword !== '' && this.Rrepassword !== '' && this.Rpassword !== this.Rrepassword) {
-                this.errors2.push('1')
+                this.Rerrors2.push('1')
                 document.querySelector('.Rpass').className += ' is-invalid'
                 document.querySelector('.Rrepass').className += ' is-invalid'
                 this.Rptool = ' کلمه عبور با تکرار یکسان نیست'
@@ -205,7 +208,6 @@ export default {
                 await axios
                     .post('/users/', formData)
                     .then(response => {
-                        this.sendmail()
                         setTimeout(() => {
 
                             const toPath = this.$route.query.to || '/login'
@@ -216,7 +218,7 @@ export default {
                         if (error.response) {
                             for (const property in error.response.data) {
                                 if (property === 'username') {
-                                    this.errors.push('این ایمیل قبلا برای ثبت نام دیگری استفاده شده است')
+                                    this.Rerrors.push('این ایمیل قبلا برای ثبت نام دیگری استفاده شده است')
                                 } else if (property === 'password') {
                                     this.Rerrors.push(' کلمه عبور باید بیش از ۸ کاراکتر باشد ترکیبی از حروف و اعداد باشد و نمیتواند مشابه نام کاربری باشد')
                                 } else {
@@ -227,15 +229,6 @@ export default {
                             this.Rerrors.push(error.message)
                         }
                     })
-            }
-            if (this.Rerrors.length) {
-                var errors = this.errors
-                var error = '<div class="swal2-icon swal2-error swal2-icon-show" style="display: flex;"><span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span></div><h5>'
-                for (var er = 0; er < errors.length; er++) {
-                    error += '\n' + errors
-                }
-                error += '</h5>'
-                this.$swal(error)
             }
         },
 
@@ -292,7 +285,6 @@ export default {
                     .post('/login', formData)
                     .then(response => {
                         if (response.data !== 1) {
-                            console.log(response.data.auth_token)
                             const token = response.data.auth_token
                             this.$store.commit('setToken', token)
                             axios.defaults.headers.common.Authorization = 'Token ' + token
@@ -325,15 +317,6 @@ export default {
                         }
                     })
             }
-            if (this.errors.length) {
-                var errors = this.errors
-                var error = '<div class="swal2-icon swal2-error swal2-icon-show" style="display: flex;"><span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span></div><h5>'
-                for (var er = 0; er < errors.length; er++) {
-                    error += '\n' + errors[er]
-                }
-                error += '</h5>'
-                this.$swal(error)
-            }
         }
     }
 }
@@ -347,13 +330,23 @@ export default {
     text-align: left;
 }
 
-.login a {
-    color: #052B61 !important
-}
-
 .login .active {
     color: black !important
 }
+
+.login a {
+    color: #444 !important
+}
+
+.dark .login a {
+    color: white !important
+}
+
+.dark .login .active {
+    color: black !important
+}
+
+
 
 .form-check-input:checked {
     background-color: #000;

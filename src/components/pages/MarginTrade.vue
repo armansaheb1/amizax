@@ -972,7 +972,6 @@ export default {
             );
 
             this.connection.onmessage = (event) => {
-                console.log(JSON.parse(event.data))
                 return
                 if (JSON.parse(event.data).data) {
                     this.asks2 = JSON.parse(event.data).data.asks.slice(0, 6);
@@ -1268,11 +1267,11 @@ export default {
                 })
         },
         async msell() {
-            this.$loading(true)
+
             await axios
                 .post('/cp_market_order', { market: this.$route.params.sym, type: 'sell', amount: (this.ms_amount - 0.000000005).toFixed(8), mid: this.mid })
                 .then(response => {
-                    this.$loading(false)
+
                     toast({
                         message: 'با موفقیت انجام شد',
                         type: 'is-success',
@@ -1290,15 +1289,15 @@ export default {
                     this.getp()
                     this.getbal(false)
                 }).catch(() => {
-                    this.$loading(false)
+
                 })
         },
         async mbuy() {
-            this.$loading(true)
+
             await axios
                 .post('/cp_market_order', { market: this.$route.params.sym, type: 'buy', amount: (this.mb_amount - 0.000000005).toFixed(8), mid: this.mid })
                 .then(response => {
-                    this.$loading(false)
+
                     toast({
                         message: 'با موفقیت انجام شد',
                         type: 'is-success',
@@ -1316,15 +1315,15 @@ export default {
                     this.getp()
                     this.getbal(false)
                 }).catch(() => {
-                    this.$loading(false)
+
                 })
         },
         async lsell() {
-            this.$loading(true)
+
             await axios
                 .post('/cp_limit_order', { market: this.$route.params.sym, type: 'sell', amount: (this.ls_amount - 0.000000005).toFixed(8), price: this.ls_price, mid: this.mid })
                 .then(response => {
-                    this.$loading(false)
+
                     toast({
                         message: 'با موفقیت انجام شد',
                         type: 'is-success',
@@ -1342,15 +1341,15 @@ export default {
                     this.getp()
                     this.getbal(false)
                 }).catch(() => {
-                    this.$loading(false)
+
                 })
         },
         async lbuy() {
-            this.$loading(true)
+
             await axios
                 .post('/cp_limit_order', { market: this.$route.params.sym, type: 'buy', amount: ((this.lb_amount) - 0.000000005).toFixed(8), price: this.lb_price, mid: this.mid })
                 .then(response => {
-                    this.$loading(false)
+
                     toast({
                         message: 'با موفقیت انجام شد',
                         type: 'is-success',
@@ -1368,15 +1367,15 @@ export default {
                     this.getp()
                     this.getbal(false)
                 }).catch(() => {
-                    this.$loading(false)
+
                 })
         },
         async lssell() {
-            this.$loading(true)
+
             await axios
                 .post('/cp_stop_limit_order', { market: this.$route.params.sym, type: 'sell', amount: (this.lss_amount - 0.000000005).toFixed(8), price: this.lss_limit, stop_price: this.lss_stop, mid: this.mid })
                 .then(response => {
-                    this.$loading(false)
+
                     toast({
                         message: 'با موفقیت انجام شد',
                         type: 'is-success',
@@ -1394,15 +1393,15 @@ export default {
                     this.getp()
                     this.getbal(false)
                 }).catch(() => {
-                    this.$loading(false)
+
                 })
         },
         async lsbuy() {
-            this.$loading(true)
+
             await axios
                 .post('/cp_stop_limit_order', { market: this.$route.params.sym, type: 'buy', amount: (this.lsb_amount - 0.000000005).toFixed(8), price: this.lsb_limit, stop_price: this.lsb_stop, mid: this.mid })
                 .then(response => {
-                    this.$loading(false)
+
                     toast({
                         message: 'با موفقیت انجام شد',
                         type: 'is-success',
@@ -1420,7 +1419,7 @@ export default {
                     this.getp()
                     this.getbal(false)
                 }).catch(() => {
-                    this.$loading(false)
+
                 })
         },
         search() {
@@ -1432,11 +1431,11 @@ export default {
                 }
         },
         async cancel(id) {
-            this.$loading(true)
+
             await axios
                 .post('/cp_cancel_order', { market: this.$route.params.sym, id: id })
                 .then(response => {
-                    this.$loading(false)
+
                     toast({
                         message: 'با موفقیت انجام شد',
                         type: 'is-success',
@@ -1456,11 +1455,11 @@ export default {
                 })
         },
         async scancel(id) {
-            this.$loading(true)
+
             await axios
                 .post('/cp_stop_cancel_order', { market: this.$route.params.sym, id: id, mid: this.mid })
                 .then(response => {
-                    this.$loading(false)
+
                     toast({
                         message: 'با موفقیت انجام شد',
                         type: 'is-success',

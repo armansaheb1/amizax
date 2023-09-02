@@ -19,9 +19,9 @@
                         style="border-radius: 5px;width: 100%;margin: auto;height:55px; background: none ;border-style: none; border-bottom: solid .2px rgba(100,100,100, .3) !important ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
                         @click="listshow()" selected>
                         <img style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/${sym.toLowerCase()}.svg`
-                            " :onerror="`javascript:this.src='/color/${sym.toLowerCase()}.png';`" alt=""><br>{{
-        sym
-    }}
+                                                    " :onerror="`javascript:this.src='/color/${sym.toLowerCase()}.png';`" alt=""><br>{{
+                                                    sym
+                                                    }}
                     </button>
 
 
@@ -47,12 +47,12 @@
                                     style="height:55px; width: 100% ;color: black; background: none ;border-style: none; border-bottom: solid .2px rgba(100,100,100, .3) !important ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
                                     @click="buttonchange(key.replace('USDT', ''))" selected><img
                                         style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/${key
-                                            .replace('USDT', '')
-                                            .toLowerCase()}.svg`
-                                            " :onerror="`javascript:this.src='/color/${key
-        .replace('USDT', '')
-        .toLowerCase()}.png';`
-        " alt=""><br>{{ key.replace('USDT', '') }} </button>
+                                                                                    .replace('USDT', '')
+                                                                                    .toLowerCase()}.svg`
+                                                                                    " :onerror="`javascript:this.src='/color/${key
+                                                    .replace('USDT', '')
+                                                    .toLowerCase()}.png';`
+                                                    " alt=""><br>{{ key.replace('USDT', '') }} </button>
                             </div>
                             <br><br>
                         </div>
@@ -68,9 +68,9 @@
                         style="border-radius: 5px;width: 100%;margin: auto;height:55px; background: none ;border-style: none; border-bottom: solid .2px rgba(100,100,100, .3) !important ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
                         @click="listshow2()" selected>
                         <img style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/${sym2.toLowerCase()}.svg`
-                            " :onerror="`javascript:this.src='/color/${sym2.toLowerCase()}.png';`" alt=""><br>{{
-        sym2
-    }}
+                                                    " :onerror="`javascript:this.src='/color/${sym2.toLowerCase()}.png';`" alt=""><br>{{
+                                                    sym2
+                                                    }}
                     </button>
                     <div class="listtwo card" hidden>
 
@@ -92,12 +92,12 @@
                                     style="height:55px; width: 100% ;color: black; background: none!important ;border-style: none; border-bottom: solid .2px rgba(100,100,100, .3) !important ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
                                     @click="buttonchange2(key.replace('USDT', ''))" selected><img
                                         style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/${key
-                                            .replace('USDT', '')
-                                            .toLowerCase()}.svg`
-                                            " :onerror="`javascript:this.src='/color/${key
-        .replace('USDT', '')
-        .toLowerCase()}.png';`
-        " alt=""><br>{{ key.replace('USDT', '') }} </button>
+                                                                                    .replace('USDT', '')
+                                                                                    .toLowerCase()}.svg`
+                                                                                    " :onerror="`javascript:this.src='/color/${key
+                                                    .replace('USDT', '')
+                                                    .toLowerCase()}.png';`
+                                                    " alt=""><br>{{ key.replace('USDT', '') }} </button>
                             </div>
                             <br><br>
                         </div>
@@ -112,8 +112,8 @@
                     <br>
                     <h6 class="lightertext" style="font-family: 'UD';text-align: left;">1 {{ sym2 }} = <a
                             v-if="(this.price2.buy / this.price.buy) > 999">{{
-                                parseInt(this.price2.buy / this.price.buy) }}</a> <a v-else>{{
-        (this.price2.buy / this.price.buy).toFixed(6) }}</a> {{ sym }}</h6>
+                                                        parseInt(this.price2.buy / this.price.buy) }}</a> <a v-else>{{
+                                                        (this.price2.buy / this.price.buy).toFixed(6) }}</a> {{ sym }}</h6>
 
                     <div style="clear: both;"></div><br>
 
@@ -172,18 +172,18 @@ export default {
     }),
     methods: {
         async getrial() {
-            if(this.$store.state.isAuthenticated){
-            if (this.sym) {
-                await axios
-                    .post('/cp_mg_main', { sym: this.sym })
-                    .then(response => {
-                        this.rial = parseFloat(response.data)
-                        if (parseFloat(response.data) < 0.0000001) {
-                            this.rial = 0.0
-                        }
-                    })
+            if (this.$store.state.isAuthenticated) {
+                if (this.sym) {
+                    await axios
+                        .post('/cp_mg_main', { sym: this.sym })
+                        .then(response => {
+                            this.rial = parseFloat(response.data)
+                            if (parseFloat(response.data) < 0.0000001) {
+                                this.rial = 0.0
+                            }
+                        })
+                }
             }
-        }
         },
         checksym() {
             if (this.$route.params.symbol) {
@@ -337,32 +337,6 @@ export default {
                 }
             }
         },
-        async checklevel() {
-            await axios
-                .get('/userinfo')
-                .then(response => {
-                    if (response.data.level === 0) {
-                        this.$swal.fire({
-                            title: 'توجه',
-                            text: 'برای استفاده از این بخش ابتدا احراز هویت را کامل کنید',
-                            icon: 'warning',
-                            showCancelButton: true,
-                            confirmButtonColor: '#3085d6',
-                            cancelButtonColor: '#d33',
-                            confirmButtonText: 'شروع تایید هویت',
-                            cancelButtonText: 'بعدا انجام میدهم'
-                        }).then(result => {
-                            if (result.isConfirmed) {
-                                const toPath = this.$route.query.to || '/user-level'
-                                this.$router.push(toPath)
-                            } else {
-                                const toPath = this.$route.query.to || '/'
-                                this.$router.push(toPath)
-                            }
-                        })
-                    }
-                })
-        },
         check() {
             if (!this.$store.state.isAuthenticated) {
                 const toPath = this.$route.query.to || '/login'
@@ -382,11 +356,11 @@ export default {
                 })
         },
         async submit() {
-            this.$loading(true)
+
             await axios
                 .post('/exchange', { camount: this.amount, camount2: this.getting, currency: this.sym, currency2: this.sym2 })
                 .then(response => {
-                    this.$loading(false)
+                    
                     if (response.data.error) {
                         document.getElementById('submit').disabled = false
                         this.$swal(`<div class="swal2-icon swal2-error swal2-icon-show" style="display: flex;"><span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span></div><h5>${response.data.error}</h5>`)
@@ -396,7 +370,7 @@ export default {
                     }
                 })
                 .catch(error => {
-                    this.$loading(false)
+                    
                 })
         },
         listshow() {

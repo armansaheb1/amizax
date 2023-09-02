@@ -144,7 +144,6 @@ export default {
                 .then(response => response.data)
                 .then(response => {
                     this.username = response.username
-                    console.log(response)
                 })
         },
         async getalert() {

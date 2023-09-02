@@ -37,7 +37,6 @@ export default {
         .then(response => response.data)
         .then(response => {
           this.referalid = response.get_referal
-          console.log(response)
         })
     },
 

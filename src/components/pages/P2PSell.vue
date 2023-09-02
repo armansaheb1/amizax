@@ -204,7 +204,7 @@
                                     <br><br>
 
                                     <div style="width: 50%; margin: auto;">
-                                        <label for="" style="float: right;">قیمت پیشنهادی شما</label>
+                                        <label for="" style="float: right;">قیمت پیشنهادی شما (تومان)</label>
                                         <input v-model="myprice" class="form-control" type="text">
                                     </div>
 
@@ -342,8 +342,8 @@ export default {
             await axios
                 .post('/cp_ticker', { sym: this.sym })
                 .then(response => {
-                    this.world_price = response.data.rial.toFixed(4)
-                    this.price = response.data.rial.toFixed(4)
+                    this.world_price = (response.data.rial / 10).toFixed(4)
+                    this.price = (response.data.rial / 10).toFixed(4)
                 })
         },
         checkchain() {
@@ -472,10 +472,9 @@ export default {
                 .then(response => {
                     this.wallets = response.data
                 }).then(() => {
-                    this.$swal('<div class="swal2-header"><ul class="swal2-progress-steps" style="display: none;"></ul><div class="swal2-icon swal2-success swal2-icon-show" style="display: flex;"><div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div><span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span><div class="swal2-success-ring"></div> <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div><div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div></div><img class="swal2-image" style="display: none;"><button type="button" class="swal2-close" aria-label="Close this dialog" style="display: none;">×</button></div>' + '<h5>درخواست برداشت ریالی شما با موفقیت ثبت شد</h5>')
+                    this.$swal('<div class="swal2-header"><ul class="swal2-progress-steps" style="display: none;"></ul><div class="swal2-icon swal2-success swal2-icon-show" style="display: flex;"><div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div><span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span><div class="swal2-success-ring"></div> <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div><div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div></div><img class="swal2-image" style="display: none;"><button type="button" class="swal2-close" aria-label="Close this dialog" style="display: none;">×</button></div>' + '<h5>پیشنهاد فروش با موفقیت ثبت شد</h5>')
                     this.getw()
                 }).catch(error => {
-                    console.log(error)
                 })
         },
     },

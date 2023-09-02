@@ -154,6 +154,10 @@ const routes = [{
         path: 'transactions',
         component: () => import(/* webpackChunkName: "demo" */ '../components/pages/Transactions.vue')
       },
+      {
+        path: 'user-level',
+        component: () => import(/* webpackChunkName: "demo" */ '../components/pages/UserLevel.vue')
+      },
     ]
   },
   

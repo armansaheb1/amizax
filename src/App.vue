@@ -22,18 +22,8 @@ const toggleDark = useToggle(isDark);
 </script>
 
 <script>
-window.onscroll = function () { myFunction() };
 
-function myFunction() {
-  if (document.querySelector('.side')) {
-    var pos = 56 - parseInt(document.documentElement.scrollTop)
-    if (pos < 0) {
-      pos = 0
-    }
-    document.querySelector('.side').style.top = pos + 'px'
-  }
 
-}
 export default {
   name: 'app',
   metaInfo: {
@@ -560,7 +550,7 @@ nav {
 }
 
 .dark .navlight a {
-  color: #052B61;
+  color: #052B61 !important;
 }
 
 .navlight a {

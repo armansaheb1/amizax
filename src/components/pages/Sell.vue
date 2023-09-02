@@ -12,27 +12,27 @@
                     <h3 style=" color:rgba(150,150,150, .8); text-align: right" v-if="price && this.sym !== 'USDT'">قیمت :
                         <a style="font:20px ; font-family: 'UD'!important; text-decoration: none;" class="lightertext"
                             v-if="price.rial < 1000">{{
-                                price.rial.toFixed(6)
-                            }}</a><a style="font:20px ; font-family: 'UD'!important; text-decoration: none;"
+                                                        price.rial.toFixed(6)
+                                                        }}</a><a style="font:20px ; font-family: 'UD'!important; text-decoration: none;"
                             class="lightertext" v-else>{{
-                                parseInt(price.rial
-                                ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</a>
+                                                        parseInt(price.rial
+                                                        ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</a>
                     </h3>
                     <h3 style=" color:rgba(150,150,150, .8); text-align: right" v-if="price && this.sym !== 'USDT'">قیمت
                         دلاری : <a style="font:20px ; font-family: 'UD'!important; text-decoration: none;"
                             class=" lightertext">{{
-                                (price.buy).toFixed(6) }}</a>
+                                                        (price.buy).toFixed(6) }}</a>
                     </h3>
 
                     <h3 style=" color:rgba(150,150,150, .8); text-align: right" v-if="price && this.sym === 'USDT'">قیمت :
                         <a style="font:20px ; font-family: 'UD'!important; text-decoration: none;" class="lightertext">{{
-                            parseInt(price.rial).toString().replace(/\B(?=(\d{3})+(?!\d))/g,
-                                ",") }}</a>
+                                                    parseInt(price.rial).toString().replace(/\B(?=(\d{3})+(?!\d))/g,
+                                                    ",") }}</a>
                     </h3>
                     <h3 style=" color:rgba(150,150,150, .8); text-align: right" v-if="price && this.sym === 'USDT'">قیمت
                         دلاری : <a style="font:20px ; font-family: 'UD'!important; text-decoration: none;"
                             class="lightertext">{{
-                                (price.buy).toFixed(6) }}</a>
+                                                        (price.buy).toFixed(6) }}</a>
                     </h3>
                 </div>
             </div>
@@ -74,10 +74,10 @@
                                         style="height:55px; width: 100% ; background: none ;border-style: none; border-bottom: solid .2px rgba(150,150,150, .8) ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
                                         @click="buttonchange(key.replace('USDT', ''))" selected><img
                                             style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/${key
-                                                .replace('USDT', '')
-                                                .toLowerCase()}.svg`" :onerror="`javascript:this.src='/color/${key
-        .replace('USDT', '')
-        .toLowerCase()}.png';`" alt=""><br>{{ key.replace('USDT', '') }} </button>
+                                                                                            .replace('USDT', '')
+                                                                                            .toLowerCase()}.svg`" :onerror="`javascript:this.src='/color/${key
+                                                        .replace('USDT', '')
+                                                        .toLowerCase()}.png';`" alt=""><br>{{ key.replace('USDT', '') }} </button>
                                 </div>
                                 <br><br>
                             </div>
@@ -93,8 +93,8 @@
                                     <h6 style="float:right; color:rgba(150,150,150, .8); width: 80%; margin-right: 10%; text-align: right"
                                         v-if="price">موجودی : <a @click="balanceset()" class="btn"
                                             style="font:12px 'UD'; padding:5px 20px;background:rgba(150,150,150,.2) ">{{
-                                                rial
-                                            }}</a> {{ sym }}
+                                                                                        rial
+                                                                                        }}</a> {{ sym }}
                                     </h6><br>
 
                                     <div style="width: 80%; margin:auto" class="card navdark">
@@ -180,26 +180,26 @@
                         <h4 style="float:right; color:rgba(150,150,150, .8)" v-if="price && this.sym !== 'USDT'">قیمت : <a
                                 style="font:20px ; font-family: 'UD'!important; text-decoration: none;" class="lightertext"
                                 v-if="price.rial < 1000">{{
-                                    price.rial.toFixed(6)
-                                }}</a><a style="font:20px ; font-family: 'UD'!important; text-decoration: none;"
+                                                                price.rial.toFixed(6)
+                                                                }}</a><a style="font:20px ; font-family: 'UD'!important; text-decoration: none;"
                                 class="lightertext" v-else>{{
-                                    parseInt(price.rial
-                                    ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</a></h4>
+                                                                parseInt(price.rial
+                                                                ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}</a></h4>
                         <h4 style="float:left; color:rgba(150,150,150, .8)" v-if="price && this.sym !== 'USDT'">قیمت دلاری :
                             <a style="font:20px ; font-family: 'UD'!important; text-decoration: none;"
                                 class=" lightertext">{{
-                                    (price.buy).toFixed(6) }}</a>
+                                                                (price.buy).toFixed(6) }}</a>
                         </h4>
 
                         <h4 style="float:right; color:rgba(150,150,150, .8)" v-if="price && this.sym === 'USDT'">قیمت : <a
                                 style="font:20px ; font-family: 'UD'!important; text-decoration: none;"
                                 class="lightertext">{{
-                                    parseInt(price.rial).toString().replace(/\B(?=(\d{3})+(?!\d))/g,
-                                        ",") }}</a></h4>
+                                                                parseInt(price.rial).toString().replace(/\B(?=(\d{3})+(?!\d))/g,
+                                                                ",") }}</a></h4>
                         <h4 style="float:left; color:rgba(150,150,150, .8)" v-if="price && this.sym === 'USDT'">قیمت دلاری :
                             <a style="font:20px ; font-family: 'UD'!important; text-decoration: none;"
                                 class="lightertext">{{
-                                    (price.buy).toFixed(6) }}</a>
+                                                                (price.buy).toFixed(6) }}</a>
                         </h4>
                     </div>
                 </div>
@@ -253,10 +253,10 @@
                                             style="height:55px; width: 100% ; background: none ;border-style: none; border-bottom: solid .2px rgba(150,150,150, .8) ;border-shadow:none margin:0 ; font: 13px 'UD'!important"
                                             @click="buttonchange(key.replace('USDT', ''))" selected><img
                                                 style="width:32px;height:32px; margin-bottom: 5px" :src="`/color/${key
-                                                    .replace('USDT', '')
-                                                    .toLowerCase()}.svg`" :onerror="`javascript:this.src='/color/${key
-        .replace('USDT', '')
-        .toLowerCase()}.png';`" alt=""><br>{{ key.replace('USDT', '') }} </button>
+                                                                                                    .replace('USDT', '')
+                                                                                                    .toLowerCase()}.svg`" :onerror="`javascript:this.src='/color/${key
+                                                            .replace('USDT', '')
+                                                            .toLowerCase()}.png';`" alt=""><br>{{ key.replace('USDT', '') }} </button>
                                     </div>
                                     <br><br>
                                 </div>
@@ -272,8 +272,8 @@
                                         <h6 style="float:right; color:rgba(150,150,150, .8); width: 80%; margin-right: 10%; text-align: right"
                                             v-if="price">موجودی : <a @click="balanceset()" class="btn"
                                                 style="font:12px 'UD'; padding:5px 20px;background:rgba(150,150,150,.2) ">{{
-                                                    rial
-                                                }}</a> {{ sym }}
+                                                                                                rial
+                                                                                                }}</a> {{ sym }}
                                         </h6><br>
 
                                         <div style="width: 80%; margin:auto" class="card navdark">
@@ -330,7 +330,7 @@
                                             میباشد</a><br>
                                         <p style="font-size: 15px;float:right; color:rgba(150,150,150, .8)" v-if="price">
                                             دریافتی : <a style="font:16px 'UD'; padding:5px 20px ">{{ getting
-                                            }}</a></p>
+                                                                                            }}</a></p>
                                     </div>
                                     <div style="clear: both;"></div>
 
@@ -620,7 +620,7 @@ export default {
                 })
         },
         async submit() {
-            this.$loading(true)
+
             var realprice = parseFloat(this.price.rial)
             var pricess = parseFloat(this.price.rial) * this.userfee
             var ramount = parseFloat(this.amount * pricess)
@@ -628,7 +628,7 @@ export default {
             await axios
                 .post('/sell', { ramount: ramount, camount: this.amount, currency: this.sym, rramount: rramount })
                 .then(response => {
-                    this.$loading(false)
+                    
                     if (response.data.error) {
                         document.getElementById('submit').disabled = false
                         this.$swal(`<div class="swal2-icon swal2-error swal2-icon-show" style="display: flex;"><span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span></div><h5>${response.data.error}</h5>`)
@@ -639,7 +639,7 @@ export default {
                     this.getrial()
                 })
                 .catch(error => {
-                    this.$loading(false)
+                    
                 })
         },
         balanceset() {

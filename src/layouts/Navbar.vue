@@ -12,8 +12,8 @@
                             AMIZAX</h3>
                     </div>
                     <div>
-                        <button class="normaltext" @click="phonemenu()"
-                            style="margin-top: 8px;margin-right: 16px; float:right; border: none;color: rgba(0, 0, 0, 0.54); border-radius: 8px;width: 40px; height: 44px">
+                        <button class="normaltext btn btn-secondary" @click="phonemenu()"
+                            style="margin-top: 8px;margin-right: 16px; padding: inherit ; float:right; border: none;color: rgba(0, 0, 0, 0.54); border-radius: 8px;width: 40px; height: 44px">
                             <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"
                                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium mui-10dohqv" focusable="false"
                                 aria-hidden="true" viewBox="0 0 24 24">
@@ -25,8 +25,24 @@
                 </div>
                 <nav style="width: 100%;box-sizing: border-box;padding: 0;">
                     <div style="text-decoration: none!important" class="mobmenubtn">
+                        <div v-if="$store.state.isAuthenticated" style="padding: 2.5% 5%;text-align: right;">
+                            <div><a style="; font-family: 'iranyekan-fanum';">پروفایل</a>
+                            </div><span></span>
+                        </div>
+                        <router-link to="/dashboard" class="submobmenubtn" href="#">داشبورد</router-link>
+                        <router-link to="/security" class="submobmenubtn" href="#">امنیت</router-link>
+                        <router-link to="/verify" class="submobmenubtn" href="#">تایید هویت</router-link>
+                        <router-link to="/refferals" class="submobmenubtn" href="#">زیر مجموعه ها</router-link>
+                        <router-link to="/logout" class="submobmenubtn" href="#">خروج</router-link>
+                        <hr style="margin: 0px 12px 0px 0px;
+                            flex-shrink: 0;
+                            border-width: 0px 0px thin;
+                            border-style: solid;
+                            border-color: rgb(236, 241, 249);">
+                    </div>
+                    <div style="text-decoration: none!important" class="mobmenubtn">
                         <div style="padding: 2.5% 5%;text-align: right;">
-                            <div><span style="; font-family: 'iranyekan-fanum';">P2P معاملات</span>
+                            <div><a style="; font-family: 'iranyekan-fanum';">P2P معاملات</a>
                             </div><span></span>
 
 
@@ -47,7 +63,7 @@
                     </div>
                     <div style="text-decoration: none!important" class="mobmenubtn">
                         <div style="padding: 2.5% 5%;text-align: right;">
-                            <div><span style="; font-family: 'iranyekan-fanum';"> معاملات آنی </span>
+                            <div><a style="; font-family: 'iranyekan-fanum';"> معاملات آنی </a>
                             </div><span></span>
 
 
@@ -65,7 +81,7 @@
                     </div>
                     <div style="text-decoration: none!important" class="mobmenubtn">
                         <div style="padding: 2.5% 5%;text-align: right;">
-                            <div><span style="; font-family: 'iranyekan-fanum';"> معاملات اهرمی </span>
+                            <div><a style="; font-family: 'iranyekan-fanum';"> معاملات اهرمی </a>
                             </div><span></span>
 
 
@@ -82,7 +98,26 @@
                     </div>
                     <div style="text-decoration: none!important" class="mobmenubtn">
                         <div style="padding: 2.5% 5%;text-align: right;">
-                            <div><span style="; font-family: 'iranyekan-fanum';"> حسابداری </span>
+                            <div><a style="; font-family: 'iranyekan-fanum';"> ووچر پرفکت مانی </a>
+                            </div><span></span>
+
+
+
+                        </div>
+                        <router-link to="/perfect/buy" class="submobmenubtn" href="#">خرید</router-link>
+                        <router-link to="/perfect/sell" class="submobmenubtn" href="#">فروش</router-link>
+                        <router-link to="/perfect/history" class="submobmenubtn" href="#">تاریخچه</router-link>
+                        <router-link to="/perfect/inquiry" class="submobmenubtn" href="#">استعلام</router-link>
+
+                        <hr style="margin: 0px 12px 0px 0px;
+                            flex-shrink: 0;
+                            border-width: 0px 0px thin;
+                            border-style: solid;
+                            border-color: rgb(236, 241, 249);">
+                    </div>
+                    <div style="text-decoration: none!important" class="mobmenubtn">
+                        <div style="padding: 2.5% 5%;text-align: right;">
+                            <div><a style="; font-family: 'iranyekan-fanum';"> حسابداری </a>
                             </div><span></span>
 
 
@@ -102,11 +137,15 @@
 
                     <div style="text-decoration: none!important" class="mobmenubtn">
                         <div style="padding: 2.5% 5%;text-align: right;">
-                            <div><a href="/wallets"
-                                    style="; font-family: 'iranyekan-fanum';text-decoration: none; font-weight: 100;"> ولت
+                            <div><a href="/wallets" style="; font-family: 'iranyekan-fanum';text-decoration: none"> ولت
                                     ها(است) </a>
                             </div><span></span>
                         </div>
+                        <hr style="margin: 0px 12px 0px 0px;
+                            flex-shrink: 0;
+                            border-width: 0px 0px thin;
+                            border-style: solid;
+                            border-color: rgb(236, 241, 249);">
                     </div>
 
                     <a style="text-decoration: none!important">
@@ -132,10 +171,10 @@
                             border-color: rgb(236, 241, 249);">
                     </a>
                 </nav>
-                <div
+                <div v-if="!$store.state.isAuthenticated"
                     style="width: 100%; height: 64px; box-shadow: rgba(0, 0, 0, 0.2) 0px -3px 4px 1px; position: absolute; bottom: 0;">
                     <div style="width: 50%; padding: 2.7% 1% 0 3.6%; float:left; box-sizing: border-box">
-                        <button class="btn btn-danger" style="display: inline-flex;
+                        <button @click="loginisVisible = !loginisVisible" class="btn btn-danger" style="display: inline-flex;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -188,6 +227,38 @@
     border-radius: 8px;
     padding: 6px 16px;
     min-width: initial;">ورود</button>
+                    </div>
+
+                </div>
+                <div v-if="$store.state.isAuthenticated"
+                    style="width: 100%; height: 64px; box-shadow: rgba(0, 0, 0, 0.2) 0px -3px 4px 1px; position: absolute; bottom: 0;">
+                    <div style="width: 100%; padding: 2.7% 1% 0 3.6%; float:left; box-sizing: border-box">
+                        <a href="/logout" class="btn btn-dark" style="display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    outline: 0px;
+    border: 0px;
+    margin: 0px 16px 0px 0px;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    appearance: none;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.75;
+    font-family: iranyekan-fanum, sans-serif;
+    text-transform: uppercase;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 8px;
+    padding: 6px 16px;
+    color: white;
+    min-width: initial;">خروج</a>
                     </div>
 
                 </div>
@@ -540,9 +611,13 @@ export default {
         signup
     },
     updated() {
+
     },
     beforeMount() {
-        this.winheight = screen.height
+        this.winheight = window.innerHeight
+        document.addEventListener('scroll', () => {
+            this.winheight = window.innerHeight
+        })
     },
     data() {
         return {
